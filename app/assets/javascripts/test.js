@@ -1,13 +1,4 @@
-$(document).ready(function(){
-	    // SET AUTOMATIC PAGE RELOAD TIME TO 5000 MILISECONDS (5 SECONDS).
-    function refreshPage() { 
-    	setTimeout(function() {
-        	location.reload();
-    	}, 18000000);
-    }
-
-	refreshPage();
-	
+$(document).ready(function(){	
 	function addQuestion() {
 		let aq = 2;
 			$(`button.addquestion:first`).on('click', () => {

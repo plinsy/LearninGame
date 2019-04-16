@@ -6,27 +6,27 @@ module HomeHelper
 			{
 				firstname: 'Ranja',
 				speciality: s[0],
-				logo_url: '../assets/as.jpg'
+				logo_url: '../assets/ranja.jpg'
 			},
 			{
 				firstname: 'Princy',
 				speciality: s[2],
-				logo_url: '../assets/as.jpg'
+				logo_url: '../assets/princy.jpg'
 			},
 			{
 				firstname: 'Manda',
 				speciality: s[1],
-				logo_url: '../assets/as.jpg'
+				logo_url: '../assets/manda.jpg'
 			},
 			{
 				firstname: 'Sahaza',
 				speciality: s[0],
-				logo_url: '../assets/as.jpg'
+				logo_url: '../assets/sahaza.jpg'
 			},
 			{
 				firstname: 'Vaohita',
 				speciality: s[1],
-				logo_url: '../assets/as.jpg'
+				logo_url: '../assets/Vaohita.jpg'
 			}
 		]
 	end

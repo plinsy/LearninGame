@@ -1,4 +1,6 @@
 class SearchesController < ApplicationController
+  include SearchesHelper
+
   before_action :set_search, only: [:show, :edit, :update, :destroy]
 
   # GET /searches
@@ -23,10 +25,16 @@ class SearchesController < ApplicationController
 
   # POST /searches
   # POST /searches.json
+  # POST /searches.js
   def create
     @search = Search.new(search_params)
 
     respond_to do |format|
+      
+      puts "="*70
+      p params.inspect
+      puts "="*70
+
       if @search.save
         format.html { redirect_to searches_url, notice: 'Search was successfully created.' }
         format.json { render :show, status: :created, location: @search }
@@ -61,15 +69,4 @@ class SearchesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_search
-      @search = Search.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def search_params
-      params.
-    end
 end

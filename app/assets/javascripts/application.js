@@ -23,71 +23,75 @@
 
 //= require highcharts/highcharts-more
 
-$(document).ready(function(){
+$(document).ready(function() {
+    // SET AUTOMATIC PAGE RELOAD TIME TO 5000 MILISECONDS (5 SECONDS).
+    function refreshPage() {
+        setTimeout(function() {
+            location.reload();
+        }, 18000000);
+    }
 
-	function showPage() {
-	  document.body.classList.remove('js-loading');
-	}
+    refreshPage();
 
-	function loginmodal() {
-		$(`#login-modal-launcher`).on('click', () => {
-			closeRegister();
-			openLogin();
-		});
+    function showPage() {
+        document.body.classList.remove('js-loading');
+    }
 
-		$(`.login-close`).on('click', () => {
-			closeLogin();
-		});
-	}
-	loginmodal();
+    function loginmodal() {
+        $(`#login-modal-launcher`).on('click', () => {
+            closeRegister();
+            openLogin();
+        });
 
-	function registermodal() {		
-		$(`#register-modal-launcher`).on('click', () => {
-			closeLogin();
-			openRegister();
-		});
+        $(`.login-close`).on('click', () => {
+            closeLogin();
+        });
+    }
+    loginmodal();
 
-		$(`.register-close`).on('click', () => {
-			closeRegister();
-		});
-	}
-	registermodal();
+    function registermodal() {
+        $(`#register-modal-launcher`).on('click', () => {
+            closeLogin();
+            openRegister();
+        });
 
-	function openLogin() {
-		$(`div#login-modal`).show('slow');
-	}
+        $(`.register-close`).on('click', () => {
+            closeRegister();
+        });
+    }
+    registermodal();
 
-	function closeLogin() {
-		$(`div#login-modal`).hide('slow');
-	}
+    function openLogin() {
+        $(`div#login-modal`).show('slow');
+    }
 
-	function openRegister() {
-		$(`div#register-modal`).show('slow');
-	}
+    function closeLogin() {
+        $(`div#login-modal`).hide('slow');
+    }
 
-	function closeRegister() {
-		$(`div#register-modal`).hide('slow');
-	}
+    function openRegister() {
+        $(`div#register-modal`).show('slow');
+    }
 
-	function students() {
-		for (let p = 0; p < $(`div.pourcentage`).length; p++) {
-		$pourcentage = Number($(`div.pourcentage`).eq(p).attr('value'))
-			if ($pourcentage < 10) {
-				$(`div.progress-bar`).eq(p).addClass('bg-danger');
-			}
-			else if($pourcentage >= 10 && $pourcentage < 25) {
-				$(`div.progress-bar`).eq(p).addClass('bg-warning');
-			}
-			else if($pourcentage >= 25 && $pourcentage < 50) {
-				$(`div.progress-bar`).eq(p).addClass('bg-primary');
-			}
-			else if($pourcentage >= 50 && $pourcentage < 75) {
-				$(`div.progress-bar`).eq(p).addClass('bg-secondary');
-			}
-			else {
-				$(`div.progress-bar`).eq(p).addClass('bg-success');
-			}
-		}
-	}
-	students();
+    function closeRegister() {
+        $(`div#register-modal`).hide('slow');
+    }
+
+    function students() {
+        for (let p = 0; p < $(`div.pourcentage`).length; p++) {
+            $pourcentage = Number($(`div.pourcentage`).eq(p).attr('value'))
+            if ($pourcentage < 10) {
+                $(`div.progress-bar`).eq(p).addClass('bg-danger');
+            } else if ($pourcentage >= 10 && $pourcentage < 25) {
+                $(`div.progress-bar`).eq(p).addClass('bg-warning');
+            } else if ($pourcentage >= 25 && $pourcentage < 50) {
+                $(`div.progress-bar`).eq(p).addClass('bg-primary');
+            } else if ($pourcentage >= 50 && $pourcentage < 75) {
+                $(`div.progress-bar`).eq(p).addClass('bg-secondary');
+            } else {
+                $(`div.progress-bar`).eq(p).addClass('bg-success');
+            }
+        }
+    }
+    students();
 });

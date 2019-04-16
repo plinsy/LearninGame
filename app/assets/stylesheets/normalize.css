@@ -1,14 +1,17 @@
 navbar{
 	z-index: 5;
 }
-footer{
-	z-index: 5;
+
+header, footer{
+	z-index: 6;
 }
 section{
 	z-index: 4;
 }
-header{
-	z-index: 3;
+.search_result{
+	margin: 10%;
+	z-index: 5; 
+	width: 100%;
 }
 
 a:hover {

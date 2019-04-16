@@ -1,5 +1,5 @@
 .login_modal_footer {
-    margin-top: 5px;
+
 }
 
 .login_modal_header .modal-title {
@@ -20,15 +20,24 @@
     padding-top: 2%;
 }
 
-.login-modal {
-    width: 100%;
-    padding-bottom: 20px;
+#login-modal {
+    margin: 5% 0%;
+    width: auto;
+}
+
+.login-close{
+    position: absolute;
+    left: 2%;
 }
 
 .login_modal_header,
-.login_modal_footer {
-    background: #00BB64 !important;
+.modal-footer {
+    background: #141C2F !important;
     color: #fff;
+}
+
+.modal{
+    width: 70%;
 }
 
 .modal-register-btn {
@@ -55,7 +64,7 @@
 }
 
 .login-link {
-    padding: 0 20%;
+    margin: 0;
 }
 
 .modal-social-icons {
@@ -93,7 +102,7 @@
 
 .facebook,
 .facebook:hover {
-    background-color: #3b5999;
+    background-color: #2980b9;
     border: 2px solid #3b5999;
     color: #fff;
 }
@@ -113,7 +122,7 @@
     position: absolute;
     right: 48%;
     top: 80px;
-    background: #ddd;
+    background: #141C2F;
     border: 4px solid #DDDDDD;
     border-radius: 20px;
 }
@@ -127,51 +136,3 @@
 #modal-launcher {
     margin: 0;
 }
-
-/*Register style
-
-.register_modal_footer {
-    margin-top: 5px;
-}
-
-.register_modal_header .modal-title {
-    text-align: center;
-    font-family: 'Philosopher', sans-serif;
-}
-
-.form-group .register-field-icon {
-    font-size: 20px;
-    position: absolute;
-    right: 15px;
-    top: 3px;
-    transition: all 0.25s ease 0s;
-    padding-top: 2%;
-}
-
-.register-modal {
-    width: 100%;
-    padding-bottom: 20px;
-}
-
-.register_modal_header,
-.register_modal_footer {
-    background: #00BB64 !important;
-    color: #fff;
-}
-
-.register-modal input {
-    height: 40px;
-    box-shadow: none;
-    border: 1px solid #ddd;
-}
-
-.register-link {
-    padding: 0 20%;
-}
-
-.modal-register-btn {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-    margin-left: 0;
-}*/

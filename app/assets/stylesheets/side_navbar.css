@@ -1,7 +1,7 @@
 div#mySidenav {
     text-align: center;
     display: absolute;
-    z-index: 100;
+    z-index: 20;
 }
 
 /* The side navigation menu */
@@ -21,7 +21,6 @@ div#mySidenav {
     /* Black*/
     overflow-x: hidden;
     /* Disable horizontal scroll */
-    padding-top: 100px;
     /* Place content 60px from the top */
     transition: 0.5s;
     /* 0.5 second transition effect to slide in the sidenav */
@@ -77,4 +76,28 @@ div.tst {
     .sidenav a {
         font-size: 18px;
     }
+}
+
+.log_out{
+    background: 
+    position: absolute;
+    bottom: 0;
+}
+
+/*Search bar*/
+.searching{
+    display: flex;
+    width: 100%;
+    margin: 2% 3%;
+}
+.search_bar, .search_button{
+    border-radius: 5%;
+    border: none;
+}
+.search_bar{
+    width: 68%;
+    color: white;
+}
+.search_button{
+    width: 28%;
 }

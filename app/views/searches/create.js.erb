@@ -1,1 +1,12 @@
-alert('OK');
+$(`div#yield`).hide('slow');
+$(`div#search_result`).html(`
+	Students :
+	<% Student.where(username: @search.title).each do |student| %>
+		<%= student.email %>
+	<% end %>
+	Teachers :
+	<% Teacher.where(username: @search.title).each do |teacher| %>
+		<%= teacher.email %>
+	<% end %>
+`);
+$(`div#search_result`).show('slow');

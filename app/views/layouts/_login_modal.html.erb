@@ -2,48 +2,45 @@
 	<div class="modal-dialog">
     	<div class="modal-content">
       		<div class="modal-header login_modal_header">
-        		<button type="button" class="login-close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        		<h2 class="modal-title" id="myModalLabel">Login to Your Account</h2>
+        		<button type="button" class="btn btn-secondary login-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        		<h2 class="modal-title" id="myModalLabel">Connectez vous</h2>
       		</div>
       		<div class="modal-body login-modal">
-      			<p>Because learning with friends is very funny, login and try to make the world better</p>
-      			<br/>
+      			<!-- <p>Because learning with friends is very funny, login and try to make the world better</p> -->
+      			<br>
       			<div class="clearfix"></div>
       			<div id='social-icons-conatainer'>
 	        		<%= form_tag user_session_path, method: :post do %>
 	        			<div class='modal-body-left'>
 		        			<div class="form-group">
-			              		<input type="text" id="login" name="login" placeholder="Enter your name" value="" class="form-control login-field">
+			              		<input type="text" id="login" name="login" placeholder="Pseudo ou E-mail" value="" class="form-control login-field" required="">
 			              		<i class="fa fa-user login-field-icon"></i>
 			            	</div>
 
 			            	<div class="form-group">
-			            	  	<input type="password" id="login-pass" name="password" placeholder="Password" value="" class="form-control login-field">
+			            	  	<input type="password" id="login-pass" name="password" placeholder="Votre mot de passe" value="" class="form-control login-field" required="">
 			              		<i class="fa fa-lock login-field-icon"></i>
 			            	</div>
 
-			            	<%= submit_tag "Sign in", class: "btn btn-success modal-login-btn" %>
-
-			            	<a href="/users/password/new" class="login-link text-center">Lost your password?</a>
+			            	<%= submit_tag "Entrer", class: "btn btn-secondary modal-login-btn" %>
 	        			</div>
 		            <% end %>
 
 	        		<div class='modal-body-right'>
 	        			<div class="modal-social-icons">
-
-	        				<a href="/users/auth/facebook" class="btn btn-default facebook"><i class="fab fa-facebook-f modal-icons">  Sign In with Facebook </i></a>
+	        				<a href="/users/auth/facebook" class="btn btn-default facebook"><i class="fab fa-facebook-f"> Se connecter</i></a>
 	        				<!-- <a href='#' class="btn btn-default twitter"> <i class="fa fa-twitter modal-icons"> Sign In with Twitter </i></a>
 	        				<a href='#' class="btn btn-default google"> <i class="fa fa-google-plus modal-icons"> Sign In with Google </i></a>
 	        				<a href='#' class="btn btn-default linkedin"> <i class="fa fa-linkedin modal-icons"> Sign In with Linkedin </i></a> -->
 	        			</div> 
 	        		</div>	
-	        		<div id='center-line'> OR </div>
 	        	</div>																												
         		<div class="clearfix"></div>
       		</div>
       		<div class="clearfix"></div>
-      		<div class="modal-footer login_modal_footer">
-      			<a href="#" class="btn btn-default" id="modal-launcher" data-toggle="modal" data-target="#register-modal">Create an account</a>
+      		<div class="modal-footer">
+      			<a href="/users/password/new" class="login-link" style="float: left;">Mot de passe oublié ?</a>
+      			<a href="/users/sign_up" class="btn btn-dark">Créer un compte</a>
       		</div>
     	</div>
   	</div>

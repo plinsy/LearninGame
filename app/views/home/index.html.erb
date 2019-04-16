@@ -59,7 +59,7 @@
         </div>
         <div class="student_section">
             <% Student.all.each do |student| %>
-            <% if student.avatar.attached? %>
+            <% if User.find_by(email: student.email).avatar.attached? %>
             <div class="student" data-aos="zoom-in" data-aos-duration="500" style="">
                 <%= image_tag student.avatar, class: "student_avatar" %>
                 <% else %>

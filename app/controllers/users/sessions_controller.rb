@@ -10,7 +10,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    unless params[:user].nil?
+    unless params[:user].nil? || params[:user][:login].nil?
 
       if user_insert_email
         @user = User.find_by(email: params[:user][:login])
