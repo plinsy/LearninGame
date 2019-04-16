@@ -1,0 +1,348 @@
+/* animate css button navbar  */
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.box div a:focus {
+    outline: none;
+}
+
+#topbutton {
+    z-index: 2;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    font-size: 22px;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 255, 0, .7);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: none;
+    border-radius: 50px;
+}
+
+.box {
+    word-spacing: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+}
+
+.link_nav {
+    display: flex;
+    align-self: center;
+}
+
+.box a h3 {
+    border: 1px solid white;
+    padding: 0.6em;
+    font-family: Open Sans, sans-serif;
+    font-size: 17px;
+    color: white;
+    text-align: center;
+}
+
+.box a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.link_home {
+    text-align: center;
+    position: relative;
+    transform: translate(0% 0%);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    text-orientation: none;
+    color: white;
+    padding: 0.6em;
+}
+
+.box .link_home:after,
+.box .link_home:before {
+    position: absolute;
+
+    width: 0%;
+    height: 0%;
+    transition: .8s;
+    opacity: 0;
+}
+
+.box .link_home:hover:before,
+.box .link_home:hover:after {
+    opacity: 1;
+}
+
+.box .link_home span {
+    opacity: 0;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    transition: 1s;
+    top: 25%;
+    left: -.7%;
+    background-color: #141C2F;
+    transform: skewX(125deg);
+}
+
+.box .link_home:hover span {
+    left: 100%;
+    opacity: 1;
+}
+
+.box .link_home span:after {
+    opacity: 0;
+}
+
+/* link_team */
+.link_team {
+    position: relative;
+    transform: translate(0% 0%);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    text-orientation: none;
+    color: red;
+    padding: 0.6em;
+}
+
+.box .link_team:after,
+.box .link_team:before {
+    position: absolute;
+    width: 0%;
+    height: 0%;
+    transition: .8s;
+    opacity: 0;
+}
+
+.box .link_team:hover:before,
+.box .link_team:hover:after {
+    opacity: 1;
+}
+
+.box .link_team span {
+    opacity: 0;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    transition: 1s;
+    top: 25%;
+    left: -.7%;
+    background-color: #141C2F;
+    transform: skewX(125deg);
+}
+
+.box .link_team:hover span {
+    left: 100%;
+    opacity: 1;
+}
+
+/* link sign_up */
+.link_signup {
+    position: relative;
+    transform: translate(0% 0%);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    text-orientation: none;
+    padding: 0.6em;
+}
+
+.box .link_signup:after,
+.box .link_signup:before {
+    position: absolute;
+    width: 0%;
+    height: 0%;
+    transition: .8s;
+    opacity: 0;
+}
+
+.box .link_signup:hover:before,
+.box .link_signup:hover:after {
+    opacity: 1;
+}
+
+.box .link_signup span {
+    opacity: 0;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    transition: 1s;
+    top: 25%;
+    left: -.7%;
+    background-color: #141C2F;
+    transform: skewX(125deg);
+}
+
+.box .link_signup:hover span {
+    left: 100%;
+    opacity: 1;
+}
+
+/* end animate css button navbar  */
+
+/* header */
+navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: space-between;
+    background-color: #141C2F;
+}
+
+.content-header {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex-direction: column;
+    padding-top: 300px;
+}
+
+.content-header h3 {
+    font-family: serif;
+    color: #025FAE;
+    margin-left: 500px;
+    background-color: rgba(255, 255, 255, .8);
+    padding: 14px 25px 14px 25px;
+    box-shadow: 7px 3px 7px 0px #1665c1;
+    display: flex;
+    transform: skew(-10deg, 0deg);
+}
+
+.link_button {
+    margin-left: 500px;
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+/* media queries */
+@media screen and (max-width: 992px) {
+    .content-header h3 strong {
+        margin-left: 0px;
+    }
+
+    .link_button {
+        margin-left: 0px;
+    }
+
+    .login_and_signup {
+        margin-left: 0px;
+    }
+}
+
+/* end media queries */
+.link_connexion {
+    color: white;
+}
+
+.first_link {
+    color: #025FAE;
+}
+
+.link_connexion:hover {
+    text-decoration: none;
+}
+
+.link_button div:first-child {
+    margin-left: 20px;
+    font-size: 16px;
+    width: 150px;
+    border: 1px solid #1665c1;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .8);
+    font-family: Open Sans, sans-serif;
+
+}
+
+.link_button div:first-child:hover {
+    color: black;
+}
+
+.link_button div:last-child {
+    margin-left: 20px;
+    font-size: 16px;
+    width: 150px;
+    border: 1px solid #FFFF;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    background-color: rgba(250, 154, 133, .7);
+    font-family: Open Sans, sans-serif;
+}
+
+@keyframes BackgroundGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* end header */
+
+/*Searching for a place to be free*/
+
+.search_form {
+    background: 0 0;
+    line-height: 50px;
+    padding-top: 23%;
+    height: 390px;
+}
+
+.searchbar {
+    border-radius: 30px;
+    width: 450px;
+    transition: width 0.4s linear;
+}
+
+.search_input {
+    width: 100%;
+    color: white;
+    border: 1px solid none;
+    border-radius: 30px;
+    outline: 0;
+    background: none;
+    line-height: 40px;
+    transition: width 0.4s linear;
+}
+
+.search_submit{
+    width: 50%;
+    border-radius: 30px;
+}
+
+.searchbar:hover>.search_icon {
+    background: white;
+    color: #e74c3c;
+}
+
+.search_icon {
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+}

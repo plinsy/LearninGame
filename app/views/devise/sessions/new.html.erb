@@ -1,0 +1,38 @@
+<header>
+    <div class="login_and_signup content-header ">
+        <div class="loginbox">
+            <h2>Connectez vous</h2>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name), method: :post) do |f| %>
+            <div class="inputloginbox">
+                <%= f.text_field :login, autofocus: true, autocomplete: "email", required: "" %>
+                <%= f.label :login, "Email ou pseudo" %><br />
+            </div>
+            <div class="inputloginbox">
+                <%= f.password_field :password, autocomplete: "current-password", required: "" %>
+                <%= f.label :password, "Mot de passe" %><br />
+            </div>
+            <div class="link_connexion">
+                <div>
+                    <div>
+                        <%= f.submit "Connexion" %>
+                    </div>
+                    <div class="two_link">
+                        <div class="link">
+                            <% if devise_mapping.rememberable? %>
+                            <%= f.check_box :remember_me %>
+                            <%= f.label :remember_me, "Se souvenir de moi" %>
+                            <% end %>
+                        </div>
+                        <div>
+                            <span><label><a href="/users/password/new">Mot de passe oublié ?</a></label></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</header>
+<div class="links" style="text-align: center; background: black; opacity: .8;">
+  <%= render "devise/shared/links" %>
+</div>

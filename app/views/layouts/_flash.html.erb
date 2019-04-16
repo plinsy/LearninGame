@@ -1,0 +1,26 @@
+<div class="container" style="width: auto; display: inline-flex;">	
+	<% if alert %>
+    <div class="alert alert-danger alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Alert : </strong> <%= alert %>
+    </div>
+
+  <% elsif notice %>
+    <div class="alert alert-success alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Success : </strong> <%= notice %>
+    </div>
+
+  <% elsif flash[:danger] %>
+    <div class="alert alert-danger alert-dismissible ">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Alert : </strong> <%= flash[:danger] %>
+    </div>
+
+  <% elsif flash[:success] %>
+    <div class="alert alert-success alert-dismissible  ">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Alert : </strong> <%= flash[:success] %>
+    </div>
+  <% end %>
+</div>  

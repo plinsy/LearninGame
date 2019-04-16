@@ -1,0 +1,57 @@
+<div class="modal fade collapse" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+    	<div class="modal-content">
+      		<div class="modal-header register_modal_header">
+        		<button type="button" class="register-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        		<h2 class="modal-title" id="myModalLabel">Create an account</h2>
+      		</div>
+      		<div class="modal-body register-modal">
+      			<p>Because learning with friends is very funny, login and try to make the world better</p>
+      			<br/>
+      			<div class="clearfix"></div>
+      			<div id='social-icons-conatainer'>
+	        		<%= form_tag user_registration_path, method: :post do %>
+	        			<div class='modal-body-left'>
+		        			<div class="form-group">
+			              		<input type="email" id="register" name="email" placeholder="Enter your email" value="" class="form-control register-field">
+			              		<i class="far fa-envelope register-field-icon"></i>
+			            	</div>
+
+			            	<div class="form-group">
+			            	  	<input type="text" id="register-pass" name="username" placeholder="Create your on username" value="" class="form-control register-field">
+			            	  	<i class="fa fa-user register-field-icon"></i>
+			            	</div>
+
+			            	<div class="form-group">
+			            	  	<input type="password" id="register-pass" name="password" placeholder="Password" value="" class="form-control register-field">
+			              		<i class="fa fa-lock register-field-icon"></i>
+			            	</div>
+
+			            	<div class="form-group">
+			            	  	<input type="password" id="register-pass" name="password_confirmation" placeholder="Confirm your password" value="" class="form-control register-field">
+			              		<i class="fa fa-lock register-field-icon"></i>
+			            	</div>
+
+			            	<%= submit_tag "Create account", class: "btn btn-success modal-register-btn" %>
+	        			</div>
+		            <% end %>
+
+	        		<div class='modal-body-right'>
+	        			<div class="modal-social-icons">
+	        				<a href="/users/auth/facebook" class="btn btn-default facebook"><i class="fab fa-facebook-f modal-icons">  Sign In with Facebook </i></a>
+	        				<!-- <a href='#' class="btn btn-default twitter"> <i class="fa fa-twitter modal-icons"> Sign In with Twitter </i></a>
+	        				<a href='#' class="btn btn-default google"> <i class="fa fa-google-plus modal-icons"> Sign In with Google </i></a>
+	        				<a href='#' class="btn btn-default linkedin"> <i class="fa fa-linkedin modal-icons"> Sign In with Linkedin </i></a> -->
+	        			</div> 
+	        		</div>	
+	        		<div id='center-line'> OR </div>
+	        	</div>																												
+        		<div class="clearfix"></div>
+      		</div>
+      		<div class="clearfix"></div>
+      		<div class="modal-footer register_modal_footer">
+        		<button class="btn btn-default" id='login-modal-launcher' data-toggle="modal" data-target="#login-modal">You have an account? Please login</button>
+      		</div>
+    	</div>
+  	</div>
+</div>

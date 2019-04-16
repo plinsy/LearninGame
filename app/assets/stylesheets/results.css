@@ -1,0 +1,17 @@
+.Wrong_answer{
+	color: red;
+	text-decoration: line-through;
+}
+
+.Right_answer{
+	color: green;
+}
+
+.None{
+	color: blue;
+}
+
+.Correct{
+	color: green;
+	text-decoration: underline;
+}

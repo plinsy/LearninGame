@@ -1,0 +1,35 @@
+<center>
+    <div class="center" style="height: 100%; padding-top: 7%; padding-bottom: 7%; line-height: 2;">
+        <div class="profile">
+            <div class="profile-sidebar">
+                <div class="profile-usertitle">
+                    <% if current_user.avatar.attached? %>
+                    <%= image_tag current_user.avatar %>
+                    <% else %>
+                    <img src="../assets/prof.jpeg" class="" alt="">
+                    <% end %>
+                    <div class="profile-usertitle-name">
+                        <%= @teacher.first_name %>
+                        <%= @teacher.last_name %>
+                    </div>
+                </div>
+                <div class="profile-userbuttons">
+                    <a href="#" class="btn btn-dark"><i class="fas fa-user-edit">Editer profil</i></a>
+                    <a href="/teachers/<%= @teacher.id %>/tests/new" class="btn btn-outline-secondary"><i class="fas fa-notes-medical">Crée Un test</i></a>
+                </div>
+            </div>
+        </div>
+        <div class="about_prof">
+            <table>
+                <tr>
+                    <td>Matière enseignée:</td>
+                    <td><%= @teacher.subject.title %></td>
+                </tr>
+                <tr>
+                    <td>Nombre de tests crées:</td>
+                    <td><%= @teacher.tests.length %></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</center>

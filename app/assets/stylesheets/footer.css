@@ -1,0 +1,45 @@
+footer {
+    position: relative;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .8);
+    text-align: none;
+    width: 100%;
+}
+
+.footer_section {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    margin-bottom: 30px;
+}
+
+.footer_section div {
+    width: 29%;
+    margin-left: 25px;
+    margin-top: 35px;
+}
+
+.contact {
+    color: white;
+}
+
+.contact span {
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+.contact h4 {
+    font-family: FreeMono, monospace;
+    font-size: 22px;
+}
+
+.contact a {
+    font-size: 30px;
+}
+
+.copyright {
+    color: white;
+    font-size: 25px;
+    font-style: cursive;
+    text-align: center;
+}

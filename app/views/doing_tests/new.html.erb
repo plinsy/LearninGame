@@ -1,0 +1,30 @@
+<center>
+<h3><%= @test.title %>(<%= @totalPoints %>points)</h3>
+</center>
+
+<%= form_with url: student_test_doing_tests_path(@student.id, @test.id) do |f| %>
+	<div class="questions">
+		<% questNum = 1 %>
+		<% @test.questions.each do |question| %>
+
+			<div class="question">
+				<%= questNum %>) <%= question.content %>(<%= question.points %>pts)<br>
+			</div>
+
+			<div class="options container">
+				<% question.options.each do |option| %>
+		            
+		            <input type="radio" name="opt<%= question.id %><%= questNum %>" id="opt<%= option.id %><%= questNum %>"  value="<%= option.content %>">
+
+		            <label for="opt<%= option.id %><%= questNum %>" style="position: relative; top: -3px;"><%= option.content %></label><br>
+
+				<% end %>
+				<br>
+			</div>
+
+			<% questNum += 1 %>
+
+		<% end %>
+	</div>
+	<%= f.submit "Result" %>
+<% end %>

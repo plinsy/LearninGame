@@ -1,0 +1,17 @@
+navbar{
+	z-index: 5;
+}
+footer{
+	z-index: 5;
+}
+section{
+	z-index: 4;
+}
+header{
+	z-index: 3;
+}
+
+a:hover {
+	cursor: pointer;
+	color: white;
+}

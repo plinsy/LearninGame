@@ -1,0 +1,50 @@
+<div class="container">
+    <h1><a href="#stats">My Stats</a></h1>
+    <% @results.each do |tst| %>
+    <center>
+        <% 
+			n = 1 
+			totalPoints = 0
+			tst.questions.each do |question|
+				totalPoints += question.points 
+			end
+		%>
+        <%= tst.title %>
+    </center>
+    <ul>
+        <% tst.questions.each do |question| %>
+        <strong>
+            <%= n %>)
+            <%= question.content %>(
+            <%= question.points %>pts)</strong>
+        <ul>
+            <% question.options.each do |option| %>
+            <li class="<%= option.status %>">
+                <% if option.status == "Right_answer" %>
+                <i class="fas fa-check">
+                    <%= option.content %></i>
+                <% elsif option.status == "Correct" %>
+                <i class="far fa-hand-point-right">
+                    <%= option.content %></i>
+                <% elsif option.status == "Wrong_answer" %>
+                <i class="fas fa-times">
+                    <%= option.content %></i>
+                <% else %>
+                <%= option.content %>
+                <% end %>
+            </li>
+            <% end %><br>
+        </ul>
+        <% n += 1 %>
+        <% end %>
+    </ul>
+    <center>
+        Your score :
+        <%= tst.score %>/
+        <%= totalPoints %>
+    </center>
+    <% end %>
+    <h1 id="stats" class="stats">Mes stats</h1>
+    <% bar_chart @results.top(:score, 10) %>
+    <%= test_by_score %>
+</div>

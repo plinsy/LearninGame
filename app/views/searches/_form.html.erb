@@ -1,0 +1,23 @@
+<header style="background: url('../assets/bg_copie.jpg') center no-repeat; background-size: cover;">
+    <center class="search_form">
+        <%= form_with(model: search, remote: true, method: :post) do |form| %>
+        <% if search.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+            <h2>
+                <%= pluralize(search.errors.count, "error") %> prohibited this search from being saved:</h2>
+            <ul>
+                <% search.errors.full_messages.each do |message| %>
+                <li>
+                    <%= message %>
+                </li>
+                <% end %>
+            </ul>
+        </div>
+        <% end %>
+        <div class="searchbar" style="">
+            <input class="search_input" type="text" name="" placeholder="Search...">
+            <input type="submit" name="commit" value="Rechercher" class="search_submit fas fa-search btn btn-dark" data-disable-with="Rechercher">
+        </div>
+        <% end %>
+    </center>
+</header>

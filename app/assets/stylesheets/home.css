@@ -1,0 +1,328 @@
+header {
+    background: url('lead.png') center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 700px;
+}
+
+section {
+    text-align: center;
+}
+/* section  */
+.first_section {
+    margin-top: 5px;
+    padding-bottom: 50px;
+    padding-top: 30px;
+    font-family: cursive;
+    font-size: 25px;
+    color: rgba(255, 255, 255, 1);
+    background: url(background-web.jpg);
+    font-family: FreeMono, monospace;
+}
+
+.first_section div h3 {
+    padding-bottom: 50px;
+    font-size: 30px;
+}
+
+.success {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 1);
+    font-family: Open Sans, sans-serif;
+}
+
+.efficiency {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 1);
+    font-family: Open Sans, sans-serif;
+}
+
+.reference {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 1);
+    font-family: Open Sans, sans-serif;
+}
+
+.section_one {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+}
+
+.sectionround {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+}
+
+/* button in class btn */
+.btn button {
+    transform: translate(0%, 0%);
+    background: none;
+    color: rgba(255, 255, 255, 1);
+    width: 170px;
+    height: 50px;
+    border: 1px solid;
+    font-size: 22px;
+    border-radius: 20px;
+    transition: .6s;
+    overflow: hidden;
+    margin-top: 50px;
+    font-family: Open Sans, sans-serif;
+}
+
+.btn button:focus {
+    outline: none;
+}
+
+.btn button:before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(0, 0, 0, 1);
+    width: 60px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: .5s;
+    filter: blur(30px);
+    transform: translateX(-130px) skewX(-15deg);
+}
+
+.btn button:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(0, 0, 0, 1);
+    width: 30px;
+    height: 100%;
+    left: 30px;
+    top: 0;
+    opacity: 0;
+    filter: blur(30px);
+    transform: translate(-100px) scaleX(-15deg);
+}
+
+.btn button:hover {
+    color: white;
+    background: rgba(0, 0, 0, .7);
+    cursor: pointer;
+}
+
+.btn button:hover:before {
+    transform: translateX(300px) skewX(-15deg);
+    opacity: .6;
+    transition: .7s;
+
+}
+
+.btn button:hover:after {
+    transform: translateX(300px) skewX(-15deg);
+    opacity: 1;
+    transition: .7s;
+}
+
+/* end of button */
+.second_section {
+    margin-top: 40px;
+    color: rgba(9, 47, 154, 0.7);
+}
+
+.second_section div h3 {
+    margin-bottom: 70px;
+    font-family: FreeMono, monospace;
+    font-size: 30px;
+}
+
+/* end section  */
+
+/* student section */
+.student_section {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    margin-left: 70px;
+    font-size: 30px;
+}
+
+.student_one_love {
+    padding: 30%;
+    color: white;
+    background-color: rgba(9, 47, 154, 0.4);
+    opacity: 0;
+    line-height: 27px;
+}
+
+.student_section span {
+    font-size: 25px;
+}
+
+.student:hover .student_one_love {
+    display: block;
+    opacity: 1;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.student_section div {
+    border: 1px solid white;
+    width: 300px;
+    height: 200px;
+}
+
+/* end of student section */
+
+/*  third_section */
+.third_section {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.third_section h3 strong {
+    padding-bottom: 50px;
+    font-size: 30px;
+    color: rgba(9, 47, 154, 0.7);
+    font-family: FreeMono, monospace;
+}
+
+.teacher {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 25px;
+}
+
+.teacher_section {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    width: 300px;
+    height: 450px;
+}
+
+.image_teacher {
+	background: url('prof_img.jpg');
+    margin-left: 40px;
+    width: 220px;
+    height: 220px;
+    border-radius: 200px 200px;
+    border: 1px solid white;
+    box-shadow: 1px 6px 4px 3px #3A5199;
+}
+
+.commit_teacher,
+.commit_teacher_girl {
+    font-family: sans-serif;
+    border: 1px solid black;
+    margin-top: 25px;
+    width: 250px;
+    height: 150px;
+    border: 1px solid white;
+    margin-left: 25px;
+}
+
+.commit_teacher h4 {
+    color: #3A5199;
+    font-family: serif;
+    font-size: 23px;
+}
+
+.commit_teacher_girl h4 {
+    color: rgba(249, 2, 43, 1);
+    font-family: serif;
+    font-size: 23px;
+}
+
+/*  end third_section */
+/* four_section  */
+.four_section h3 strong {
+    margin-top: 100px;
+    font-size: 30px;
+    color: rgba(9, 47, 154, 0.7);
+    font-family: FreeMono, monospace;
+}
+
+div.establishment {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div.establishment div {
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 1);
+    width: 200px;
+    height: 150px;
+    margin-right: 15px;
+}
+
+img.establishment {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.student_avatar {
+
+}
+
+.association div h4 {
+    font-family: sans-serif;
+    color: rgba(9, 47, 154, 0.7);
+}
+
+/* end four_section  */
+
+/* swiper */
+.five_section {
+    margin-top: 50px;
+    padding-top: 30px;
+    background-color: #3A5199;
+}
+.five_section div h3 {
+    font-size: 30px;
+    font-family:FreeMono, monospace;
+    color: white;
+}
+.trait_two {
+    color: rgba(9,47,154,0.7);
+    width: 80%;
+    font-size: 25px;
+    height: 20px;
+}
+.trait {
+    color: white;
+    width: 80%;
+    font-size: 25px;
+}
+ .swiper-container {
+    display: flex;
+    align-content: flex-start;
+      width: 90%;
+      padding-top: 30px;
+      padding-bottom: 50px;
+    }
+    .swiper-slide {
+    background-color: #ffff;
+      background-position: center;
+      background-size: cover;
+      width: 300px;
+      height: 380px;
+    }
+  .swiper-slide .imgslide {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+  .swiper-slide .imgslide img {
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-slide .information {
+        margin-top: 15px;
+        box-sizing: border-box;
+        font-size: 20px;
+  }

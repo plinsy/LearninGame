@@ -1,0 +1,81 @@
+<div id="mySidenav" class="sidenav">
+    <% if user_signed_in? %>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#" id="user" onclick="userNav()">My profil</a>
+    <div class="user">
+        <% if current_user.status == "Guest" %>
+        <%= link_to "New Student", new_student_path %>
+        <%= link_to "New Teacher", new_teacher_path %>
+        <% elsif current_user.status == "Student"  %>
+        <%= link_to "S#{@student.id} Show", student_path(@student.id) %>
+        <a href="#">Edit</a>
+        <% elsif current_user.status == "Teacher" %>
+        <%= link_to "T#{@teacher.id} Show", teacher_path(@teacher.id) %>
+        <%= link_to 'Edit', edit_teacher_path(@teacher) %>
+        <% end %>
+    </div>
+    <a href="#" id="establishment" onclick="estNav()">Establishments</a>
+    <div class="establishment">
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Search</a>
+    </div>
+    <a href="#" id="student" onclick="studentNav()">Students</a>
+    <div class="student">
+        <a href="#">New</a>
+        <a href="#">Show all</a>
+        <a href="#">Search</a>
+    </div>
+    <a href="#" id="tst" onclick="tstNav()">My Tests</a>
+    <div class="tst">
+        <% if current_user.status == "Teacher"  %>
+        <%= link_to "New", new_teacher_test_path(@teacher.id) %>
+        <% if @teacher.tests.length != 0 %>
+        <ul>
+            <% @teacher.tests.each do |tst| %>
+            <li>
+                <%= link_to "#{tst.title}", teacher_test_path(@teacher.id, tst.id)  %><br>
+            </li>
+            <% end %>
+        </ul>
+        <% end %>
+        <a href="#">Search</a>
+        <% elsif current_user.status == "Student" %>
+        <% if Test.where(level: @student.level).length != 0 %>
+        <ul>
+            <% Test.where(level: @student.level, is_done: false).each do |tst| %>
+            <li>
+                <%= link_to "#{tst.title}", new_student_test_doing_test_path(@student.id, tst.id)  %><br>
+            </li>
+            <% end %>
+        </ul>
+        <% else %>
+        <strong>You didn't do any test yet !</strong>
+        <% end %>
+        <% end %>
+    </div>
+    <a href="#" id="exam" onclick="examNav()">My exams</a>
+    <div class="exam collapse">
+        <a href="#">Search</a>
+        <% if Exam.all.length != 0 %>
+        <ul>
+            <% Exam.all.each do |exam| %>
+            <li>
+                <%= exam.title %><br>
+                <%= exam.start_date %><br>
+                <%= exam.duration %><br>
+                <% unless exam.start_date < Time.now %>
+                <%= link_to "Participe to exam" %>
+                <% end %>
+            </li>
+            <% end %>
+        </ul>
+        <% end %>
+    </div>
+    <a href="#" id="contact">Contact</a>
+    <a class="m-link" rel="nofollow" data-method="delete" href="/users/sign_out"><i class="fas fa-door-open"> Log Out</i></a>
+    <% else %>
+    <a class="m-link" id='login-modal-launcher' data-toggle="modal" data-target="#login-modal"><i class="fas fa-sign-in-alt"> Login</i></a>
+    <a class="m-link" id='register-modal-launcher' data-toggle="modal" data-target="#register-modal"><i class="fas fa-user-plus"> Register</i></a>
+    <% end %>
+</div>

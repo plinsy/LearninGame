@@ -1,0 +1,94 @@
+<%= form_with(model: teacher, local: true,  class: "register-form", id: "register-form") do |f| %>
+<% if teacher.errors.any? %>
+<div id="error_explanation">
+    <h2>
+        <%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+    <ul>
+        <% teacher.errors.full_messages.each do |message| %>
+        <li>
+            <%= message %>
+        </li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+<div class="form-row">
+    <div class="form-group">
+        <%= f.label :last_name, "Nom" %>
+        <%= f.text_field :last_name, placeHolder: Faker::Name.last_name, autocomplet: 'last_name', required: ""%>
+    </div>
+    <div class="form-group">
+        <%= f.label :first_name, "Prénom" %>
+        <%= f.text_field :first_name, placeHolder: Faker::Name.first_name, autocomplet: "first_name", required: ""%>
+    </div>
+</div>
+<div class="form-group" style="width: 97%">
+    <%= f.label :address, "Address" %>
+    <%= f.text_field :address, placeHolder: Faker::Address.street_address, autocomplet: 'address', required: ""%>
+</div>
+<div class="form-row">
+    <div class="form-group">
+        <%= f.label :city,  "Ville" %>
+        <div class="form-select">
+            <select name="city" id="state_teacher">
+                <option value="tana">Antananarivo</option>
+                <option value="tamatave">Tamatave</option>
+                <option value="Majunga">Majunga</option>
+                <option value="Fianarantsoa">Fianarantsoa</option>
+                <option value="Fianarantsoa">Toliara</option>
+                <option value="Fianarantsoa">Antiranana</option>
+                <option value="tana">Autre</option>
+            </select>
+            <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :educational_establishment, "Etablissement scolaire" %><br>
+        <select name="educational_establishment" id="educational_establishment">
+            <% EducationalEstablishment.all.each do |est| %>
+            <option>
+                <%= est.title %>
+            </option>
+            <% end %>
+            <option>Autre</option>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <%= f.label :country, "Pays" %><br>
+    <select name="country" id="country">
+        <% CS.countries.each do |key, country| %>
+        <option>
+            <%= country %>
+        </option>
+        <% end %>
+    </select>
+</div>
+<div class="form-group">
+    <%= f.label :date_of_birth,  "Date de naissance" %>
+    <%= f.date_field :date_of_birth, placeHolder: "Date-de-naissance", autocomplet: 'date_of_birth' %>
+</div>
+<div class="form-group">
+    <%= f.label :subject, "Matière enseignée" %><br>
+    <select name="subject" id="subject">
+        <% Subject.all.each do |subject| %>
+        <option>
+            <%= subject.title %>
+        </option>
+        <% end %>
+    </select>
+</div>
+<div class="form-group">
+    <%= f.label :degrees, "Diplomes" %><br>
+    <select name="degrees" id="degrees">
+        <% Degree.all.each do |degree| %>
+        <option>
+            <%= degree.title %>
+        </option>
+        <% end %>
+    </select>
+</div>
+<div class="form-submit">
+    <%= f.submit class: "submit" %>
+    <% end %>
+</div>

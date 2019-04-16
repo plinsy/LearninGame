@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <%= render 'layouts/head' %>
+
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/flash' %>
+    <%= render 'layouts/login_modal' %>
+    <%= render 'layouts/register_modal' %>
+    <%= render 'layouts/side_navbar' %>
+
+    <div id="main">
+
+
+    	<%= yield %>
+
+      <div id="search_result" class="search_result"> 
+      </div>
+
+      <!-- <br><br><br><br><br><br>
+      
+      <div id="log"></div> -->
+    	
+    </div>
+
+
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

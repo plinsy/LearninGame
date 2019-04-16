@@ -1,0 +1,32 @@
+<h1>Teachers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3">Teacher name</th>
+      <th colspan="3">Speciality</th>
+      <th colspan="3">Educational Establishment</th>
+      <th colspan="3">More info</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teachers.each do |teacher| %>
+      <tr>
+        <td colspan="3"><%= teacher.first_name %> <%= teacher.last_name %></td>
+
+        <td colspan="3"><%= teacher.speciality %></td>
+
+        <td colspan="3"><%= teacher.educational_establishment.title %></td>
+
+        <td colspan="3"><%= link_to 'Show', teacher %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if current_user.status == "Guest" %>
+  <%= link_to 'New Teacher', new_teacher_path %>
+<% end %>

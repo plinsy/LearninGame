@@ -1,0 +1,35 @@
+<h1>New Answer</h1>
+
+<%= form_with url: student_test_answers_path(@student.id, @test.id) do |f| %>
+	<% n = 0 %>
+  <% @test.questions.each do |question| %>
+
+  <div class="actions">
+    <%= question.question %><br>
+    <div>	
+    <input type="radio" name="Q<%= question.id %>" id="A<%= question.id %>" value="<%= question.A %>">
+    <label for="A<%= question.id %>">A - <%= question.A %></label><br>
+    </div>
+    	
+    <div>
+    <input type="radio" name="Q<%= question.id %>" id="B<%= question.id %>" value="<%= question.B %>">
+    <label for="B<%= question.id %>">B - <%= question.B %></label><br>
+    </div>
+    	
+    <div>
+    <input type="radio" name="Q<%= question.id %>" id="C<%= question.id %>" value="<%= question.C %>">
+    <label for="C<%= question.id %>">C - <%= question.C %></label><br>
+    </div>
+    	
+    <div>
+    <input type="radio" name="Q<%= question.id %>" id="D<%= question.id %>" value="<%= question.D %>">
+    <label for="D<%= question.id %>">D - <%= question.D %></label><br>
+    </div>
+  </div><br>
+
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
