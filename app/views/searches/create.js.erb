@@ -1,12 +1,80 @@
-$(`div#yield`).hide('slow');
-$(`div#search_result`).html(`
-	Students :
-	<% Student.where(username: @search.title).each do |student| %>
-		<%= student.email %>
-	<% end %>
-	Teachers :
-	<% Teacher.where(username: @search.title).each do |teacher| %>
-		<%= teacher.email %>
-	<% end %>
-`);
-$(`div#search_result`).show('slow');
+$(`div#yield`).slideUp('slow');
+<% search = @search.title %>
+<% if search == "Students" || search == "students" || search == "Teachers" || search == "teachers" %>
+
+	<% if search == "Students" || search == "students" 
+		searching = Student.all
+	elsif search == "Teachers" || search == "teachers"
+		searching = Teacher.all
+	end %>
+		$(`div#search_result`).html(`
+			<strong><%= searching %> : </strong><br></br>
+			<table class="table">
+			    <thead class="thead-dark">
+			        <tr>
+			            <th scope="col">#</th>
+			            <th scope="col">Nom</th>
+			            <th scope="col">Email</th>
+			            <th scope="col">Etablissement scolaire</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <% searching.each do |mod| %>
+			        <tr>
+			        	<td>
+			        		<%= mod.id %>
+			        	</td>
+			            <td>
+			                <%= mod.first_name %> <%= mod.last_name %><br></td>
+			            <td>
+			                <%= mod.email %><br></td>
+			            <td>
+			                <%= mod.educational_establishment.title %><br></td>
+			        </tr>
+			        <% end %>
+			    </tbody>
+			</table>
+		`);
+
+<% elsif search == "Establishments" || search == "establishments" || search == "Tests" || search == "tests"%>
+	<% if search == "Establishments" || search == "establishments"
+		searching = EducationalEstablishment.all
+	elsif search == "Tests" || search == "tests"
+		searching = Test.all
+	end %>
+		$(`div#search_result`).html(`
+			<strong><%= searching %> : </strong><br></br>
+			<table class="table">
+			    <thead class="thead-dark">
+			        <tr>
+			            <th scope="col">#</th>
+			            <th scope="col">Nom</th>
+			            <th scope="col">Nombre d'élèves inscrits</th>
+			            <th scope="col">Nombre de professeurs inscrits</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <% searching.each do |mod| %>
+			        <tr>
+			        	<td>
+			        		<%= mod.id %>
+			        	</td>
+			            <td>
+			                <%= mod.title %></td>
+			            <td>
+			                <%= mod.students.length %></td>
+			            <td>
+			                <%= mod.teachers.length %></td>
+			        </tr>
+			        <% end %>
+			    </tbody>
+			</table>
+		`);
+<% else %>
+		$(`div#search_result`).html(`
+			<div class="jumbotron" style="text-align: center; color: black;">
+				<strong>Ceci ne correspond à aucun model</strong>
+			</div>
+		`);
+<% end %>
+$(`div#search_result`).slideDown('slow');

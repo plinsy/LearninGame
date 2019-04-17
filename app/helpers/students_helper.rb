@@ -16,7 +16,7 @@ module StudentsHelper
   def authenticate_student
     if current_student != Student.find_by(email: current_user.email)
       redirect_to root_path,
-      alert: "You're not authorized to access this page"
+      alert: "Bien essayer petit malin"
       return false
     end
     return true

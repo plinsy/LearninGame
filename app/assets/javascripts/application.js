@@ -30,8 +30,37 @@ $(document).ready(function() {
             location.reload();
         }, 18000000);
     }
-
     refreshPage();
+
+    function icons() {
+        for (let ind = $(`div#mySidenav i`).length - 1; ind >= 0; ind--) {
+            let n = 0;
+            $(`div#mySidenav i`).eq(ind).on('click', function() {
+                if (n == 0) {
+                    $(`div#mySidenav i`).eq(ind).removeClass('fas fa-caret-right');
+                    $(`div#mySidenav i`).eq(ind).addClass(`fas fa-sort-down`);
+                    n = 1;
+                } else {
+                    $(`div#mySidenav i`).eq(ind).removeClass(`fas fa-sort-down`);
+                    $(`div#mySidenav i`).eq(ind).addClass('fas fa-caret-right');
+                    n = 0;
+                }
+            });
+        }
+    }
+    icons();
+
+    // Hide Flash after 5s
+    function animateFlash() {
+        $(`#flash div.alert div.progress-bar:first`).animate({
+            'width': 0,
+        }, 5000, function() {
+            $(`div#flash`).animate({
+                'opacity': 0,
+            }, 5000);
+        });
+    }
+    animateFlash();
 
     function showPage() {
         document.body.classList.remove('js-loading');

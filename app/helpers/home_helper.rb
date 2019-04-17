@@ -1,5 +1,4 @@
 module HomeHelper
-
 	def project_owners
 		s = ['Front End', 'Back End', 'Full Stack']
 		return [
@@ -48,5 +47,4 @@ module HomeHelper
 			return teachers if n == 4
 		end
 	end
-
 end

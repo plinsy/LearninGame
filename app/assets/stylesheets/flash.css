@@ -1,3 +1,18 @@
-div.alert{
-	z-index: 1000;
+#flash {
+    width: auto;
+    float: left;
+    background: 0 0;
+}
+
+#flash div.alert {
+	margin-top: 8%;
+}
+
+#flash div.alert div.progress-bar{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 25%;
+	border-radius: 4px;
 }

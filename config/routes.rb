@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :searches, only: [:new, :create]
 
+  resources :educational_establishment, only: [:show]
+
   get 'logo/create'
   get 'logo/destroy'
 

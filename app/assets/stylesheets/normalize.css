@@ -1,20 +1,28 @@
-navbar{
-	z-index: 5;
+div#flash {
+    z-index: 10;
 }
 
-header, footer{
-	z-index: 6;
+div#mySidenav {
+    z-index: 7;
 }
-section{
-	z-index: 4;
+
+header,
+footer {
+    z-index: 6;
 }
-.search_result{
-	margin: 10%;
-	z-index: 5; 
-	width: 100%;
+
+navbar {
+    z-index: 5;
+}
+
+div#search_result {
+    z-index: 5;
+}
+section {
+    z-index: 4;
 }
 
 a:hover {
-	cursor: pointer;
-	color: white;
+    cursor: pointer;
+    color: white;
 }

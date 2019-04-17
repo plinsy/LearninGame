@@ -19,8 +19,8 @@
             </div>
             <div class="col-md-4 rond">
                 <div class="rond_div" style="">
-                    <% if current_student.avatar.attached? %>
-                    <%= image_tag current_student.avatar, class: "profil" %>
+                    <% if @user.avatar.attached? %>
+                    <%= image_tag @user.avatar, class: "profil" %>
                     <% end %>
                     <% @student.results.each do |rslt| %>
                     <%= link_to "#{rslt.title}", student_result_path(@student.id, rslt.id) %><br>

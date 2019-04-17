@@ -29,6 +29,7 @@ class Users::SessionsController < Devise::SessionsController
     end
 
     puts "="*60
+
     respond_to do |format|
       if (!params[:user].nil? && @user && @user.valid_password?(params[:user][:password])) || (@user && @user.valid_password?(params[:password]))
         format.html{
@@ -39,7 +40,7 @@ class Users::SessionsController < Devise::SessionsController
       else
         format.html{
           render :new,
-          alert: "Your identifiant is wrong, please try again"
+          alert: "Votre pseudo ou mot de passe est incorrect, veuillez verifier puis réessayer"
         }
       end
     end

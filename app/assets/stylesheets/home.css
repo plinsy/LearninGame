@@ -148,6 +148,7 @@ section {
 }
 
 .student_one_love {
+    height: 25%;
     padding: 30%;
     color: white;
     background-color: rgba(9, 47, 154, 0.4);
@@ -265,8 +266,9 @@ img.establishment {
     border-radius: 50%;
 }
 
-.student_avatar {
-
+.user_avatar {
+    width: 300px;
+    height: 200px;
 }
 
 .association div h4 {

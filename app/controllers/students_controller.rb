@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  include ApplicationHelper
   include StudentsHelper
   before_action :authenticate_user!
   before_action :set_student, only: [:show, :edit, :update, :destroy]
@@ -13,6 +14,9 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    @exams = coming_exams
+    @tests = Test.where(level: @student.level, is_done: false)
+    @user = User.find_by(email: current_student.email)
   end
 
   # GET /students/new

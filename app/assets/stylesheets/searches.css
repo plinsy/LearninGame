@@ -1,0 +1,10 @@
+#search_result {
+	padding: 10%;
+    color: white;
+    height: auto;
+    width: 100%;
+}
+
+.search_result table thead tr th {
+    text-align: center; 
+}

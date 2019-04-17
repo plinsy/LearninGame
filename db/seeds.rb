@@ -25,15 +25,14 @@ degrees = ["Associate's degree", "Bachelor's degree", "Master's degree", "Doctor
 users = []
 
 8.times do |nbr|
+	use = Faker::Internet.username
 	users << {
-		email: "users#{nbr}@yopmail.com",
-		username: "users#{nbr}",
+		email: "#{use}@yopmail.com",
+		username: use,
 		password: "#{nbr}"*6,
 		password_confirmation: "#{nbr}"*6
 	}
 end
-
-teachers = ["Teacher 1", "Teacher 2", "Teacher 3", "Teacher 4"]
 
 ed.each do |ed|
 	EducationalEstablishment.create(
@@ -96,12 +95,12 @@ users.length.times do |user_index|
 		
 	Teacher.create(
 		first_name: Faker::Name.first_name,
-		last_name: Faker::Name.first_name,
+		last_name: Faker::Name.last_name,
 		date_of_birth: Time.now - (50 * 365 * 24 * 3600),
 		address: Faker::Address.street_address,
 		city: Faker::Address.city,
-		country: "Madagascar",
-		educational_establishment: EducationalEstablishment.all.first,
+		country: Faker::Address.country,
+		educational_establishment: EducationalEstablishment.all[rand(EducationalEstablishment.all.length).to_i],
 		subject: Subject.all[rand(Subject.all.length).to_i],
 		degrees: "Master's degree",
 		email: u.email
@@ -111,13 +110,13 @@ users.length.times do |user_index|
 	else
 
 	student = Student.create(
-		first_name: "student#{user_index}",
-		last_name: "eleve#{user_index}",
+		first_name: Faker::Name.first_name,
+		last_name: Faker::Name.last_name,
 		date_of_birth: Time.now - (15 * 365 * 24 * 3600),
 		address: Faker::Address.street_address,
 		city: Faker::Address.city,
-		country: "Madagascar",
-		educational_establishment: EducationalEstablishment.all.first,
+		country: Faker::Address.country,
+		educational_establishment: EducationalEstablishment.all[rand(EducationalEstablishment.all.length).to_i],
 		subject: Subject.all[rand(Subject.all.length).to_i],
 		level: Level.all[(rand(Level.all.length).to_i)],
 		email: u.email

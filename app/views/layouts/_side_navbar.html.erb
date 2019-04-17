@@ -1,4 +1,5 @@
 <div id="mySidenav" class="sidenav">
+    <!-- Search form -->
     <form action="/searches" accept-charset="UTF-8" data-remote="true" method="post">
         <div class="searching">
             <input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="5nTEo1vvN0QQdTzROIY1y7rF6y0cgbAUVMPUjF4UhNMO09OlCpy0rNcKHoa3r2gRyZ/pLMzb4L5+YHmOcuulvA==">
@@ -6,34 +7,48 @@
             <input type="submit" class="search_button" value="Go">
         </div>
     </form>
+    <!-- End of search form -->
     <% if user_signed_in? %>
+    <!-- Profil -->
     <% if !current_user.is_admin %>
-    <a href="#" id="user" onclick="userNav()">Mon profile</a>
+    <a href="#" id="user" onclick="userNav()"><i class="fas fa-caret-right"> Mon profile</i></a>
     <div class="collapse user">
-        <% if current_user.status == "Guest" %>
+        <% if current_user.status == "Guest" || current_user.status == "Admin" %>
         <%= link_to "New Student", new_student_path %>
         <%= link_to "New Teacher", new_teacher_path %>
         <% elsif current_user.status == "Student"  %>
-        <%= link_to "S#{@student.id} Show", student_path(@student.id) %>
-        <a href="#">Edit</a>
+        <%= link_to "Mes infos", student_path(@student.id) %>
+        <%= link_to 'Editer', edit_student_path(@student.id) %>
         <% elsif current_user.status == "Teacher" %>
-        <%= link_to "T#{@teacher.id} Show", teacher_path(@teacher.id) %>
-        <%= link_to 'Edit', edit_teacher_path(@teacher) %>
+        <%= link_to "Mes infos", teacher_path(@teacher.id) %>
+        <%= link_to 'Editer', edit_teacher_path(@teacher.id) %>
         <% end %>
     </div>
+    <% else %>
+        <a href="/admin"><i class="fas fa-caret-right"> Admin space</i></a>
     <% end %>
-    <a href="#" id="establishment" onclick="estNav()">Establishments</a>
+    <!-- End of profil -->
+    <% if current_user.status == "Student" || current_user.status == "Teacher" %>
+    <!-- Establishement informations -->
+    <a href="#" id="establishment" onclick="estNav()"><i class="fas fa-caret-right"> Etablissement</i></a>
     <div class="collapse establishment">
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <% if current_user.status == "Student" %>
+        <a href="/educational_establishment/<%= @student.educational_establishment.id %>">A propos</a>
+        <% else %>
+        <a href="/educational_establishment/<%= @teacher.educational_establishment.id %>">A propos</a>
+        <% end %>
     </div>
-    <a href="#" id="student" onclick="studentNav()">Students</a>
+    <!-- End of establishment infos -->
+    <!-- Students informations -->
+    <a href="#" id="student" onclick="studentNav()"><i class="fas fa-caret-right"> Elèves</i></a>
     <div class="collapse student">
-        <a href="#">New</a>
-        <a href="#">Show all</a>
+        <a href="/students/new">Nouveau</a>
     </div>
-    <% if !current_user.is_admin %>
-    <a href="#" id="tst" onclick="tstNav()">My Tests</a>
+    <!-- End of Students infos -->
+    <% end %>
+    <% if !current_user.is_admin && current_user.status != "Guest" %>
+    <!-- Upcoming Test -->
+    <a href="#" id="tst" onclick="tstNav()"><i class="fas fa-caret-right"> Testes</i></a>
     <div class="collapse tst">
         <% if current_user.status == "Teacher"  %>
         <%= link_to "New", new_teacher_test_path(@teacher.id) %>
@@ -47,43 +62,41 @@
         </ul>
         <% end %>
         <% elsif current_user.status == "Student" %>
-        <% if Test.where(level: @student.level).length != 0 %>
+        <% if @tests.length != 0 %>
         <ul>
-            <% Test.where(level: @student.level, is_done: false).each do |tst| %>
+            <% @tests.each do |tst| %>
             <li>
                 <%= link_to "#{tst.title}", new_student_test_doing_test_path(@student.id, tst.id)  %><br>
             </li>
             <% end %>
         </ul>
         <% else %>
-        <strong>You didn't do any test yet !</strong>
+        <strong>T'as pas encore participé à aucun teste</strong>
         <% end %>
         <% end %>
     </div>
-    <a href="#" id="exam" onclick="examNav()">My exams</a>
+    <!-- End of tests -->
+    <!-- Upcoming exams -->
+    <% if @exams.length != 0 && current_user.status == "Student" %>
+    <a href="#" id="exam" onclick="examNav()"><i class="fas fa-caret-right"> Exams</i></a>
     <div class="collapse exam">
-        <% if Exam.all.length != 0 %>
-        <ul>
-            <% Exam.all.each do |exam| %>
-            <li>
-                <%= exam.title %><br>
-                <%= exam.start_date %><br>
-                <%= exam.duration %><br>
-                <% unless exam.start_date < Time.now %>
-                <%= link_to "Participe to exam" %>
-                <% end %>
-            </li>
-            <% end %>
-        </ul>
+        <% @exams.each do |exam| %>
+        <% unless exam.start_date < Time.now %>
+        <%= link_to exam.title, new_student_exam_path(@student.id) %>(
+        <%= exam.duration %>)
+        <% end %>
         <% end %>
     </div>
     <% end %>
-    <a href="#" id="contact">Contact</a>
+    <!-- End of exams -->
+    <% end %>
+    <!-- Log in & Log out -->
     <div class="log_out">
-        <a class="m-link" rel="nofollow" data-method="delete" href="/users/sign_out"><i class="fas fa-door-open"> Log Out</i></a>
+        <a class="m-link" rel="nofollow" data-method="delete" href="/users/sign_out"><i class="fas fa-door-open"> A bientôt</i></a>
     </div>
     <% else %>
     <a class="m-link" id='login-modal-launcher' data-toggle="modal" data-target="#login-modal"><i class="fas fa-sign-in-alt"> Se connecter</i></a>
     <!-- <a class="m-link" id='register-modal-launcher' data-toggle="modal" data-target="#register-modal"><i class="fas fa-user-plus"> Register</i></a> -->
     <% end %>
+    <!-- End of log in & log out -->
 </div>

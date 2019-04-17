@@ -1,26 +1,29 @@
-<div class="container" style="width: auto; display: inline-flex;">	
-	<% if alert %>
+<% if alert || notice || flash[:danger] || flash[:notice] %>
+<div id="flash" class="container" style="">
+    <% if alert %>
     <div class="alert alert-danger alert-dismissible">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Alert : </strong> <%= alert %>
+        <strong>
+            <%= alert %></strong>
+        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
-
-  <% elsif notice %>
+    <% elsif notice %>
     <div class="alert alert-success alert-dismissible">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Success : </strong> <%= notice %>
+        <strong>
+            <%= notice %></strong>
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
-
-  <% elsif flash[:danger] %>
-    <div class="alert alert-danger alert-dismissible ">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Alert : </strong> <%= flash[:danger] %>
+    <% elsif flash[:danger] %>
+    <div class="alert alert-danger alert-dismissible">
+        <strong>Alert : </strong>
+        <%= flash[:danger] %>
+        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
-
-  <% elsif flash[:success] %>
-    <div class="alert alert-success alert-dismissible  ">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Alert : </strong> <%= flash[:success] %>
+    <% elsif flash[:success] %>
+    <div class="alert alert-success alert-dismissible">
+        <strong>Alert : </strong>
+        <%= flash[:success] %>
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
-  <% end %>
-</div>  
+    <% end %>
+</div>
+<% end %>

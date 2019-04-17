@@ -7,7 +7,7 @@ RailsAdmin.config do |config|
     # warden.authenticate! scope: :user
     unless current_user && current_user.is_admin
       redirect_to '/',
-      alert: "You're not an admin"
+      alert: "Bien essayer petit malin"
     end
   end
   config.current_user_method(&:current_user)

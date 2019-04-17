@@ -8,135 +8,137 @@
             <div data-aos="zoom-in" data-aos-duration="1000">
                 <a href="/users/sign_in" class="link_connexion first_link">
                     <i class="fas fa-sign-in-alt"> Se connecter</i></a>
-                </div>
-                <% else %>
-                <div data-aos="zoom-in" data-aos-duration="1000">
-                    <a href="#" class="link_connexion">
+            </div>
+            <% else %>
+            <div data-aos="zoom-in" data-aos-duration="1000">
+                <a href="#" class="link_connexion">
                     Essayer</a>
-                </div>
-                <% end %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</header>
+<section class="first_section">
+    <div style="margin: 0 10px;">
+        <h3><strong>L'éducation est l'arme la plus puissante qu'on puisse utiliser pour changer le monde.</strong></h3>
+    </div>
+    <!-- canvas  -->
+    <div data-aos="fade-right" data-aos-duration="1000">
+        <div class="sectionround">
+            <div class="section_one">
+                <canvas class="loader">
+                </canvas>
+                <span class="success">
+                    Nos ressources
+                </span>
+            </div>
+            <div class="section_one">
+                <canvas class="loadertwo"> </canvas>
+                <span class="efficiency">
+                    Vos efforts
+                </span>
+            </div>
+            <div class="section_one">
+                <canvas class="loaderthree"> </canvas>
+                <span class="reference">
+                    Garantie d'apprentissage
+                </span>
             </div>
         </div>
-    </header>
-    
-    <section class="first_section">
-        <div  style="margin: 0 10px;">
-            <h3><strong>L'éducation est l'arme la plus puissante qu'on puisse utiliser pour changer le monde.</strong></h3>
+        <div class="btn">
+            <a href="/users/sign_up"><button type="button"> Lancez vous </button></a>
         </div>
-        <!-- canvas  -->
-        <div data-aos="fade-right" data-aos-duration="1000">
-            <div class="sectionround">
-                <div class="section_one">
-                    <canvas class="loader">
-                    </canvas>
-                    <span class="success">
-                        Nos ressources
-                    </span>
-                </div>
-                <div class="section_one">
-                    <canvas class="loadertwo"> </canvas>
-                    <span class="efficiency">
-                        Vos efforts
-                    </span>
-                </div>
-                <div class="section_one">
-                    <canvas class="loaderthree"> </canvas>
-                    <span class="reference">
-                        Garantie d'apprentissage
-                    </span>
-                </div>
-            </div>
-            <div class="btn">
-                <a href="/users/sign_up"><button type="button"> Lancez vous </button></a>
-            </div>
-        </div>
-        <!-- end canvas html -->
-    </section>
-    <section class="second_section">
-        <div>
-            <h3><strong>Qu'en pensent nos étudiants?</strong></h3>
-            <hr class="trait_two">
-        </div>
-        <div class="student_section">
-            <% Student.all.each do |student| %>
+    </div>
+    <!-- end canvas html -->
+</section>
+<section class="second_section">
+    <div>
+        <h3><strong>Qu'en pensent nos étudiants?</strong></h3>
+        <hr class="trait_two">
+    </div>
+    <div class="student_section">
+        <% Student.all.each do |student| %>
             <% if User.find_by(email: student.email).avatar.attached? %>
             <div class="student" data-aos="zoom-in" data-aos-duration="500" style="">
-                <%= image_tag student.avatar, class: "student_avatar" %>
-                <% else %>
-                <div class="student" data-aos="zoom-in" data-aos-duration="500" style="background: url('../assets/ados_essai.jpg') center;">
-                    <% end %>
-                    <div class="student_one_love">
-                        <font>3</font><span class="glyphicon glyphicon-heart">
-                        </span>
-                    </div>
-                </div>
-                
+            <%= image_tag User.find_by(email: student.email).avatar, class: "user_avatar" %>
+            <% else %>
+            <div class="student" data-aos="zoom-in" data-aos-duration="500" style="background: url('../assets/ados_essai.jpg') center;">
                 <% end %>
-            </div>
-        </section>
-        <section class="third_section">
-            <div>
-                <h3><strong>Qu'en pensent les professeurs?</strong></h3>
-                <hr class="trait_two">
-            </div>
-            <div class="teacher">
-                <% @teachers.each do |teacher| %>
-                <div class="teacher_section">
-                    <div class="image_teacher" data-aos="zoom-in" data-aos-duration="1000" style="">
-                    </div>
-                    <div class="commit_teacher" data-aos="zoom-in" data-aos-duration="2000">
-                        <h4>
-                            <%= teacher.subject.title %> teacher,
-                            <%= teacher.first_name %>
-                        </h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
+                <div class="student_one_love">
+                    <font>3</font><span class="glyphicon glyphicon-heart">
+                    </span>
                 </div>
+            </div>
+            <% end %>
+        </div>
+</section>
+<section class="third_section">
+    <div>
+        <h3><strong>Qu'en pensent les professeurs?</strong></h3>
+        <hr class="trait_two">
+    </div>
+    <div class="teacher">
+        <% @teachers.each do |teacher| %>
+        <div class="teacher_section">
+            <% if User.find_by(email: teacher.email).avatar.attached? %>
+            <div data-aos="zoom-in" data-aos-duration="1000" style="">
+                <%= image_tag User.find_by(email: teacher.email).avatar %>
+            <% else %>
+            <div class="image_teacher" data-aos="zoom-in" data-aos-duration="1000" style="">
+            <% end %>
+            </div>
+            <div class="commit_teacher" data-aos="zoom-in" data-aos-duration="2000">
+                <h4>
+                    <%= teacher.subject.title %> teacher,
+                    <%= teacher.first_name %>
+                </h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</section>
+<section class="four_section">
+    <div>
+        <h3><strong>Nos Futurs partenaires</strong></h3>
+        <hr class="trait_two">
+    </div>
+    <div class="establishment" data-aos="fade-up-left" data-aos-duration="1000">
+        <% EducationalEstablishment.all.each do |establishment| %>
+        <% if establishment.logo.attached? %>
+        <div>
+            <%= image_tag establishment.logo, class: "establishment" %>
+            <% else %>
+            <div style="background: url('../assets/partenaire.PNG') center no-repeat;">
                 <% end %>
+                <h4>
+                    <%= establishment.title %>
+                </h4>
             </div>
-        </section>
-        <section class="four_section">
-            <div>
-                <h3><strong>Nos Futurs partenaires</strong></h3>
-                <hr class="trait_two">
+            <% end %>
+        </div>
+</section>
+<section class="five_section" id="team">
+    <div>
+        <h3><strong>Notre équipe</strong></h3>
+        <hr class="trait">
+    </div>
+    <div class="swiper-container" data-aos="zoom-in-left">
+        <div class="swiper-wrapper">
+            <% project_owners.each do |m| %>
+            <div class="swiper-slide">
+                <div class="imgslide">
+                    <img src="<%= m[:logo_url] %>">
+                </div>
+                <div class="information">
+                    <span>
+                        <%= m[:firstname] %><br>
+                        <%= m[:speciality] %> </span>
+                </div>
             </div>
-            <div class="establishment" data-aos="fade-up-left" data-aos-duration="1000">
-                <% EducationalEstablishment.all.each do |establishment| %>
-                <% if establishment.logo.attached? %>
-                <div>
-                    <%= image_tag establishment.logo, class: "establishment" %>
-                    <% else %>
-                    <div style="background: url('../assets/partenaire.PNG') center no-repeat;">
-                        <% end %>
-                        <h4>
-                            <%= establishment.title %>
-                        </h4>
-                    </div>
-                    <% end %>
-                </div>
-            </section>
-            <section class="five_section" id="team">
-                <div>
-                    <h3><strong>Notre équipe</strong></h3>
-                    <hr class="trait">
-                </div>
-                <div class="swiper-container" data-aos="zoom-in-left">
-                    <div class="swiper-wrapper">
-                        <% project_owners.each do |m| %>
-                        
-                        <div class="swiper-slide">
-                            <div class="imgslide">
-                                <img src="<%= m[:logo_url] %>">
-                            </div>
-                            <div class="information">
-                                <span><%= m[:firstname] %><br>
-                                    <%= m[:speciality] %> </span>
-                                </div>
-                            </div>
-
-                            <% end %>
-                        </div>
-                        <!-- Add Pagination -->
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </section>
+            <% end %>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
