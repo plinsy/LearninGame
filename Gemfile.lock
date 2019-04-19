@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/marvindanig/threejs-rails.git
+  revision: 6fcd3bf1fc1f8d24d5e8ba31f46dd75bbf891fa4
+  specs:
+    threejs-rails (1.1.4)
+      railties (>= 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -342,6 +349,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   table_print
+  threejs-rails!
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)

@@ -1,4 +1,5 @@
 class ResultsController < ApplicationController
+	include ApplicationHelper
 	include ResultsHelper
 
   def index

@@ -1,0 +1,55 @@
+<% if user_signed_in? %>
+    <!-- Profil -->
+        
+    <!-- End of profil -->
+    <% if current_user.status == "Student" || current_user.status == "Teacher" %>
+    <!-- End of establishment infos -->
+    
+    <div class="collapse student">
+        <a href="/students/new">Nouveau</a>
+    </div>
+    <!-- End of Students infos -->
+    <% end %>
+    <% if !current_user.is_admin && current_user.status != "Guest" %>
+    
+    <div class="collapse tst">
+        <% if current_user.status == "Teacher"  %>
+        <%= link_to "New", new_teacher_test_path(@teacher.id) %>
+        <% if @teacher.tests.length != 0 %>
+        <ul>
+            <% @teacher.tests.each do |tst| %>
+            <li>
+                <%= link_to "#{tst.title}", teacher_test_path(@teacher.id, tst.id)  %><br>
+            </li>
+            <% end %>
+        </ul>
+        <% end %>
+        <% elsif current_user.status == "Student" %>
+        <% if @tests.length != 0 %>
+        <ul>
+            <% @tests.each do |tst| %>
+            <li>
+                <%= link_to "#{tst.title}", new_student_test_doing_test_path(@student.id, tst.id)  %><br>
+            </li>
+            <% end %>
+        </ul>
+        <% else %>
+        <strong>T'as pas encore participé à aucun teste</strong>
+        <% end %>
+        <% end %>
+    </div>
+    <!-- End of tests -->
+    <!-- Upcoming exams -->
+    <% if @exams.length != 0 && current_user.status == "Student" %>
+    <a href="#" id="exam" onclick="examNav()"><i class="fas fa-caret-right"> Exams</i></a>
+    <div class="collapse exam">
+        <% @exams.each do |exam| %>
+        <% unless exam.start_date < Time.now %>
+        <%= link_to exam.title, new_student_exam_path(@student.id) %>(
+        <%= exam.duration %>)
+        <% end %>
+        <% end %>
+    </div>
+    <% end %>
+    <!-- End of exams -->
+    <% end %>

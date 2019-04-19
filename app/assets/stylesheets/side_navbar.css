@@ -1,12 +1,20 @@
 div#mySidenav {
-    text-align: left;
+    text-align: center;
+    width: 0;
+    left: 0;
+}
+
+div#mySidenav .games_space{
+    border: none;
+    height: 5%;
+    width: 100%;
 }
 
 /* The side navigation menu */
 .sidenav {
     height: 100%;
     /* 100% Full-height */
-    width: 0;
+    width: 100%;
     /* 0 width - change this with JavaScript */
     position: fixed;
     /* Stay in place */

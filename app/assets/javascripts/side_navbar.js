@@ -1,21 +1,28 @@
     $(document).on("mousemove", function(event) {
         // $("#log").text("pageX: " + event.pageX + ", pageY: " + event.pageY);
         if (event.pageX == 0) // When the mosue is on left
-            openNav("slow"); // show the sidebar
+            openNav(); // show the sidebar
         else if (event.pageX > 227) { // When the mouse leave the sidebar 
-            closeNav("slow");
+            closeNav();
         }
     });
 
     /* Set the width of the side navigation to 250px */
     function openNav() {
-        document.getElementById("mySidenav").style.width = "17%";
+        $(`#mySidenav`).css({'width': '17%'});
+        $(`#chevron`).hide();
+        // document.getElementById("mySidenav").style.width = "17%";
+        // document.getElementById('chevron').style.left = "16%";
         // document.getElementById("main").style.marginLeft = "17%";
     }
 
     /* Set the width of the side navigation to 0 */
     function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
+        $(`#mySidenav`).css({'width': '0'});
+        $(`#chevron`).show();
+
+        // document.getElementById("mySidenav").style.width = "0";
+        // document.getElementById('chevron').style.left = "0";
         // document.getElementById("main").style.marginLeft = "0";
     }
 

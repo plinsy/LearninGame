@@ -1,6 +1,7 @@
 #flash {
-    width: auto;
+	position: fixed;
     float: left;
+    width: auto;
     background: 0 0;
 }
 

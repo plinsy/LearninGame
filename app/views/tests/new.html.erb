@@ -1,58 +1,65 @@
-<h1>New Test</h1>
-<%= form_with url: teacher_tests_path(current_teacher.id) do |f| %>
-<div class="container">
-	<div class="field">
-		<%= f.text_field :title %>
-	</div>
-    <div class="field">
-        <%= f.label :subject %><br>
-        <select name="subject" id="subject">
-            <% Subject.all.each do |subject| %>
-            <option>
-                <%= subject.title %>
-            </option>
-            <% end %>
-        </select>
-    </div>
-
-    <div class="field">
-        <%= f.label :level %><br>
-        <select name="level" id="level">
-            <% Level.all.each do |level| %>
-            <option>
-                <%= level.title %>
-            </option>
-            <% end %>
-        </select>
-    </div><br>
-</div>
-<div class="questions">
-    <div class="question">
-        <div class="questioncontent" style="width: 100%; display: inline-block;">
-            <textarea name="content1" id="content1" style="height: 43px; min-height: 43px; width: 94%; font-size: 2em;"></textarea>
-            <input style="width: 5%; height: 43px; position: relative; bottom: 5px; font-size: 5em;" type="number" name="points1" id="points1">
+<div class="new_test jumbotron">
+    <h1>Création de test</h1>
+    <div class="container">
+        <%= form_with url: teacher_tests_path(current_teacher.id) do |f| %>
+        <div class="form-group">
+            <%= f.text_field :title, placeHolder: "Titre du test, ex: 'Le test le plus dure au monde'" %>
         </div>
-        <div class="container questionoption">
-            <input type="text" name="opt11" id="opt11">
-            <input type="checkbox" name="opvalue11" id="opvalue11" value="opt11"><br>
-            <input type="text" name="opt12" id="opt12">
-            <input type="checkbox" name="opvalue12" id="opvalue12" value="opt12"><br>
-            <input type="text" name="opt13" id="opt13">
-            <input type="checkbox" name="opvalue13" id="opvalue13" value="opt13"><br>
-            <input type="text" name="opt14" id="opt14">
-            <input type="checkbox" name="opvalue14" id="opvalue14" value="opt14"><br>
+        <div class="form-group">
+            <%= f.label :subject %><br>
+            <select name="subject" id="subject">
+                <% Subject.all.each do |subject| %>
+                <option>
+                    <%= subject.title %>
+                </option>
+                <% end %>
+            </select>
         </div>
-        <br><br>
+        <div class="form-group">
+            <%= f.label :level %><br>
+            <select name="level" id="level">
+                <% Level.all.each do |level| %>
+                <option>
+                    <%= level.title %>
+                </option>
+                <% end %>
+            </select>
+        </div><br>
+    </div>
+    <div class="questions">
+        <div class="question">
+            <div class="questioncontent" style="">
+                <textarea name="content1" id="content1" style=""></textarea>
+            </div>
+            <div class="container questionoptions">
+                <div class="qpoints col-md-2" style="border: 1px solid red;">
+                    <input type="number" style="" name="points1" id="points1">
+                </div>
+                <div class="options col-md-9" style="border: 1px solid red;">
+                    <input type="text" name="opt11" id="opt11">
+                    <input type="text" name="opt12" id="opt12">
+                    <input type="text" name="opt13" id="opt13">
+                    <input type="text" name="opt14" id="opt14">
+                </div>
+                <div class="checkboxes col-md-1" style="border: 1px solid red;">
+                    <input type="checkbox" name="opvalue11" id="opvalue11" value="opt11">
+                    <input type="checkbox" name="opvalue12" id="opvalue12" value="opt12">
+                    <input type="checkbox" name="opvalue13" id="opvalue13" value="opt13">
+                    <input type="checkbox" name="opvalue14" id="opvalue14" value="opt14">
+                </div>
+            </div>
+        </div>
+    </div>
+        <center class="submit">
+            <%= f.submit "Sauvegarder"%>
+        </center>
+        <% end %>
+    <div class="addandrmbutton">
+        <button class="addquestion" style="float: left;" title="Ajouter une nouvelle question">
+            <i class="fas fa-plus-square"> Question</i>
+        </button>
+        <button class="rmquestion" style="float: left;" title="Supprimer la dernière question">
+            <i class="fas fa-minus-square"></i>
+        </button>
     </div>
 </div>
-<center><%= f.submit "Finished"%></center>
-<% end %><br><br>
-<div class="addandrmbutton">
-    <button class="addquestion" style="float: left;">
-        Add question
-    </button>
-    <button class="rmquestion" style="float: left;">
-        Remove question
-    </button>
-</div><br><br>
-<%= link_to 'Back', :back %>

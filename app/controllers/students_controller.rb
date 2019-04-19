@@ -21,11 +21,14 @@ class StudentsController < ApplicationController
 
   # GET /students/new
   def new
+    authenticate_guest
     @student = Student.new
   end
 
   # GET /students/1/edit
   def edit
+    @exams = coming_exams
+    @tests = Test.where(level: @student.level, is_done: false)
   end
 
   # POST /students

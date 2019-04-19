@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
+gem 'threejs-rails', git: 'git://github.com/marvindanig/threejs-rails.git'
 
 gem 'highcharts-rails', '~> 3.0.0'
 

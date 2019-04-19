@@ -1,8 +1,9 @@
 class HomeController < ApplicationController
   include ApplicationHelper
-  include HomeHelper
 
   def index
+  	@user = current_user
+  	@ests = EducationalEstablishment.all
   	@teachers = first_teachers
   	@exams = coming_exams
 	  if user_signed_in?

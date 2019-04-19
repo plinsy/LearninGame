@@ -36,7 +36,13 @@ Rails.application.routes.draw do
     resources :add_option_to_questions, only: [:new, :create, :edit, :update, :destroy]
   end
 
+  resources :users, only: [] do
+    get 'presentation/team'
+    resources :games
+  end
+
   root 'home#index'
+  get 'home/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   devise_for :users, controllers: {

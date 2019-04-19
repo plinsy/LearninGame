@@ -1,4 +1,5 @@
 class DoingExamsController < ApplicationController
+  include ApplicationHelper
   before_action :set_doing_exam, only: [:show, :edit, :update, :destroy]
   before_action :set_start_time, only: [:new, :create]
 
@@ -15,6 +16,7 @@ class DoingExamsController < ApplicationController
 
   # GET /doing_exams/new
   def new
+    @user = current_user
     @doing_exam = DoingExam.new
   end
 

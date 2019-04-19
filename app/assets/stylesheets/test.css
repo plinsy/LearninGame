@@ -1,0 +1,66 @@
+/* normalize */
+
+.new_test div{
+	text-align: center;
+}
+
+/* normalize */
+
+.new_test {
+	width: 80%;
+	margin: 0% 10% 10% 10%;
+}
+
+.new_test form{
+	padding: 5%;
+}
+
+.new_test .questioncontent{
+	margin: 5% 0 5% 0%;
+	display: inline-block;
+	width: 100%; 
+}
+
+.new_test .questioncontent textarea{
+	width: 100%;
+	height: 43px; 
+	min-height: 43px; 
+	font-size: 2em;
+}
+
+.new_test .questionoptions{
+	padding: 1% 2%;
+}
+
+.new_test .options {
+}
+
+.new_test .options input{
+	margin: 1% 0%;
+}
+
+.new_test .qpoints{
+	font-size: 5em;
+	width: 30%;
+	height: 100%;
+}
+
+.new_test .qpoints input{
+	text-align: center;
+}
+
+.new_test .checkboxes{
+	height: 100%;
+	padding: 1% 0% 2% 0%;
+}
+
+.new_test .checkboxes input {
+	height: 43px;
+	margin: 1% 0%;
+}
+
+.new_test .submit{
+	width: 100%;
+	margin: 2% 0;
+	text-align: center;
+}

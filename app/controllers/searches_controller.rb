@@ -1,4 +1,5 @@
 class SearchesController < ApplicationController
+  include ApplicationHelper
   include SearchesHelper
 
   # before_action :set_search, only: [:show, :edit, :update, :destroy]

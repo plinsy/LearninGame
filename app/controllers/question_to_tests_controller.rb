@@ -1,4 +1,5 @@
 class QuestionToTestsController < ApplicationController
+  include ApplicationHelper
   before_action :set_question_to_test, only: [:show, :edit, :update, :destroy]
 
   # GET /question_to_tests

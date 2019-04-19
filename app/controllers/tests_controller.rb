@@ -1,4 +1,5 @@
 class TestsController < ApplicationController
+  include ApplicationHelper
   include TestsHelper
   before_action :authenticate_user!
   before_action :authenticate_teacher, only: [:new, :create]

@@ -148,7 +148,7 @@ section {
 }
 
 .student_one_love {
-    height: 25%;
+    height: 50px;
     padding: 30%;
     color: white;
     background-color: rgba(9, 47, 154, 0.4);
@@ -248,21 +248,17 @@ section {
 
 div.establishment {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
 div.establishment div {
-    margin-top: 30px;
-    background-color: rgba(255, 255, 255, 1);
-    width: 200px;
+    margin-top: 3%;   
+    width: 150px;
+    margin-bottom: 3%;
     height: 150px;
-    margin-right: 15px;
 }
 
-img.establishment {
-    width: 150px;
-    height: 150px;
+.img_establishment {
+    margin-left: 150%;
     border-radius: 50%;
 }
 

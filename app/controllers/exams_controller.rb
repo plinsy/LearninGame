@@ -1,4 +1,5 @@
 class ExamsController < ApplicationController
+  include ApplicationHelper
   include ExamsHelper
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
 

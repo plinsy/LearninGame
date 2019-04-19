@@ -1,4 +1,5 @@
 class TeachersController < ApplicationController
+  include ApplicationHelper
   include TeachersHelper
   before_action :authenticate_user!
   before_action :set_teacher, only: [:show, :edit, :update, :destroy]

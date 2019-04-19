@@ -1,14 +1,13 @@
-<header style="background: url('../assets/bg_copie.png');">
-    <div class="">
-        <div class="container" style="background: 0 0;">
-            <div class="signup-content form-row">
-                <div class="signup-img form-group" style="position: relative; top: -100px;">
-                    <img src="../assets/tux-161406_1280.png" width="500px" height="550px">
+<div class="new_teacher" style="">
+    <div class="container" style="background: 0 0;">
+        <div class="new_teacher_and_img row">
+            <%= render 'form', teacher: @teacher %>
+            <div class="animate_img col-md-6" style="">
+                <div class="link_to_new_teacher btn btn-dark">
+                    <h3><a href="/students/new">S'inscrire en tant que nouvel élève</a></h3>
                 </div>
-                <div class="signup-form form-group" style="position: relative; top: 100px;">
-                    <%= render 'form', teacher: @teacher %>
-                </div>
+                <img src="../assets/tux-161406_1280.png" width="500px" height="550px">
             </div>
         </div>
     </div>
-</header>
+</div>

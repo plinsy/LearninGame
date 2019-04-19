@@ -37,4 +37,11 @@ module StudentsHelper
     end
     return subject_purcentage*100
   end
+
+  def authenticate_guest
+    unless current_user.status == "Guest"
+      redirect_to root_path,
+      alert: "Bien essayer petit malin"
+    end
+  end
 end

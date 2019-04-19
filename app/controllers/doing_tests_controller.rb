@@ -1,9 +1,11 @@
 class DoingTestsController < ApplicationController
-	include DoingTestsHelper
+	include ApplicationHelper
+  include DoingTestsHelper
 	before_action :authenticate_student
   before_action :authenticate_test
 
   def new
+    @user = current_user
     @student = current_student
     @test = current_test
     @totalPoints = points_total(@test)

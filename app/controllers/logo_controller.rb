@@ -1,4 +1,5 @@
 class LogoController < ApplicationController
+	include ApplicationHelper
 	def create
     @educational_establishment = EducationalEstablishment.find(params[:educational_establishment_id])
     @educational_establishment.logo.attach(params[:logo])

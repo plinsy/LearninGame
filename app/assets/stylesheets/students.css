@@ -1,112 +1,46 @@
-.student_profil{
-    background: url('../assets/background-web.jpg') center no-repeat;
-    background-size: cover;
-}
-
-.student_profil div{
-    /*background: 0 0;*/
-}
-
-.btn_option {
-    width: 100%;
-}
-
-.contenue {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.form {
-    width: auto;
-    height: auto;
-    margin: 0px 0px 20px 0px;
-    border: 1px solid #D5D6D2;
-    padding: 1rem;
-}
-
-.rond {
-    margin-top: 3.5%;
-    padding: 15px;
-    border: 1px solid #D5D6D2;
-    width: 10rem;
-    height: 10rem;
-    border-radius: 20rem 20rem;
-}
-
-.rond_div{
-    background: 0 0;
-    display: inline-block; 
-    width: 100%;
-    height: 100%;
-    border: 1px solid #D5D6D2;
-}
-
-.col-md-6 {
-    width: 100%;
-    border: 1px solid red;
-}
-
-.niveau {
-    width: 40rem;
-    height: auto;
-    border: 1px solid #D5D6D2;
-    background-color: 0 0;
-}
-
-.profil {
-    width: 10em;
-    height: 10em;
-    border-radius: 10em 10em;
-}
-
-.name {
-    color: #3a5199;
-    font-size: 1.5em;
-    font-family: Arial Narrow, sans-serif;
-}
-
-.etab,
-.class {
-    font-size: 1.5em;
-    font-family: URW Chancery L, cursive;
-    color: #2f2e33;
-    list-style: none;
-}
-
-.table_niveau {
+/* Les Formulaires sur les élèves */
+#student_form {
     width: 100%;
     height: 100%;
 }
-
-td {
-    text-align: center;
-    color: #3a5199;
-    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+#student_form .names{
 }
-
-table {
-    border-collapse: collapse;
-}
-
-th {
-    color: #2f2e33;
-    font-size: 95%;
-    font-family: URW Chancery L, cursive;
-
-}
-
-.stats {
-    margin-top: 5rem;
-    margin-bottom: 5%;
+#student_form .address{
     width: 100%;
 }
+/* FORM END */
 
-.stats h1 {
-    font-family: oblique Arial, Helvetica, sans-serif;
-    color: #3a5199;
+/* New Student CSS */
+.new_student{
+    background: url('../assets/bg_copie.png') center no-repeat; background-size: cover;
 }
-
-.stats span {
-    font-family: FreeMono, monospace;
+.new_student div{
+    /* border: 1px solid red; */
 }
+.new_student .link_to_new_teacher, .new_student .link_to_new_student{
+    width: 100%;
+    color: #141C2F;
+}
+.new_student .new_student_and_img{
+    background: grey;
+    background-color: rgba(0,0,0,.5);
+}
+.new_student .animate_img{
+}
+.new_student #student_form {
+    padding-top: 0%;
+    padding-bottom: 3%;
+}
+.new_student .student_form{
+    padding-top: 6%;
+    padding-bottom: 3%;
+}
+.new_student .submit{
+    padding: 0;
+    width: 100%;
+}
+.new_student input.submit{
+    background-color: #141C2F;
+    color: white;
+}
+/* End of new student */

@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  include ApplicationHelper
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   # GET /questions

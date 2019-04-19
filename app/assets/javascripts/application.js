@@ -17,32 +17,28 @@
 //= require turbolinks
 //= require_tree .
 
+//= require three
+
 //= require chartkick
 
 //= require highcharts
 
 //= require highcharts/highcharts-more
 
+
 $(document).ready(function() {
-    // SET AUTOMATIC PAGE RELOAD TIME TO 5000 MILISECONDS (5 SECONDS).
-    function refreshPage() {
-        setTimeout(function() {
-            location.reload();
-        }, 18000000);
-    }
-    refreshPage();
 
     function icons() {
-        for (let ind = $(`div#mySidenav i`).length - 1; ind >= 0; ind--) {
+        for (let ind = $(`div#mySidenav i.fa-caret-right`).length - 1; ind >= 0; ind--) {
             let n = 0;
-            $(`div#mySidenav i`).eq(ind).on('click', function() {
+            $(`div#mySidenav i.fa-caret-right`).eq(ind).on('click', function() {
                 if (n == 0) {
-                    $(`div#mySidenav i`).eq(ind).removeClass('fas fa-caret-right');
-                    $(`div#mySidenav i`).eq(ind).addClass(`fas fa-sort-down`);
+                    $(`div#mySidenav i.fa-caret-right`).eq(ind).removeClass('fas fa-caret-right');
+                    $(`div#mySidenav i.fa-caret-right`).eq(ind).addClass(`fas fa-sort-down`);
                     n = 1;
                 } else {
-                    $(`div#mySidenav i`).eq(ind).removeClass(`fas fa-sort-down`);
-                    $(`div#mySidenav i`).eq(ind).addClass('fas fa-caret-right');
+                    $(`div#mySidenav i.fa-caret-right`).eq(ind).removeClass(`fas fa-sort-down`);
+                    $(`div#mySidenav i.fa-caret-right`).eq(ind).addClass('fas fa-caret-right');
                     n = 0;
                 }
             });
@@ -54,10 +50,12 @@ $(document).ready(function() {
     function animateFlash() {
         $(`#flash div.alert div.progress-bar:first`).animate({
             'width': 0,
-        }, 5000, function() {
+        }, 7000, function() {
             $(`div#flash`).animate({
                 'opacity': 0,
-            }, 5000);
+            }, 7000, function() {
+                $(`div#flash`).hide();
+            });
         });
     }
     animateFlash();
