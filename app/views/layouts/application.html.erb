@@ -11,15 +11,15 @@
     <%= render 'layouts/flash' %>
     <%= render 'layouts/login_modal' %>
     <%= render 'layouts/register_modal' %>
-    <%= render 'layouts/side_navbar' %>
+
+    <%= render 'user/form' if controller_name != 'home' %>
+    <%= render 'layouts/loading' %>
 
     <div id="main">
 
+      <%= render 'layouts/search_result' %>
 
-      <div id="search_result" class="search_result collapse" style=""> 
-      </div>
-
-      <div id="yield">
+      <div id="yield" <% if user_signed_in? && controller_name != 'home' %> class="users_content" <% end %> style="">
 
     	  <%= yield %>
       

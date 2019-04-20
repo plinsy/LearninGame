@@ -1,0 +1,66 @@
+.users_content, .users_content.container{
+	background: url('');
+	background: rgba(0, 0, 0, .5);
+	border: 1px solid gold;
+	position: relative;
+	bottom: 23em;
+	left: 2%;
+	max-width: 1080px;
+	padding: 0% 1% 1% 1%;
+	margin-bottom: 0%;
+}
+.users_content.container, .users_content .container{
+	background: 0 0;
+	width: 100%;
+	margin: 0%;
+}
+
+.user_form{
+	/* background: url('animate_bg.gif') center no-repeat fixed; */
+	background-size: cover;
+}
+.user_form div{
+	/* border: 1px solid red; */
+	padding: 3% 2%;
+}
+/* Left div */
+.user_form .left{
+	margin-top: 3%;
+	padding: 1%;
+}
+.user_form .left div{
+	width: 180px;
+	margin-bottom: 7%;
+}
+.user_form .logo{
+	height: 180px;
+}
+.user_form .logo{
+	padding: 0;
+	margin: 0;
+}
+.user_form .links{
+	background: #eee;
+}
+.user_form .links ul{
+	list-style: none;
+	padding: 0% 2%;
+	line-height: 2em;
+	font-size: 1em;
+}
+/* Right div */
+.user_form .right{
+	margin-top: 3%;
+	padding: 1%;
+}
+.user_form .right div{
+	max-width: 1100px;
+}
+
+.user_form .content{
+	max-width: 1000px;
+}
+
+/* Show user */
+.user_show{
+}

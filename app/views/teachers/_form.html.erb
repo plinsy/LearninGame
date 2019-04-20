@@ -1,7 +1,9 @@
 <div id="teacher_form" class="col-md-6">
+    <% if current_user.status == "Guest" %>
     <div class="link_to_new_teacher btn btn-light">
         <h3>S'inscrire en tant que professeur</h3>
     </div>
+    <% end %>
     <div class="teacher_form">
         <%= form_with(model: teacher, local: true,  class: "register-form", id: "register-form") do |f| %>
         <% if teacher.errors.any? %>
@@ -98,7 +100,7 @@
             </div>
         </div>
         <div class="submit">
-            <%= f.submit "S'inscrire", class: "submit" %>
+            <%= f.submit class: "submit" %>
         </div>
         <% end %>
     </div>

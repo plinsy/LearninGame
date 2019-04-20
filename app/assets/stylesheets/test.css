@@ -14,9 +14,14 @@
 .new_test form{
 	padding: 5%;
 }
+.new_test .infos{
+}
+.new_test .question{
+	border-bottom: 2px solid #141C2F;
+}
 
 .new_test .questioncontent{
-	margin: 5% 0 5% 0%;
+	margin: 5% 0% 0% 0%;
 	display: inline-block;
 	width: 100%; 
 }
@@ -29,14 +34,16 @@
 }
 
 .new_test .questionoptions{
-	padding: 1% 2%;
+	padding: 0% 2%;
 }
 
-.new_test .options {
+.new_test .options{
+	margin-top: 0;
+	padding: 0% 0% 0% 0%;
 }
 
 .new_test .options input{
-	margin: 1% 0%;
+	margin: 0 0 1% 0;
 }
 
 .new_test .qpoints{
@@ -47,16 +54,12 @@
 
 .new_test .qpoints input{
 	text-align: center;
+	margin: 0;
+	padding: 0;
 }
 
-.new_test .checkboxes{
-	height: 100%;
-	padding: 1% 0% 2% 0%;
-}
-
-.new_test .checkboxes input {
-	height: 43px;
-	margin: 1% 0%;
+.new_test input[type='checkbox'] {
+	height: 45px;
 }
 
 .new_test .submit{

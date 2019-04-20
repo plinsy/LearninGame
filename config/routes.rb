@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   
   resources :teachers do
     resources :questions
-    resources :tests, only: [:new, :create, :show]
+    resources :tests, only: [:index, :new, :create, :show]
   end
 
   resources :students, only: [:new, :create, :show, :edit, :update, :destroy] do
@@ -36,9 +36,9 @@ Rails.application.routes.draw do
     resources :add_option_to_questions, only: [:new, :create, :edit, :update, :destroy]
   end
 
-  resources :users, only: [] do
+  resources :user, only: [:show] do
     get 'presentation/team'
-    resources :games
+    resources :games, only: [:index, :show]
   end
 
   root 'home#index'

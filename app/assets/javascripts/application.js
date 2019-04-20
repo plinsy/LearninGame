@@ -27,7 +27,6 @@
 
 
 $(document).ready(function() {
-
     function icons() {
         for (let ind = $(`div#mySidenav i.fa-caret-right`).length - 1; ind >= 0; ind--) {
             let n = 0;

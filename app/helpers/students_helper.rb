@@ -44,4 +44,8 @@ module StudentsHelper
       alert: "Bien essayer petit malin"
     end
   end
+
+  def he_has_done_one_test
+    return @student.tests.length != 0
+  end
 end

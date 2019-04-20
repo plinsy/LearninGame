@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  include ApplicationHelper
+  before_action :find_users
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -72,4 +74,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  private
+  def find_users
+    @user = current_user
+    @student = Student.find_by(email: @user.email)
+    @teacher = Teacher.find_by(email: @user.email)
+  end
 end

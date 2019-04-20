@@ -1,7 +1,9 @@
-<div id="student_form" class="col-md-6">
+<div id="student_form" class="new_student col-md-6">
+    <% if current_user.status == "Guest" %>
     <div class="link_to_new_student btn btn-light">
         <h3>S'inscrire en tant que nouvel élève</h3>
     </div>
+    <% end %>
     <div class="student_form">
         <%= form_with(model: student, local: true) do |f| %>
         <% if student.errors.any? %>
@@ -95,7 +97,7 @@
                     </option>
                     <% end %>
                 </select>
-            </div>
+            </div>  
         </div>
         <div class="submit">
             <%= f.submit class: "submit" %>

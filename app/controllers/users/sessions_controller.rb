@@ -34,7 +34,7 @@ class Users::SessionsController < Devise::SessionsController
       if (!params[:user].nil? && @user && @user.valid_password?(params[:user][:password])) || (@user && @user.valid_password?(params[:password]))
         format.html{
           sign_in(@user)
-          redirect_to @user.is_admin ? '/admin' : root_path,
+          redirect_to @user.is_admin ? '/admin' : user_path(@user.id),
           notice: "Successfully signed in!"
         }
       else

@@ -8,7 +8,7 @@ class TestsController < ApplicationController
   # GET /tests
   # GET /tests.json
   def index
-    @tests = Test.all
+    @tests = Test.where(teacher: current_teacher)
   end
 
   # GET /tests/1
@@ -45,8 +45,6 @@ class TestsController < ApplicationController
     end
 
     filter_params
-
-    # create_questions
 
     respond_to do |format|
       if @opvalues.length != 0 && @options.length != 0 && @points.length != 0 && @questions.length != 0

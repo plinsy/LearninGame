@@ -1,5 +1,7 @@
-<div class="container">
-    <h1><a href="#stats">My Stats</a></h1>
+<div class="users_content">
+    <% if @results.length != 0 %>
+    <h1><a href="#stats">My Stats</a></h1> 
+    <% end %>
     <% @results.each do |tst| %>
     <center>
         <% 

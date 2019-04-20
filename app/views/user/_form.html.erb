@@ -1,0 +1,74 @@
+<% if user_signed_in? %>
+<div class="user_form">
+    <div class="row">
+        <div class="right col-md-10">
+            <div class="description jumbotron">
+                <h1 style="text-align: center;">
+                    <%= controller_name %> :
+                    <%= action_name %>
+                </h1>
+            </div>
+        </div>
+        <div class="left col-md-2">
+            <div class="logo">
+
+                <%= image_tag (current_user.avatar.attached? ? current_user.avatar : 'mirindra.jpg'), width: '100%', height: '100%' %>
+            </div>
+            <div class="links">
+                <ul>
+                    <li>
+                        <%= link_to current_user do %>
+                            <i class="fas fa-user"> Mon espace utilisateur</i>
+                        <% end %>
+                    </li>
+                    <% if current_user.status == "Student" %>
+                    <li>
+                        <%= link_to current_student do %>
+                            <i class="fas fa-user-graduate"> Mon espace etudiant</i>
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to edit_student_path(current_student) do %>
+                            <i class="fas fa-user-edit"> Editer mon profil</i>
+                        <% end %>
+                    </li>
+                    <% if current_student.tests.length != 0 %>
+                    <li>
+                        <%= link_to "Mes résulats", student_results_path(current_student) %>
+                    </li>
+                    <% end %>
+                    <% elsif current_user.status == "Teacher" %>
+                    <li>
+                        <%= link_to current_teacher do %>
+                            <i class="fas fa-chalkboard-teacher"> Mon espace prof</i>
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to edit_teacher_path(current_teacher) do %>
+                            <i class="fas fa-user-edit"> Editer mon profil</i>
+                        <% end %>
+                    </li>
+                    <% if current_teacher.tests.length != 0 %>
+                    <li>
+                        <%= link_to teacher_tests_path(current_teacher) do %>
+                            <i class="fas fa-file-alt"> Mes tests</i>
+                        <% end %>
+                    </li>
+                    <% end %>
+                    <% end %>
+                    <li>
+                        <%= link_to edit_user_registration_path do %>
+                            <i class="fas fa-user-cog"> Advanced edit</i>
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to user_games_path(current_user) do %>
+                            <i class="fas fa-chess"> Game space</i>
+                        <% end %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>
