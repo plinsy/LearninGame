@@ -21,8 +21,8 @@
                     <%= tst.students.length %>
                 </td>
                 <td colspan="3">
-                    <%= link_to new_student_doing_test_path(current_student.id, tst.id) do %>
-                    <i class="fas fa-play-circle"> Tester</i>
+                    <%= link_to new_student_test_doing_test_path(current_student.id, tst.id) do %>
+                        <i class="fas fa-play-circle"> Tester</i>
                     <% end %>
                 </td>
             </tr>

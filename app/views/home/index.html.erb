@@ -1,4 +1,7 @@
-<header class="">
+<section class="section_home">
+    <div class="ig">
+        <img src="../assets/pierrot.gif">
+    </div>
     <div class="content-header">
         <div data-aos="fade-down-right" data-aos-duration="1000">
             <h3>Surpasse toi en relèvant nos défis...</h3>
@@ -17,7 +20,7 @@
             <% end %>
         </div>
     </div>
-</header>
+</section>
 <section class="first_section">
     <div style="margin: 0 10px;">
         <h3><strong>L'éducation est l'arme la plus puissante qu'on puisse utiliser pour changer le monde.</strong></h3>
@@ -46,11 +49,9 @@
             </div>
         </div>
         <% unless user_signed_in? %>
-            
         <div class="btn">
             <a href="/users/sign_up"><button type="button"> Lancez vous </button></a>
         </div>
-
         <% end %>
     </div>
     <!-- end canvas html -->
@@ -62,7 +63,7 @@
             <hr class="trait_two">
         </div>
         <div class="student_section">
-            <% first_students.length.times do |s| %>
+            <% 4.times do |s| %>
             <div class="student" data-aos="zoom-in" data-aos-duration="500" style="background: url('<%= students_images[s] %>') center no-repeat; background-size: cover;">
                 <div class="student_one_love">
                     <span class="glyphicon glyphicon-heart">
@@ -79,20 +80,19 @@
         </div>
         <div class="teacher">
             <% nos_profs.each do |t| %>
-                <div class="teacher_section">
-                    
-                    <div class="image_teacher" data-aos="zoom-in" data-aos-duration="1000" style="background: url(<%= t[:logo_url] %>) center no-repeat; background-size: cover;">
-                    </div>
-                    <div class="commit_teacher" data-aos="zoom-in" data-aos-duration="2000">
-                        <h4>
-                            <%= t[:firstname] %>,
-                            <%= t[:speciality] %>
-                        </h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
+            <div class="teacher_section">
+                <div class="image_teacher" data-aos="zoom-in" data-aos-duration="1000" style="background: url(<%= t[:logo_url] %>) center no-repeat; background-size: cover;">
                 </div>
-                <% end %>
+                <div class="commit_teacher" data-aos="zoom-in" data-aos-duration="2000">
+                    <h4>
+                        <%= t[:firstname] %>,
+                        <%= t[:speciality] %>
+                    </h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
             </div>
+            <% end %>
+        </div>
     </section>
     <section class="four_section">
         <div>

@@ -20,8 +20,9 @@ Rails.application.routes.draw do
   end
 
   resources :students, only: [:new, :create, :show, :edit, :update, :destroy] do
-    resources :tests, only: [:index]
-    resources :doing_tests, only: [:new, :create]
+    resources :tests, only: [:index] do
+      resources :doing_tests, only: [:new, :create]
+    end
 
     resources :exams do
       resources :doing_exams, only: [:new, :create]

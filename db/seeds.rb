@@ -24,7 +24,7 @@ degrees = ["Associate's degree", "Bachelor's degree", "Master's degree", "Doctor
 
 users = []
 
-8.times do |nbr|
+4.times do |nbr|
 	use = Faker::Internet.username
 	users << {
 		email: "#{use}@yopmail.com",
@@ -75,7 +75,7 @@ passwords = [
 	"070707",
 	"050505"
 ]
-puts "Creating admins..."
+print "Creating admins..."
 5.times do |n|	
 		User.create(
 		email: emails[n],
@@ -85,47 +85,82 @@ puts "Creating admins..."
 		status: 'Admin',
 		is_admin: true
 	)
-		print "."
+	print "."
 end
 
-puts "Creating users..."
+print "\nCreating users..."
 users.length.times do |user_index|
 		
 	u = User.create(users[user_index])
 	print "."
+
 	if user_index.odd?
 		
-	Teacher.create(
-		first_name: Faker::Name.first_name,
-		last_name: Faker::Name.last_name,
-		date_of_birth: Time.now - (50 * 365 * 24 * 3600),
-		address: Faker::Address.street_address,
-		city: Faker::Address.city,
-		country: Faker::Address.country,
-		educational_establishment: EducationalEstablishment.all[rand(EducationalEstablishment.all.length).to_i],
-		subject: Subject.all[rand(Subject.all.length).to_i],
-		degrees: "Master's degree",
-		email: u.email
-	)
-	u.update(status: "Teacher")
-	print "T"
+		cheese = Teacher.create(
+			first_name: Faker::Name.first_name,
+			last_name: Faker::Name.last_name,
+			date_of_birth: Time.now - (50 * 365 * 24 * 3600),
+			address: Faker::Address.street_address,
+			city: Faker::Address.city,
+			country: Faker::Address.country,
+			educational_establishment: EducationalEstablishment.all[rand(EducationalEstablishment.all.length).to_i],
+			subject: Subject.all[rand(Subject.all.length).to_i],
+			degrees: "Master's degree",
+			email: u.email
+		)
+		u.update(status: "Teacher")
+		print "T"
+		p "Creating tests..."
+		t = Test.new(
+			teacher: cheese,
+			title: Faker::Book.title,
+			level: Level.all[(rand(Level.all.length).to_i)],
+			subject: Subject.all[rand(Subject.all.length).to_i]
+		)
+
+		t.save
+
+		10.times do |index|
+			quest = Question.create(
+				teacher: cheese,
+				content: Faker::Lorem.question,
+				points: rand(4)
+			)
+			print "Q"
+			4.times do |id|
+				if id == 3
+					opt = Option.create(
+						content: Faker::Lorem.word,
+						status: "Correct"
+					)
+				else
+					opt = Option.create(
+						content: Faker::Lorem.word
+					)
+				end
+				print "O"
+				AddOptionToQuestion.create(question: quest, option: opt)
+			end
+			QuestionToTest.create(test: t, question: quest)
+			print "T"
+		end
 
 	else
 
-	student = Student.create(
-		first_name: Faker::Name.first_name,
-		last_name: Faker::Name.last_name,
-		date_of_birth: Time.now - (15 * 365 * 24 * 3600),
-		address: Faker::Address.street_address,
-		city: Faker::Address.city,
-		country: Faker::Address.country,
-		educational_establishment: EducationalEstablishment.all[rand(EducationalEstablishment.all.length).to_i],
-		subject: Subject.all[rand(Subject.all.length).to_i],
-		level: Level.all[(rand(Level.all.length).to_i)],
-		email: u.email
-	)
-	u.update(status: "Student")
-	print "S"
+		student = Student.create(
+			first_name: Faker::Name.first_name,
+			last_name: Faker::Name.last_name,
+			date_of_birth: Time.now - (15 * 365 * 24 * 3600),
+			address: Faker::Address.street_address,
+			city: Faker::Address.city,
+			country: Faker::Address.country,
+			educational_establishment: EducationalEstablishment.all[rand(EducationalEstablishment.all.length).to_i],
+			subject: Subject.all[rand(Subject.all.length).to_i],
+			level: Level.all[(rand(Level.all.length).to_i)],
+			email: u.email
+		)
+		u.update(status: "Student")
+		print "S"
 
 	end
 end
