@@ -3,7 +3,6 @@
     margin-top: 2%;
     width: 100%;
     height: 100%;
-    border: 1px solid gold;
 }
 
 #teacher_form .teacher_form{
@@ -14,7 +13,10 @@
 #teacher_form .address {
     width: 100%;
 }
-
+#teacher_form select{
+    background:  0 0;
+    color: #141C2F
+}
 /* FORM END */
 
 /* New teacher CSS */

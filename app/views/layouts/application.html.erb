@@ -13,9 +13,9 @@
     <%= render 'layouts/register_modal' %>
     <%= render 'layouts/side_navbar' %>
     <%= render 'user/form' if controller_name != 'home' && controller_name != 'devise' %>
-    <%= render 'layouts/loading' if controller_name == 'tests' && action_name == "new" %>
+    <%= render 'layouts/loading' if action_name == "new" %>
 
-    <div id="main" <% if controller_name == 'tests' && action_name == "new" %> onmouseover="loadPage()" <% end %>>
+    <div id="main">
 
       <%= render 'layouts/search_result' %>
 

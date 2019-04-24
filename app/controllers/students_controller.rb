@@ -45,7 +45,7 @@ class StudentsController < ApplicationController
       if @student.save
         current_user.update(status: "Student")
         
-        format.html { redirect_to root_path, notice: 'Student was successfully created!' }
+        format.html { redirect_to @student, notice: 'Student was successfully created!' }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new, alert: @student.errors.full_messages }

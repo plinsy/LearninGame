@@ -37,19 +37,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
         email: params[:user][:email]
       }
 
-    if params[:degrees].nil?
+    if params[:degrees].nil? && !params[:level].nil?
       user = Student.new(student_params)
-    elsif params[:level].nil?
+    elsif params[:level].nil? && !params[:degrees].nil?
       user = Teacher.new(teacher_params)
     end
 
     user_params = params.permit(:email, :username, :password, :password_confirmation)
     unless params[:user].nil?
       super
-      user.save
-      if params[:degrees].nil? && 
+      user.save if user
+      if params[:degrees].nil? && !params[:level].nil?
         @user.update(status: "Student")
-      elsif params[:level].nil?
+      elsif params[:level].nil? && !params[:degrees].nil?
         @user.update(status: "Teacher")
       end
       @user.avatar.attach(params[:user][:avatar])
@@ -57,7 +57,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @user = User.new(user_params)
       respond_to do |format|
         if @user.save
-          user.save
+          user.save if user
           @user.avatar.attach(params[:avatar])
           format.html{redirect_to root_path, notice: "Registered successfully"}
         else

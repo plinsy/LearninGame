@@ -75,7 +75,7 @@ passwords = [
 	"070707",
 	"050505"
 ]
-
+puts "Creating admins..."
 5.times do |n|	
 		User.create(
 		email: emails[n],
@@ -85,12 +85,14 @@ passwords = [
 		status: 'Admin',
 		is_admin: true
 	)
+		print "."
 end
 
+puts "Creating users..."
 users.length.times do |user_index|
 		
 	u = User.create(users[user_index])
-
+	print "."
 	if user_index.odd?
 		
 	Teacher.create(
@@ -106,6 +108,7 @@ users.length.times do |user_index|
 		email: u.email
 	)
 	u.update(status: "Teacher")
+	print "T"
 
 	else
 
@@ -122,6 +125,7 @@ users.length.times do |user_index|
 		email: u.email
 	)
 	u.update(status: "Student")
+	print "S"
 
 	end
 end

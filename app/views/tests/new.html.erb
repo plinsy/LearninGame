@@ -1,7 +1,7 @@
 <div class="new_test">
     <h1 style="text-align: center;">Créer un nouveau test original</h1>
     <%= form_with url: teacher_tests_path(current_teacher.id), remote: true, multipart: true do |f| %>
-        <div class="container">
+        <div class="">
             <div class="infos">
                 <div class="">
                     <%= f.text_field :title, placeHolder: "Titre du test, ex: 'Le test le plus dure au monde'", style: "background-color: white;", required: "" %>

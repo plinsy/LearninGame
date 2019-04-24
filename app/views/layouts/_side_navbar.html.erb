@@ -11,7 +11,7 @@
 
     <%= link_to "Mon profil", current_user %>
     
-    <% if current_user.status == "Guest" %>
+    <% if user_signed_in? && current_user.status == "Guest" %>
     <%= link_to "New Student", new_student_path %>
     <%= link_to "New Teacher", new_teacher_path %>
     <% end %>
