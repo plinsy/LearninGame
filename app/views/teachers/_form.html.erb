@@ -1,24 +1,9 @@
-<div id="teacher_form" class="col-md-6">
-    <% if current_user.status == "Guest" %>
+<div id="teacher_form" class="new_teacher col-md-6">
     <div class="link_to_new_teacher btn btn-light">
         <h3>S'inscrire en tant que professeur</h3>
     </div>
-    <% end %>
     <div class="teacher_form">
-        <%= form_with(model: teacher, local: true,  class: "register-form", id: "register-form") do |f| %>
-        <% if teacher.errors.any? %>
-        <div id="error_explanation">
-            <h2>
-                <%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
-            <ul>
-                <% teacher.errors.full_messages.each do |message| %>
-                <li>
-                    <%= message %>
-                </li>
-                <% end %>
-            </ul>
-        </div>
-        <% end %>
+        <%= form_with(model: teacher, multipart: true,  class: "register-form", id: "register-form") do |f| %>
         <div class="names row">
             <div class="firstname col-md-6">
                 <%= f.label :last_name, "Nom" %>
@@ -28,7 +13,7 @@
                 <%= f.label :first_name, "Prénom" %>
                 <%= f.text_field :first_name, placeHolder: Faker::Name.first_name, autocomplet: "first_name", required: ""%>
             </div>
-        </div>
+        </div><br>
         <div class="row">
             <div class="birthdate col-md-6">
                 <%= f.label :date_of_birth,  "Date de naissance" %>
@@ -38,7 +23,7 @@
                 <%= f.label :address, "Address" %>
                 <%= f.text_field :address, placeHolder: Faker::Address.street_address, autocomplet: 'address', required: ""%>
             </div>
-        </div>
+        </div><br>
         <div class="location row">
             <div class="city col-md-6">
                 <%= f.label :city,  "Ville" %>
@@ -66,7 +51,7 @@
                     <option>Autre</option>
                 </select>
             </div>
-        </div>
+        </div><br>
         <div class="country">
             <%= f.label :country, "Pays" %>
             <select name="country" id="country">
@@ -76,7 +61,7 @@
                 </option>
                 <% end %>
             </select>
-        </div>
+        </div><br>
         <div class="row">
             <div class="subject col-md-6">
                 <%= f.label :subject, "Matière enseignée" %>
@@ -98,7 +83,13 @@
                     <% end %>
                 </select>
             </div>
-        </div>
+        </div><br>
+        <% if action_name == 'edit' %>
+        <div>
+            <h3>Changer la photo de profil</h3>
+            <%= f.file_field :avatar %>
+        </div><br>
+        <% end %>
         <div class="submit">
             <%= f.submit class: "submit" %>
         </div>

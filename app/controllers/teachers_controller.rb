@@ -27,6 +27,7 @@ class TeachersController < ApplicationController
   # POST /teachers
   # POST /teachers.json
   def create
+    current_user.avatar.attach(params[:teacher][:avatar]) if params[:teacher][:avatar]
     @teacher = Teacher.new(teacher_params)
     @teacher.country = params.require(:country)
     @teacher.educational_establishment = EducationalEstablishment.where(title: params.require(:educational_establishment)).first
@@ -49,6 +50,7 @@ class TeachersController < ApplicationController
   # PATCH/PUT /teachers/1
   # PATCH/PUT /teachers/1.json
   def update
+    current_user.avatar.attach(params[:teacher][:avatar])
     respond_to do |format|
       if @teacher.update(teacher_params)
         format.html { redirect_to @teacher, notice: 'Teacher was successfully updated.' }

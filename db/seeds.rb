@@ -29,8 +29,8 @@ users = []
 	users << {
 		email: "#{use}@yopmail.com",
 		username: use,
-		password: "#{nbr}"*6,
-		password_confirmation: "#{nbr}"*6
+		password: "000000",
+		password_confirmation: "000000"
 	}
 end
 

@@ -1,6 +1,7 @@
 class TestsController < ApplicationController
   include ApplicationHelper
   include TestsHelper
+  include DoingTestsHelper
   before_action :authenticate_user!
   before_action :authenticate_teacher, only: [:new, :create]
   before_action :set_test, only: [:show, :edit, :update, :destroy]
@@ -8,7 +9,8 @@ class TestsController < ApplicationController
   # GET /tests
   # GET /tests.json
   def index
-    @tests = Test.where(teacher: current_teacher)
+    # @tests = Test.where(level: current_student.level)
+    @tests = Test.all
   end
 
   # GET /tests/1
@@ -31,11 +33,11 @@ class TestsController < ApplicationController
   # POST /tests.json
   def create
     puts "="*70
-
     @test = Test.new(
       teacher: current_teacher,
       title: params[:title]
     )
+
     @test.level = Level.where(title: params[:level]).first
     @test.subject = Subject.where(title: params[:subject]).first
 
@@ -43,12 +45,21 @@ class TestsController < ApplicationController
       render :new,
       alert: @test.errors.full_messages
     end
-
+    
     filter_params
+
+    puts "Q"*70
+    p params.inspect
+    p @questions.inspect
+    p @points.inspect
+    p @options.inspect
+    p @opvalues.inspect
+    puts "Q"*70
 
     respond_to do |format|
       if @opvalues.length != 0 && @options.length != 0 && @points.length != 0 && @questions.length != 0
         create_questions
+        # @test.save
         format.html { redirect_to teacher_test_path(current_teacher.id, @test.id), notice: 'Test was successfully created.' }
         format.json { render :show, status: :created, location: @test }
       else

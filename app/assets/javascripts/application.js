@@ -13,7 +13,7 @@
 //= require rails-ujs
 //= require jquery3
 //= require jquery
-//= require activestorage
+// require activestorage
 //= require turbolinks
 //= require_tree .
 
@@ -24,6 +24,8 @@
 //= require highcharts
 
 //= require highcharts/highcharts-more
+
+//= require select2_simple_form
 
 
 $(document).ready(function() {
@@ -43,21 +45,8 @@ $(document).ready(function() {
             });
         }
     }
-    icons();
+    // icons();
 
-    // Hide Flash after 5s
-    function animateFlash() {
-        $(`#flash div.alert div.progress-bar:first`).animate({
-            'width': 0,
-        }, 7000, function() {
-            $(`div#flash`).animate({
-                'opacity': 0,
-            }, 7000, function() {
-                $(`div#flash`).hide();
-            });
-        });
-    }
-    animateFlash();
 
     function showPage() {
         document.body.classList.remove('js-loading');
@@ -73,7 +62,7 @@ $(document).ready(function() {
             closeLogin();
         });
     }
-    loginmodal();
+    // loginmodal();
 
     function registermodal() {
         $(`#register-modal-launcher`).on('click', () => {
@@ -85,7 +74,7 @@ $(document).ready(function() {
             closeRegister();
         });
     }
-    registermodal();
+    // registermodal();
 
     function openLogin() {
         $(`div#login-modal`).show('slow');

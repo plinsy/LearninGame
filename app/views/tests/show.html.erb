@@ -1,19 +1,16 @@
 <center><%= current_test.title %><br></center>
 
-<% n = 1 %>
+<% n = 1 %> | <%= current_test.questions.length %> |<br>
 <% current_test.questions.each do |question| %>
 
 	<%= n %>.<%= question.content %>(<%= question.points %>)<br>
 
 	<% question.options.each do |option| %> 
 
-		<%= option.content %>(<%= option.status %>)<br>
+		<%= option.content %><br>
 
 	<% end %><br>
 
 	<% n += 1 %>
 
 <% end %>
-
-
-<%= link_to 'Back', :back %>

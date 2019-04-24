@@ -1,28 +1,24 @@
 div#mySidenav {
+    position: fixed;
     text-align: center;
     width: 0;
     left: 0;
-}
-
-div#mySidenav .games_space{
-    border: none;
-    height: 5%;
-    width: 100%;
 }
 
 /* The side navigation menu */
 .sidenav {
     height: 100%;
     /* 100% Full-height */
-    width: 100%;
+    width: 17%;
     /* 0 width - change this with JavaScript */
     position: fixed;
     /* Stay in place */
-    z-index: 1;
+    /* z-index: 1; */
     /* Stay on top */
     top: 0;
     /* Stay at the top */
     left: 0;
+
     background-color: #141C2F;
     /* Black*/
     overflow-x: hidden;

@@ -1,10 +1,10 @@
 /* connexion */
 .loginbox {
     position: relative;
-    transform: translate(0%, -39%);
+    transform: translate(0%, -40%);
     background-color: rgba(0, 0, 0, .6);
-    width: 500px;
-    padding: 40px;
+    width: 39%;
+    padding: 4%;
     box-sizing: border-box;
     box-shadow: 0px 15px 25px rgba(0, 0, 0, .4);
     border-radius: 10px;
@@ -113,7 +113,7 @@
 
 .login_and_signup {
     margin-top: 0px;
-    background: url('background-login.jpg');
+    /* background: url('background-login.jpg'); */
     background-size: cover;
     background-position: center;
     height: 940px;

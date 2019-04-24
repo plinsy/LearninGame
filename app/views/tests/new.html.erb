@@ -1,58 +1,58 @@
 <div class="new_test">
     <h1 style="text-align: center;">Créer un nouveau test original</h1>
-    <div class="container">
-        <%= form_with url: teacher_tests_path(current_teacher.id) do |f| %>
-        <div class="infos">
-            <div class="">
-                <%= f.text_field :title, placeHolder: "Titre du test, ex: 'Le test le plus dure au monde'", style: "background-color: white;" %>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <select name="subject" id="subject">
-                        <% Subject.all.each do |subject| %>
-                        <option>
-                            <%= subject.title %>
-                        </option>
-                        <% end %>
-                    </select>
+    <%= form_with url: teacher_tests_path(current_teacher.id), remote: true, multipart: true do |f| %>
+        <div class="container">
+            <div class="infos">
+                <div class="">
+                    <%= f.text_field :title, placeHolder: "Titre du test, ex: 'Le test le plus dure au monde'", style: "background-color: white;", required: "" %>
                 </div>
-                <div class="col-md-6">
-                    <select name="level" id="level">
-                        <% Level.all.each do |level| %>
-                        <option>
-                            <%= level.title %>
-                        </option>
-                        <% end %>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="questions">
-        <div class="question">
-            <div class="questioncontent" style="">
-                <textarea name="content1" id="content1" placeholder="Quelle est la couleur du cheval blanc de Napoléon ?" style=""></textarea>
-            </div>
-            <div class="container questionoptions">
-                <div class="qpoints col-md-2" style="">
-                    <input required="" type="number" style="" name="points1" id="points1">
-                </div>
-                <div class="options col-md-10" style="">
-                    <input required="" class="col-md-11" type="text" name="opt11" id="opt11" placeholder="Albâtre">
-                    <input required="" class="col-md-1" type="checkbox" name="opvalue11" id="opvalue11" value="opt11">
-                    <input required="" class="col-md-11" type="text" name="opt12" id="opt12" placeholder="Blanc d’argent">
-                    <input required="" class="col-md-1" type="checkbox" name="opvalue12" id="opvalue12" value="opt12">
-                    <input required="" class="col-md-11" type="text" name="opt13" id="opt13" placeholder="Blanc d’Espagne">
-                    <input required="" class="col-md-1" type="checkbox" name="opvalue13" id="opvalue13" value="opt13">
-                    <input required="" class="col-md-11" type="text" name="opt14" id="opt14" placeholder="Blanc de platine">
-                    <input required="" class="col-md-1" type="checkbox" name="opvalue14" id="opvalue14" value="opt14">
+                <div class="row">
+                    <div class="col-md-6">
+                        <select name="subject" id="subject">
+                            <% Subject.all.each do |subject| %>
+                            <option>
+                                <%= subject.title %>
+                            </option>
+                            <% end %>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <select name="level" id="level">
+                            <% Level.all.each do |level| %>
+                            <option>
+                                <%= level.title %>
+                            </option>
+                            <% end %>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <center class="submit">
-        <%= f.submit "Sauvegarder"%>
-    </center>
+        <div class="questions">
+            <div class="question1">
+                <div class="questioncontent" style="">
+                    <textarea name="content1" id="content1" placeholder="Quelle est la couleur du cheval blanc de Napoléon ?" style="" required=""></textarea>
+                </div>
+                <div class="container questionoptions">
+                    <div class="qpoints col-md-2" style="">
+                        <input required="" type="number" style="" name="points1" id="points1">
+                    </div>
+                    <div class="options col-md-10" style="">
+                        <input required="" class="col-md-11" type="text" name="opt11" id="opt11" placeholder="Albâtre">
+                        <input class="col-md-1" type="checkbox" name="opvalue11" id="opvalue11" value="opt11">
+                        <input required="" class="col-md-11" type="text" name="opt12" id="opt12" placeholder="Blanc d’argent">
+                        <input class="col-md-1" type="checkbox" name="opvalue12" id="opvalue12" value="opt12">
+                        <input required="" class="col-md-11" type="text" name="opt13" id="opt13" placeholder="Blanc d’Espagne">
+                        <input class="col-md-1" type="checkbox" name="opvalue13" id="opvalue13" value="opt13">
+                        <input required="" class="col-md-11" type="text" name="opt14" id="opt14" placeholder="Blanc de platine">
+                        <input class="col-md-1" type="checkbox" name="opvalue14" id="opvalue14" value="opt14">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <center class="submit">
+            <%= f.submit "Sauvegarder"%>
+        </center>
     <% end %>
     <div class="addandrmbutton">
         <button class="addquestion" style="float: left;" title="Ajouter une nouvelle question">

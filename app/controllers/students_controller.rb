@@ -57,12 +57,13 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
+    current_user.avatar.attach(params[:student][:avatar]) if params[:student][:avatar]
     respond_to do |format|
       if @student.update(student_params)
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
       else
-        format.html { render :edit, alert: @student.errors.full_messages }
+        format.html { render :edit, alert: @student.errors }
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
     end

@@ -8,38 +8,19 @@
         </div>
     </form>
     <!-- End of search form -->
-    <% if user_signed_in? %>
-    <!-- Log in & Log out -->
-    <a href="#" id="user" onclick="userNav()"><i class="fas fa-caret-right"> Mon profile</i></a>
-    <!-- Upcoming Test -->
-    <a href="#" id="tst" onclick="tstNav()"><i class="fas fa-caret-right"> Testes</i></a>
-    <% if current_user.is_admin %>
-    <a href="/admin">Admin space</a>
-    <% elsif current_user.status == "Student" %>
-    <div class="collapse user">
-        <%= link_to "Mon profil", student_path(@student.id) %>
-        <%= link_to 'Editer', edit_student_path(@student.id) %>
-    </div>
-    <div class="collapse establishment">
-        <a href="/educational_establishment/<%= @student.educational_establishment.id %>">A propos</a>
-    </div>
-    <% elsif current_user.status == "Teacher" %>
-    <div class="collapse user">
-    <%= link_to "Mon profil", teacher_path(@teacher.id) %>
-    <%= link_to 'Editer', edit_teacher_path(@teacher.id) %>
-    </div>
-    <% else %>
+
+    <%= link_to "Mon profil", current_user %>
+    
+    <% if current_user.status == "Guest" %>
     <%= link_to "New Student", new_student_path %>
     <%= link_to "New Teacher", new_teacher_path %>
     <% end %>
-    <div class="games_space">
-        <a href="/users/<%= current_user.id %>/games"><i class="fas fa-gamepad"> Games</i></a>
-    </div>
+
     <div class="log_out">
     </div>
-    <% else %>
+
     <a class="m-link" id='login-modal-launcher' data-toggle="modal" data-target="#login-modal"><i class="fas fa-sign-in-alt"> Se connecter</i></a>
     <!-- <a class="m-link" id='register-modal-launcher' data-toggle="modal" data-target="#register-modal"><i class="fas fa-user-plus"> Register</i></a> -->
-    <% end %>
+
     <!-- End of log in & log out -->
 </div>

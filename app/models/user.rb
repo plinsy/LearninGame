@@ -29,4 +29,5 @@ class User < ApplicationRecord
   end
 
   has_one_attached :avatar
+  # acts_as_avatarable
 end

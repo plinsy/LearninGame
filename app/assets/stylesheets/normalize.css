@@ -1,13 +1,19 @@
+body {
+    /* background: url('The-Matrix-code-animated.gif') fixed ; */
+    background: url('1095591_pixel-gif-wallpaper.gif') fixed;
+    background-size: cover;
+}
+
 div#flash {
-    z-index: 100;
+    z-index: 10;
+}
+
+#mySidenav {
+    z-index: 9;
 }
 
 div.chevron {
 	z-index: 8;
-}
-
-div#mySidenav {
-    z-index: 7;
 }
 
 header,
@@ -35,7 +41,7 @@ a:hover {
     color: white;
 }
 
-#main {
+#main{
     padding-top: 5%;
 }
 

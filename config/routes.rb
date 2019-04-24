@@ -20,10 +20,9 @@ Rails.application.routes.draw do
   end
 
   resources :students, only: [:new, :create, :show, :edit, :update, :destroy] do
-    resources :tests, only: [:show] do
-      resources :doing_tests, only: [:new, :create]
-    end
-    
+    resources :tests, only: [:index]
+    resources :doing_tests, only: [:new, :create]
+
     resources :exams do
       resources :doing_exams, only: [:new, :create]
     end
@@ -31,14 +30,14 @@ Rails.application.routes.draw do
     resources :results, only: [:index, :show]
   end
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin' do
-    resources :question_to_tests
-    resources :add_option_to_questions, only: [:new, :create, :edit, :update, :destroy]
-  end
-
   resources :user, only: [:show] do
     get 'presentation/team'
     resources :games, only: [:index, :show]
+  end
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin' do
+    resources :question_to_tests
+    resources :add_option_to_questions, only: [:new, :create, :edit, :update, :destroy]
   end
 
   root 'home#index'

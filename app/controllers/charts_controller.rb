@@ -4,7 +4,7 @@ class ChartsController < ApplicationController
   def test_by_score
   	@tests = current_student.tests
     result = @tests.group(:score).count
-    render json: [{name: 'Result', data: result}]
+    render json: [{name: 'Résultat', data: result}]
   end
 
   def test_by_subject

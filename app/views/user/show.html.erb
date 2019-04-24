@@ -1,15 +1,75 @@
 <div class="user_show">
-    <div class="">
-        <h3>Mon pseudo : <strong>
-                <%= current_user.username %></strong></h3>
-        <h3>Mon email : <strong>
-                <%= current_user.email %></strong></h3>
-        <h3><strong>
-                <% if current_user.status == "Student" %>
-                <%= link_to "Editer mon profil", edit_student_path(@student), class: "btn btn-secondary" %>
-                <% elsif current_user.status == "Teacher" %>
-                <%= link_to "Editer mon profil", edit_teacher_path(@teacher), class: "btn btn-secondary" %>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Pseudo</h3>
+                </div>
+                <div class="col-md-8">
+                    <h3><strong>
+                            <%= current_user.username %></strong></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Email</h3>
+                </div>
+                <div class="col-md-8">
+                    <h3><strong>
+                            <%= current_user.email %></strong></h3>
+                </div>
+            </div>
+            <% unless current_user.status == "Guest" %>
+                
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Nom</h3>
+                </div>
+                <div class="col-md-8">
+                    <h3><strong>
+                            <%= user.last_name %></strong></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Prénom</h3>
+                </div>
+                <div class="col-md-8">
+                    <h3><strong>
+                            <%= user.first_name %></strong></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Etablissement</h3>
+                </div>
+                <div class="col-md-8">
+                    <h3><strong>
+                            <%= user.educational_establishment.title %></strong></h3>
+                </div>
+            </div>
+            <% end %>
+            <div class="row">
+                <% unless current_user.status == "Guest" %>
+                <div class="col-md-4">
+                    <h3><strong>
+                            <%= link_to edit_url, class: "btn btn-primary" do %>
+                            <i class="fas fa-user-edit"> Editer</i>
+                            <% end %>
+                        </strong></h3>
+                </div>
                 <% end %>
-            </strong></h3>
+                <div class="col-md-8">
+                    <h3><strong>
+                            <%= link_to edit_user_registration_path, class: "btn btn-secondary" do %>
+                            <i class="fas fa-user-cog"> Paramètre</i>
+                            <% end %>
+                        </strong></h3>
+                </div>
+            </div>
+        </div>
+        <div class="img col-md-6">
+            <%= image_tag 'user_show.gif', style: "width: 300px; height: 300px;" %>
+        </div>
     </div>
 </div>

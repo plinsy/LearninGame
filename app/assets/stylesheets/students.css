@@ -1,18 +1,22 @@
 /* Les Formulaires sur les élèves */
 #student_form {
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 #student_form .names{
 }
 #student_form .address{
     width: 100%;
 }
+#student_form select{
+    background:  0 0;
+    color: #141C2F
+}
 /* FORM END */
 
 /* New Student CSS */
 .new_student{
-    background: url('../assets/bg_copie.png') center no-repeat; background-size: cover;
+    /* background: url('../assets/bg_copie.png') center no-repeat; background-size: cover; */
 }
 .new_student div{
     /* border: 1px solid red; */
@@ -35,11 +39,11 @@
     padding-top: 6%;
     padding-bottom: 3%;
 }
-.new_student .submit{
+.new_student .submit, .edit_student .submit{
     padding: 0;
     width: 100%;
 }
-.new_student input.submit{
+.new_student input.submit, .edit_student input.submit{
     background-color: #141C2F;
     color: white;
 }

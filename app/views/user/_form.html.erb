@@ -4,39 +4,63 @@
         <div class="right col-md-10">
             <div class="description jumbotron">
                 <h1 style="text-align: center;">
-                    <%= controller_name %> :
-                    <%= action_name %>
+                    <% if action_name == 'show' %>
+                        Afficher
+                    <% elsif action_name == 'edit' %>
+                        Editer
+                    <% elsif action_name == 'index' %>
+                        Available
+                    <% end %>
+                    <% if controller_name == 'tests' %>
+                        tests
+                    <% elsif controller_name == "games" %>
+                        Games
+                    <% elsif controller_name == "user" || "devise" %>
+                        mon profil
+                    <% elsif controller_name == 'students' %>
+                        mon profil étudiant
+                    <% elsif controller_name == 'teachers' %>
+                        mon profil professeur
+                    <% else %>
+                        <%= controller_name %>
+                    <% end %>
                 </h1>
             </div>
         </div>
         <div class="left col-md-2">
             <div class="logo">
-
-                <%= image_tag (current_user.avatar.attached? ? current_user.avatar : 'mirindra.jpg'), width: '100%', height: '100%' %>
+                <%= image_tag (current_user.avatar.attached? ? current_user.avatar : 'profile-2398782_960_720.png'), width: '100%', height: '100%' %>
             </div>
             <div class="links">
                 <ul>
                     <li>
                         <%= link_to current_user do %>
-                            <i class="fas fa-user"> Mon espace utilisateur</i>
+                            <i class="fas fa-user"> Espace utilisateur</i>
                         <% end %>
                     </li>
                     <% if current_user.status == "Student" %>
                     <li>
                         <%= link_to current_student do %>
-                            <i class="fas fa-user-graduate"> Mon espace etudiant</i>
+                            <i class="fas fa-user-graduate"> Espace etudiant</i>
                         <% end %>
                     </li>
+                    <li>
+                        <%= link_to student_tests_path(current_student.id) do %>
+                        <i class="fas fa-sync"> Tests disponibles</i>
+                        <% end %>
+                    </li>
+                    <% if current_student.tests.length != 0 %>
+                    <li>
+                        <%= link_to student_results_path(current_student) do %>
+                        <i class="fas fa-poll-h"> Mes résulats</i>
+                        <% end %>
+                    </li>
+                    <% end %>
                     <li>
                         <%= link_to edit_student_path(current_student) do %>
                             <i class="fas fa-user-edit"> Editer mon profil</i>
                         <% end %>
                     </li>
-                    <% if current_student.tests.length != 0 %>
-                    <li>
-                        <%= link_to "Mes résulats", student_results_path(current_student) %>
-                    </li>
-                    <% end %>
                     <% elsif current_user.status == "Teacher" %>
                     <li>
                         <%= link_to current_teacher do %>
@@ -58,7 +82,7 @@
                     <% end %>
                     <li>
                         <%= link_to edit_user_registration_path do %>
-                            <i class="fas fa-user-cog"> Advanced edit</i>
+                            <i class="fas fa-user-cog"> Paramètre de compte</i>
                         <% end %>
                     </li>
                     <li>

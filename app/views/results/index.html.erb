@@ -1,6 +1,6 @@
-<div class="users_content">
+<div class="">
     <% if @results.length != 0 %>
-    <h1><a href="#stats">My Stats</a></h1> 
+    <h1><a href="#stats">Mes stats</a></h1> 
     <% end %>
     <% @results.each do |tst| %>
     <center>
@@ -20,17 +20,17 @@
             <%= question.content %>(
             <%= question.points %>pts)</strong>
         <ul>
-            <% question.options.each do |option| %>
+            <% question.options.sort_by{ |i| i }.each do |option| %>
             <li class="<%= option.status %>">
                 <% if option.status == "Right_answer" %>
-                <i class="fas fa-check">
-                    <%= option.content %></i>
+                <strong><%= option.content %></strong>
+                <i class="fas fa-check"></i>
                 <% elsif option.status == "Correct" %>
-                <i class="far fa-hand-point-right">
-                    <%= option.content %></i>
+                <strong><%= option.content %></strong>
+                <i class="far fa-hand-point-right"></i>
                 <% elsif option.status == "Wrong_answer" %>
-                <i class="fas fa-times">
-                    <%= option.content %></i>
+                <strong><%= option.content %></strong>
+                <i class="fas fa-times"></i>
                 <% else %>
                 <%= option.content %>
                 <% end %>
@@ -41,12 +41,11 @@
         <% end %>
     </ul>
     <center>
-        Your score :
-        <%= tst.score %>/
-        <%= totalPoints %>
+        Ton score :
+        <%= tst.score %>/<%= totalPoints %>
     </center>
     <% end %>
-    <h1 id="stats" class="stats">Mes stats</h1>
+    <h1 id="stats" class="stats">Stats</h1>
     <% bar_chart @results.top(:score, 10) %>
     <%= test_by_score %>
 </div>

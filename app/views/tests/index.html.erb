@@ -1,16 +1,30 @@
 <div class="">
-  <h1><%= link_to 'New Test', new_teacher_test_path(current_teacher) %></h1>
-  <h1>Tests</h1>
     <table class="table">
-        <thead>
+        <thead class="table table-light">
             <tr>
                 <th colspan="3">Title</th>
+                <th colspan="3">Points à gagner</th>
+                <th colspan="3">Nombre de participant</th>
+                <th colspan="3">Faire le test</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table">
             <% @tests.each do |tst| %>
             <tr>
-              <td><%= tst.title %></td>
+                <td colspan="3">
+                    <%= tst.title %>
+                </td>
+                <td colspan="3">
+                    <%= points_total(tst) %>
+                </td>
+                <td colspan="3">
+                    <%= tst.students.length %>
+                </td>
+                <td colspan="3">
+                    <%= link_to new_student_doing_test_path(current_student.id, tst.id) do %>
+                    <i class="fas fa-play-circle"> Tester</i>
+                    <% end %>
+                </td>
             </tr>
             <% end %>
         </tbody>

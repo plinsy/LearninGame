@@ -1,24 +1,11 @@
-<div id="student_form" class="new_student col-md-6">
-    <% if current_user.status == "Guest" %>
+<div id="student_form" class="<%= action_name %>_student col-md-6 col-sm-6">
+    <% if action_name == "new" %>
     <div class="link_to_new_student btn btn-light">
         <h3>S'inscrire en tant que nouvel élève</h3>
     </div>
     <% end %>
     <div class="student_form">
-        <%= form_with(model: student, local: true) do |f| %>
-        <% if student.errors.any? %>
-        <div id="error_explanation">
-            <h2>
-                <%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
-            <ul>
-                <% student.errors.full_messages.each do |message| %>
-                <li>
-                    <%= message %>
-                </li>
-                <% end %>
-            </ul>
-        </div>
-        <% end %>
+        <%= form_with(model: student, multipart: true) do |f| %>
         <div class="names row">
             <div class="firstname col-md-6">
                 <%= f.label :last_name, "Nom" %>
@@ -28,7 +15,7 @@
                 <%= f.label :first_name, "Prénom" %>
                 <%= f.text_field :first_name, placeHolder: Faker::Name.first_name, autocomplet: "first_name", required: ""%>
             </div>
-        </div>
+        </div><br>
         <div class="row">
             <div class="birthdate col-md-6">
                 <%= f.label :date_of_birth,  "Date de naissance" %>
@@ -38,19 +25,19 @@
                 <%= f.label :address, "Address" %>
                 <%= f.text_field :address, placeHolder: Faker::Address.street_address, autocomplet: 'address', required: ""%>
             </div>
-        </div>
+        </div><br>
         <div class="location row">
             <div class="city col-md-6">
                 <%= f.label :city,  "Ville" %>
-                <div class="form-select">
+                <div class="">
                     <select name="city" id="state_teacher">
-                        <option value="tana">Antananarivo</option>
-                        <option value="tamatave">Tamatave</option>
-                        <option value="Majunga">Majunga</option>
+                        <option value="Antananarivo">Antananarivo</option>
+                        <option value="Toamasina">Toamasina</option>
+                        <option value="Mahajanga">Mahajanga</option>
                         <option value="Fianarantsoa">Fianarantsoa</option>
-                        <option value="Fianarantsoa">Toliara</option>
-                        <option value="Fianarantsoa">Antiranana</option>
-                        <option value="tana">Autre</option>
+                        <option value="Toliara">Toliara</option>
+                        <option value="Antsiranana">Antiranana</option>
+                        <option value="Autre">Autre</option>
                     </select>
                     <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
                 </div>
@@ -66,7 +53,7 @@
                     <option>Autre</option>
                 </select>
             </div>
-        </div>
+        </div><br>
         <div class="">
             <%= f.label :country, "Pays" %>
             <select name="country" id="country">
@@ -76,7 +63,7 @@
                 </option>
                 <% end %>
             </select>
-        </div>
+        </div><br>
         <div class="row">
             <div class="subject col-md-6">
                 <%= f.label :subject, "Matière préferée" %>
@@ -97,8 +84,20 @@
                     </option>
                     <% end %>
                 </select>
-            </div>  
-        </div>
+            </div>
+        </div><br>
+        <% if action_name == 'edit' %>
+        <div>
+            <h3>Changer la photo de profil</h3>
+            <div style="max-width: 100px; max-height: 100px;">
+                <% if current_user.avatar.present? %>
+                <%= image_tag (current_user.avatar), width: '100%', height: '100%' %>
+                <% end %>
+            </div><br>
+            <%= f.file_field :avatar %>
+            <%= f.hidden_field :avatar_cache %>
+        </div><br>
+        <% end %>
         <div class="submit">
             <%= f.submit class: "submit" %>
         </div>

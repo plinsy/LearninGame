@@ -9,28 +9,28 @@ module ResultsHelper
 
 	# def test_by_score
  #    bar_chart @results.group(:score).count, height: '500px', library: {
- #      title: {text: 'Test by score' },
- #      xAxis: {
- #        allowDecimals: true,
- #        title: {
- #          text: 'Test score'
- #        }
- #      },
-
+ #      title: {text: 'Test par score' },
  #      yAxis: {
  #        allowDecimals: false,
  #        title: {
- #          text: 'Average'
+ #          text: 'Nombre de Test'
+ #        }
+ #      },
+
+ #      xAxis: {
+ #        allowDecimals: false,
+ #        title: {
+ #          text: 'Score'
  #        }
  #      }
  #    }		
 	# end
 
   def test_by_score
-    column_chart test_by_score_charts_path, height: '500px', library: {
-      title: {text: 'Mes tests par point' },
+    bar_chart test_by_score_charts_path, height: '500px', library: {
+      title: {text: 'Mes tests par score' },
       xAxis: {
-        allowDecimals: true,
+        allowDecimals: false,
         title: {
           text: 'Points'
         }

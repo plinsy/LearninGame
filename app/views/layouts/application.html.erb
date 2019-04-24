@@ -11,11 +11,11 @@
     <%= render 'layouts/flash' %>
     <%= render 'layouts/login_modal' %>
     <%= render 'layouts/register_modal' %>
+    <%= render 'layouts/side_navbar' %>
+    <%= render 'user/form' if controller_name != 'home' && controller_name != 'devise' %>
+    <%= render 'layouts/loading' if controller_name == 'tests' && action_name == "new" %>
 
-    <%= render 'user/form' if controller_name != 'home' %>
-    <%= render 'layouts/loading' %>
-
-    <div id="main">
+    <div id="main" <% if controller_name == 'tests' && action_name == "new" %> onmouseover="loadPage()" <% end %>>
 
       <%= render 'layouts/search_result' %>
 

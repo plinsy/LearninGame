@@ -10,7 +10,7 @@ module TestsHelper
 	def authenticate_teacher
 		if current_user.status != "Teacher"
 			redirect_to root_path,
-			alert: "You are not allowed to access this page"
+			alert: "Bien essayer petit malin"
 		end
 	end
 
@@ -61,7 +61,8 @@ module TestsHelper
 			#Add Question to Test
 			qtt = QuestionToTest.new(test_id: @test.id, question_id: question.id)
 			unless qtt.save
-				render :new, alert: qtt.errors.full_messages
+				render :new,
+				alert: qtt.errors.full_messages				
 			end
 		end
 	end
