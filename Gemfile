@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+gem 'localtunnel'
+
 gem 'select2_simple_form', github: 'lndl/select2_simple_form', tag: '0.7.3'
 
 gem 'rmagick', require: false
