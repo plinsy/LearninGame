@@ -72,8 +72,4 @@ module ApplicationHelper
 	def establishments_images
 		["../assets/sayna_logo.png", "../assets/saint-michel-logo.jpg", "../assets/saint-michel-itaosy-logo.jpeg", "../assets/saint-françois-xavier-logo.jpeg", "../assets/logoesca.png", "../assets/jules-ferry-logo.jpeg"]
 	end
-
-	# User Form
-	def controllers
-	end
 end

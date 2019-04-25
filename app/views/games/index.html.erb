@@ -1,16 +1,18 @@
 <center id="">
+    <div class="games_space row" id="" style="">
     <% @games.each do |game| %>
-    <div class="games_space" id="game_<%= game.id %>" style="">
-        <a href="<%= game.url %>">
-            <div>
-                <%= image_tag game.image %>
-            </div>
-            <div>
-                <%= game.title %>
-            </div>
-        </a>
-    </div>
+        <div class="col-md-3">
+            <a href="/user/<%= current_user.id %>/games/<%= game.id %>">
+                <div>
+                    <%= image_tag game.image %>
+                </div>
+                <div>
+                    <%= game.title %>
+                </div>
+            </a>
+        </div>
     <% end %>
+    </div>
     <!-- <div class="games_space" style="">
             <div id="world"></div>
             <div id="gameoverInstructions">

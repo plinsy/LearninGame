@@ -2,6 +2,9 @@ body {
     /* background: url('The-Matrix-code-animated.gif') fixed ; */
      background: url('1095591_pixel-gif-wallpaper.gif') fixed;
     background-size: cover;
+  overflow-x: hidden;
+    width: 100%;
+
 }
 
 div#flash {
@@ -13,7 +16,7 @@ div#flash {
 }
 
 div.chevron {
-	z-index: 8;
+    z-index: 8;
 }
 
 header,
@@ -21,8 +24,12 @@ footer {
     z-index: 6;
 }
 
-div#games_space{
-	z-index: 5;
+.users_content{
+    z-index: 5;
+}
+
+.user_form{
+    z-index: 7;
 }
 
 navbar {
@@ -43,6 +50,8 @@ a:hover {
 
 #main{
     padding-top: 5%;
+    /* overflow-x: hidden; */
+    /* width: 100%; */
 }
 
 #main #yield{

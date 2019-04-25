@@ -338,7 +338,7 @@ width: 30%;
 }
 
 .first_link {
-    color: #025FAE;
+    color: #FFFF;
 }
 
 .link_connexion:hover {
@@ -372,7 +372,7 @@ width: 30%;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 5px;
-    background-color: rgba(250, 154, 133, .7);
+   background-color: rgb(19, 28, 46);
     font-family: Open Sans, sans-serif;
 }
 

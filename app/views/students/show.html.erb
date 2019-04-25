@@ -37,13 +37,13 @@
             <center>
                 <h1><a href="/students/<%= current_student.id %>/results" class="btn btn-light"><i class="fa fa-chart-bar"> Ma progression</i></a></h1>
             </center>
-            <% Subject.all.each do |subject| %>
-            <% if subject_purcentage(subject) != 0 %>
+            <% current_student.tests.each do |tst| %>
+            <% if subject_purcentage(tst.subject) != 0 %>
             <span>
-                <%= subject.title %></span>
+                <%= tst.subject.title %></span>
             <div class="progress">
-                <div class="pourcentage" value="<%= subject_purcentage(subject) %>"></div>
-                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: <%= subject_purcentage(subject) %>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="pourcentage" value="<%= subject_purcentage(tst.subject) %>"></div>
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: <%= subject_purcentage(tst.subject) %>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <% end %>
             <% end %>

@@ -32,10 +32,15 @@ module StudentsHelper
 
   def subject_purcentage(subject)
     subject_purcentage = 0
-    current_student.tests.all.each do |test|
-      subject_purcentage += 1 if test.subject == subject
+    current_student.tests.each do |tst|
+      subject_purcentage += 1 if tst.subject == subject
     end
-    return subject_purcentage*100
+    p "==="*50
+    p subject_purcentage
+    p current_student.tests.length
+    p (subject_purcentage.to_f/current_student.tests.length.to_f)*100.to_i
+    p "==="*50
+    return (subject_purcentage.to_f/current_student.tests.length.to_f)*100.to_i
   end
 
   def authenticate_guest

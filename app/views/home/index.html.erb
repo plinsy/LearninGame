@@ -88,7 +88,7 @@
                         <%= t[:firstname] %>,
                         <%= t[:speciality] %>
                     </h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Learning Game a dépassé nos attentes. La progression de nos élèves est étonnante</p>
                 </div>
             </div>
             <% end %>
@@ -99,15 +99,19 @@
             <h3><strong>Nos Futurs partenaires</strong></h3>
             <hr class="trait_two">
         </div>
-        <div class="establishment" data-aos="fade-up-left" data-aos-duration="1000">
+        <center>
+            <div class="establishment" data-aos="fade-up-left" data-aos-duration="1000">
             <% @ests.length.times do |e| %>
             <div class="">
                 <div style="background: url(<%= establishments_images[e] %>) center no-repeat; background-size: cover;" class="img_establishment">
                 </div>
             </div>
             <% end %>
+            </div>
+        </center>
+        
     </section>
-</div>
+
 <section class="five_section" id="team">
     <div>
         <h3><strong>Notre équipe</strong></h3>

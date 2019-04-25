@@ -1,7 +1,9 @@
 <div id="teacher_form" class="new_teacher col-md-6">
+    <% if action_name == 'new' %>
     <div class="link_to_new_teacher btn btn-light">
         <h3>S'inscrire en tant que professeur</h3>
     </div>
+    <% end %>
     <div class="teacher_form">
         <%= form_with(model: teacher, multipart: true,  class: "register-form", id: "register-form") do |f| %>
         <div class="names row">
@@ -85,6 +87,9 @@
             </div>
         </div><br>
         <% if action_name == 'edit' %>
+        <div>
+            <%= image_tag (current_user.avatar.attached? ? current_user.avatar : 'profile-2398782_960_720.png'), width: '100px', height: '100px' %>
+        </div>
         <div>
             <h3>Changer la photo de profil</h3>
             <%= f.file_field :avatar %>

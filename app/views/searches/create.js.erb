@@ -14,6 +14,7 @@ $(`div#yield`).slideUp('slow');
 			        <tr>
 			            <th scope="col">#</th>
 			            <th scope="col">Nom</th>
+			            <th scope="col">Pseudo</th>
 			            <th scope="col">Email</th>
 			            <th scope="col">Etablissement scolaire</th>
 			        </tr>
@@ -26,6 +27,9 @@ $(`div#yield`).slideUp('slow');
 			        	</td>
 			            <td>
 			                <%= mod.first_name %> <%= mod.last_name %><br></td>
+			            <td>
+			            	<%= User.find_by(email: mod.email).username %>
+			            </td>
 			            <td>
 			                <%= mod.email %><br></td>
 			            <td>

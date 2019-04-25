@@ -1,1 +1,22 @@
-<div class="se-pre-con" style="" onclick="location.reload()"><h1>Press any key to continue</h1></div>
+<div class="se-pre-con" style="" onclick="location.reload()">
+    <h1 style="text-align: center; font-family: 'Orbitron'; padding-top: 15%;">Click anywhere to continue</h1>
+</div>
+<script type="text/javascript">
+//paste this code under the head tag or in a separate js file.
+// Wait for window load
+$(window).load(function() {
+
+    //Check if the current URL contains '# or hash'
+    if (document.URL.indexOf("#") == -1) {
+        // Set the URL to whatever it was plus "#loaded".
+        url = document.URL + "#";
+        location = "#";
+        //Reload the page using reload() method
+        location.reload(true);
+    }
+
+    // Animate loader off screen
+    $(".se-pre-con:first").fadeOut("slow");
+
+});
+</script>

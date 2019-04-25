@@ -16,9 +16,9 @@ ed = [
 	'Saint Michel Amparibe'
 ]
 
-levels = ['6th', '5th', '4th', '3rd', '2nd', '1st']
+levels = ['6ème', '5ème', '4ème', '3ème', '2nde', '1ère']
 
-subjects = ['Random', 'Maths / Mathematics', 'Algebra', 'Geometry', 'Science', 'Biology', 'Physics', 'Chemistry', 'Geography', 'History', 'Citizenship', 'Physical Education (P.E)', 'Business Studies', 'Home Economics', 'Art', 'Music']
+subjects = ['Aléatoire', 'Maths / Mathematics', 'Algebra', 'Geometry', 'Science', 'Biology', 'Physics', 'Chemistry', 'Geography', 'History', 'Citizenship', 'Physical Education (P.E)', 'Business Studies', 'Home Economics', 'Art', 'Music']
 
 degrees = ["Associate's degree", "Bachelor's degree", "Master's degree", "Doctoral degree", "Profesional degree"]
 
@@ -110,7 +110,7 @@ users.length.times do |user_index|
 		)
 		u.update(status: "Teacher")
 		print "T"
-		p "Creating tests..."
+		print "\nCreating tests..."
 		t = Test.new(
 			teacher: cheese,
 			title: Faker::Book.title,
@@ -128,7 +128,7 @@ users.length.times do |user_index|
 			)
 			print "Q"
 			4.times do |id|
-				if id == 3
+				if id == rand(3)
 					opt = Option.create(
 						content: Faker::Lorem.word,
 						status: "Correct"

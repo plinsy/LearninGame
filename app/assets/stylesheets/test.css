@@ -1,5 +1,7 @@
 /* normalize */
-
+table a:hover{
+	color: #0097e6;
+}
 .new_test div{
 	text-align: center;
 }

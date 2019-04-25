@@ -5,24 +5,34 @@
             <div class="description jumbotron">
                 <h1 style="text-align: center;">
                     <% if action_name == 'show' %>
-                        Afficher
+                        <% if (controller_name == "students" || controller_name == "teachers") %>
+                            <%= user.last_name %> <%= user.first_name %>
+                        <% else %>
+                            Bienvenue <%= current_user.username %>
+                        <% end %>
                     <% elsif action_name == 'edit' %>
                         Editer
-                    <% elsif action_name == 'index' %>
-                        Available
-                    <% end %>
-                    <% if controller_name == 'tests' %>
-                        tests
-                    <% elsif controller_name == "games" %>
-                        Games
-                    <% elsif controller_name == "user" || "devise" %>
-                        mon profil
-                    <% elsif controller_name == 'students' %>
-                        mon profil étudiant
-                    <% elsif controller_name == 'teachers' %>
-                        mon profil professeur
+                        <% if controller_name == "students" %>
+                            mon profil élève
+                        <% else %>
+                            mon profil utilisateur
+                        <% end %>
+                    <% elsif action_name == "index" %>
+                        Tous
+                        <% if controller_name == "tests" %>
+                            les tests
+                        <% elsif controller_name == "games" %>
+                            mes jeux
+                        <% end %>
+                    <% elsif action_name == "new" %>
+                        Nouveau
+                        <% if controller_name == "doing_tests" %>
+                            test
+                        <% elsif controller_name == "tests" %>
+                            test
+                        <% end %>
                     <% else %>
-                        <%= controller_name %>
+                        <%= controller_name %> : <%= action_name %>
                     <% end %>
                 </h1>
             </div>
@@ -33,6 +43,18 @@
             </div>
             <div class="links">
                 <ul>
+                    <% if current_user.status == "Guest" %>
+                        <li>
+                            <%= link_to new_student_url do %>
+                                <i class="fas fa-user-graduate"> Nouvel élève</i>
+                            <% end %>
+                        </li>
+                        <li>
+                            <%= link_to new_teacher_url do %>
+                                <i class="fas fa-chalkboard-teacher"> Nouveau professeur</i>
+                            <% end %>
+                        </li>
+                    <% end %>
                     <li>
                         <%= link_to current_user do %>
                             <i class="fas fa-user"> Espace utilisateur</i>
@@ -85,9 +107,9 @@
                             <i class="fas fa-user-cog"> Paramètre de compte</i>
                         <% end %>
                     </li>
-                    <li>
+                    <li class="disabled" type="disabled">
                         <%= link_to user_games_path(current_user) do %>
-                            <i class="fas fa-chess"> Game space</i>
+                            <i class="fas fa-chess"> Game Space</i>
                         <% end %>
                     </li>
                 </ul>

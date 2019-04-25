@@ -1,7 +1,6 @@
 div#mySidenav {
     position: fixed;
     text-align: center;
-    width: 0;
     left: 0;
 }
 
@@ -9,7 +8,6 @@ div#mySidenav {
 .sidenav {
     height: 100%;
     /* 100% Full-height */
-    width: 17%;
     /* 0 width - change this with JavaScript */
     position: fixed;
     /* Stay in place */
@@ -74,10 +72,19 @@ div.tst {
     .sidenav {
         padding-top: 15px;
     }
-
     .sidenav a {
         font-size: 18px;
     }
+}
+@media screen and (max-width: 450px) {
+
+    div#mySidenav {
+    position: fixed;
+    text-align: center;
+    left: 0;
+    width: 50%;
+    height: 45%;
+}
 }
 
 .log_out{

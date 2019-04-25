@@ -24,6 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         level: Level.find_by(title: params[:level]),
         email: params[:user][:email]
       }
+
       teacher_params = {
         first_name: params[:first_name],
         last_name: params[:last_name],
@@ -37,33 +38,36 @@ class Users::RegistrationsController < Devise::RegistrationsController
         email: params[:user][:email]
       }
 
-    if params[:degrees].nil? && !params[:level].nil?
-      user = Student.new(student_params)
-    elsif params[:level].nil? && !params[:degrees].nil?
-      user = Teacher.new(teacher_params)
-    end
-
     user_params = params.permit(:email, :username, :password, :password_confirmation)
+
     unless params[:user].nil?
-      super
-      user.save if user
-      if params[:degrees].nil? && !params[:level].nil?
-        @user.update(status: "Student")
-      elsif params[:level].nil? && !params[:degrees].nil?
-        @user.update(status: "Teacher")
-      end
+      
+      p "S"*100
+      p super
+      p "S"*100
+    
       @user.avatar.attach(params[:user][:avatar])
+
+            if Teacher.create(teacher_params)
+              @user.update(status: "Student")
+            elsif Student.create(student_params)
+              @user.update(status: "Teacher")
+            end
+
+
     else
-      @user = User.new(user_params)
-      respond_to do |format|
-        if @user.save
-          user.save if user
-          @user.avatar.attach(params[:avatar])
-          format.html{redirect_to root_path, notice: "Registered successfully"}
-        else
-          format.html{render :new, alert: @user.errors}
-        end
-      end
+
+      # @user = User.new(user_params)
+
+      # respond_to do |format|
+      #   if @user.save
+      #     @user.avatar.attach(params[:avatar])
+      #     format.html{redirect_to root_path, notice: "Registered successfully"}
+      #   else
+      #     format.html{render :new, alert: "L'email ou le pseudo a déjà été pris"}
+      #   end
+      # end
+
     end
   end
 

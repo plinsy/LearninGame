@@ -19,4 +19,11 @@ module TeachersHelper
         alert: "You're not authorized to access this page"   
       end   
     end 
+    def my_students
+      my_students = 0
+      current_teacher.tests.each do |tst|
+        my_students += tst.students.length
+      end
+      my_students
+    end
 end

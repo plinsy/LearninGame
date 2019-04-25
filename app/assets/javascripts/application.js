@@ -94,15 +94,15 @@ $(document).ready(function() {
 
     function students() {
         for (let p = 0; p < $(`div.pourcentage`).length; p++) {
-            $pourcentage = Number($(`div.pourcentage`).eq(p).attr('value'))
+            console.log($pourcentage = Number($(`div.pourcentage`).eq(p).attr('value')));
             if ($pourcentage < 10) {
                 $(`div.progress-bar`).eq(p).addClass('bg-danger');
             } else if ($pourcentage >= 10 && $pourcentage < 25) {
                 $(`div.progress-bar`).eq(p).addClass('bg-warning');
             } else if ($pourcentage >= 25 && $pourcentage < 50) {
-                $(`div.progress-bar`).eq(p).addClass('bg-primary');
-            } else if ($pourcentage >= 50 && $pourcentage < 75) {
                 $(`div.progress-bar`).eq(p).addClass('bg-secondary');
+            } else if ($pourcentage >= 50 && $pourcentage < 75) {
+                $(`div.progress-bar`).eq(p).addClass('bg-primary');
             } else {
                 $(`div.progress-bar`).eq(p).addClass('bg-success');
             }

@@ -24,7 +24,7 @@
     position: relative;
     bottom: 20em;
     left: 2%;
-    width: 1080px;
+    width: 1085px;
     min-height: 250px;
     height: auto;
     padding: 1% 1% 1% 1%;
@@ -109,4 +109,10 @@
 }
 .user_show .row .col-md-2, .user_show .row .col-md-4 {
 	border-right: 2px solid #141C2F;
+}
+
+/* Registration */
+form select {
+    background: rgba(0, 0, 0, .5);
+    color: white;
 }

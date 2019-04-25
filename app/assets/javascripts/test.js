@@ -3,7 +3,7 @@ $(document).ready(function() {
     function addQuestion() {
         $(`button.addquestion:first`).on('click', () => {
             $(`div.questions:first`).append(`
-					<div class="question${aq}">
+					<div class="question">
 				        <div class="questioncontent" style="">
 							<textarea name="content${aq}" id="content${aq}" style="" required=""></textarea>
 					   	</div>
