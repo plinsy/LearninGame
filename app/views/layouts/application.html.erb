@@ -13,7 +13,7 @@
     <%= render 'layouts/register_modal' %>
     <%= render 'layouts/side_navbar' %>
     <%= render 'user/form' if controller_name != 'home' && controller_name != 'devise' %>
-    <%= render 'layouts/loading' if action_name == "new" %>
+    <%= render 'layouts/loading' if action_name == "new" && controller_name != 'devise' %>
 
     <div id="main">
 

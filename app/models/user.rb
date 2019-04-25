@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :trackable
 
   devise :omniauthable, omniauth_providers: [:facebook]
+  
   validates :username, presence: true, uniqueness: true      
 
  	after_create :welcome_send
