@@ -2,25 +2,25 @@
     <div class="login_and_signup login_page">
         <div class="loginbox">
             <h2>Connectez vous</h2>
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name), method: :post) do |f| %>
+            <%= form_tag(action: :create, url: user_session) do %>
             <div class="inputloginbox">
-                <%= f.text_field :login, autofocus: true, autocomplete: "email", required: "" %>
-                <%= f.label :login, "Email ou pseudo" %><br />
+                <%= text_field_tag :login, Faker::Internet.username, required: "" %>
+                <%= label_tag :login, "Email ou pseudo" %><br />
             </div>
             <div class="inputloginbox">
-                <%= f.password_field :password, autocomplete: "current-password", required: "" %>
-                <%= f.label :password, "Mot de passe" %><br />
+                <%= password_field_tag :password, "000000", required: "" %>
+                <%= label_tag :password, "Mot de passe" %><br />
             </div>
             <div class="link_connexion">
                 <div>
                     <div>
-                        <%= f.submit "Connexion" %>
+                        <%= submit_tag "Connexion" %>
                     </div>
                     <div class="two_link">
                         <div class="link">
                             <% if devise_mapping.rememberable? %>
-                            <%= f.check_box :remember_me %>
-                            <%= f.label :remember_me, "Se souvenir de moi" %>
+                            <%= check_box_tag :remember_me %>
+                            <%= label_tag :remember_me, "Se souvenir de moi" %>
                             <% end %>
                         </div>
                         <div>
