@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-      student_params = {
+      student = Student.new({
         first_name: params[:first_name],
         last_name: params[:last_name],
         date_of_birth: params[:date_of_birth],
@@ -23,9 +23,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         subject: Subject.find_by(title: params[:subject]),
         level: Level.find_by(title: params[:level]),
         email: params[:user][:email]
-      }
+      })
 
-      teacher_params = {
+      teacher = Teacher.new({
         first_name: params[:first_name],
         last_name: params[:last_name],
         date_of_birth: params[:date_of_birth],
@@ -36,23 +36,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
         subject: Subject.find_by(title: params[:subject]),
         degrees: params[:degrees],
         email: params[:user][:email]
-      }
+      })
 
     user_params = params.permit(:email, :username, :password, :password_confirmation)
 
     unless params[:user].nil?
-      
-      p "S"*100
-      p super
-      p "S"*100
+
+      super
     
       @user.avatar.attach(params[:user][:avatar])
 
-            if Teacher.create(teacher_params)
-              @user.update(status: "Student")
-            elsif Student.create(student_params)
+            p "Save"*60
+            if teacher.save
               @user.update(status: "Teacher")
+            elsif student.save
+              @user.update(status: "Student")
+            else
+              @user.update(status: "Guest")
             end
+            p "Save"*60
 
 
     else

@@ -828,7 +828,7 @@ $(document).ready(function() {
 			                <label for="student_subject">Matière préferée</label>
 			                <select name="subject" id="subject">
 			                    <option>
-			                        Random
+			                        Aléatoire
 			                    </option>
 			                    <option>
 			                        Maths / Mathematics
@@ -881,22 +881,22 @@ $(document).ready(function() {
 			                <label for="student_level">Classe actuelle</label>
 			                <select name="level" id="level">
 			                    <option>
-			                        6th
+			                        6ème
 			                    </option>
 			                    <option>
-			                        5th
+			                        5ème
 			                    </option>
 			                    <option>
-			                        4th
+			                        4ème
 			                    </option>
 			                    <option>
-			                        3rd
+			                        3ème
 			                    </option>
 			                    <option>
-			                        2nd
+			                        2nde
 			                    </option>
 			                    <option>
-			                        1st
+			                        1ère
 			                    </option>
 			                </select>
 			            </div>
@@ -1743,7 +1743,7 @@ $(document).ready(function() {
 			                <label for="teacher_subject">Matière enseignée</label>
 			                <select name="subject" id="subject">
 			                    <option>
-			                        Random
+			                        Aléatoire
 			                    </option>
 			                    <option>
 			                        Maths / Mathematics

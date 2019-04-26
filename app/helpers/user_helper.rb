@@ -6,7 +6,6 @@ module UserHelper
 		Teacher.find_by(email: current_user.email)
 	end
 	def user
-		return current_user if current_user.status == "Guest"
 		return current_student ? current_student : current_teacher
 	end
 	def edit_url
