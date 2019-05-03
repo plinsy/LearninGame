@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '2.5.1'
 
 gem 'localtunnel'
 
@@ -22,7 +22,9 @@ gem 'chartkick'
 gem 'countries'
 
 gem 'city-state'
+
 gem 'fusioncharts-rails'
+
 gem 'ruby-statistics', '~> 2.0', '>= 2.0.5'
 
 gem 'sendgrid-ruby'
@@ -30,6 +32,7 @@ gem 'sendgrid-ruby'
 gem 'i18n'
 
 gem 'omniauth', '~> 1.0'
+
 gem 'omniauth-facebook'
 
 gem 'jquery-rails'
@@ -41,6 +44,8 @@ gem 'dotenv-rails'
 gem 'table_print'
 
 gem 'devise'
+
+gem 'nokogiri'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use postgresql as the database for Active Record

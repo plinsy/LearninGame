@@ -1,10 +1,33 @@
+<style type="text/css">
+    .new_test form textarea{
+        background-color: rgba(0,0,0,.5);
+        color: white;
+        border-radius: 10px;
+        padding: 0% 1%;
+    }
+    .new_test input{
+        background-color: black;
+        color: white;
+    }
+    .new_test .qpoints input{
+        border-radius: 50%;
+        width: 90%;
+        height: 10%;
+        color: white;
+    }
+    .new_test .submit input {
+        background-color: white;
+        color: black;
+        font-size: 30px;
+    }
+</style>
 <div class="new_test">
-    <h1 style="text-align: center;">Créer un nouveau test original</h1>
+    <h1 style="text-align: center; color: white;">Créez un nouveau ultra original</h1>
     <%= form_with url: teacher_tests_path(current_teacher.id), remote: true, multipart: true do |f| %>
         <div class="">
             <div class="infos">
-                <div class="">
-                    <%= f.text_field :title, placeHolder: "Titre du test, ex: 'Le test le plus dure au monde'", style: "background-color: white;", required: "" %>
+                <div class="" style="margin-bottom: 1%;">
+                    <%= f.text_field :title, placeHolder: "Titre du test, ex: 'Le test le plus dure au monde'", style: "background-color: black; font-size: 1.5em; border: none; border-bottom: 2px solid white; text-align: center;", required: "" %>
                 </div>
                 <div class="row">
                     <div class="col-md-6">

@@ -27,7 +27,7 @@ module ResultsHelper
 	# end
 
   def test_by_score
-    bar_chart test_by_score_charts_path, height: '500px', library: {
+    column_chart test_by_score_charts_path, height: '500px', library: {
       title: {text: 'Mes tests par score' },
       xAxis: {
         allowDecimals: false,

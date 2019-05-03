@@ -1,0 +1,119 @@
+@media screen and (max-width: 1218px) {
+.ig {
+	display: flex;
+	width: 30%;
+}	
+.content-header h3 {
+	margin-left: 100px;
+	 }
+.link_button {
+	margin-left: 100px;
+}
+.login_and_signup {
+	margin-left: 200px;
+}
+}
+@media screen and (max-width: 992px) {
+.ig {
+display: flex;
+width: 30%;
+}
+.content-header h3 {
+	margin-left: 0px;
+	 }
+.link_button {
+	margin-left: 0px;
+		
+}
+.login_and_signup {
+	margin-left: 0px;
+}
+
+}
+@media screen and (max-width: 778px) {
+.content-header {
+	padding-top: 0px;
+	width: 50%;
+}
+.content-header h3 {
+	margin-top: 300px;
+}
+.ig {
+display: flex;
+width: 30%;
+}
+}
+@media screen and (max-width: 578px) {
+	.ig {
+		display: flex;
+		width: 30%;
+	}
+	.logo_number_two {
+	display: block;
+}
+.content-header {
+	padding-top: 0px;
+	width: 50%;
+}
+}
+@media screen and (max-width: 1218px) {
+	.login_and_signup {
+	margin-left: 0px;
+	padding-top:400px;
+}
+}
+@media screen and (max-width: 778px) {
+	.loginbox {
+		width: 90% !important;
+	}
+}
+@media screen and (max-width: 992px) {
+  .container {
+    width: calc(100% - 40px);
+    max-width: 100%; }
+
+  .signup-content {
+    flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -o-flex-direction: column;
+    -ms-flex-direction: column; 
+   }
+
+  .signup-img, .signup-form {
+    width: 100%; } }
+@media screen and (max-width: 768px) {
+  .register-form {
+    padding: 50px 40px 50px 40px; } }
+@media screen and (max-width: 575px) {
+  .form-row {
+    flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -o-flex-direction: column;
+    -ms-flex-direction: column;
+    margin: 0px; }
+
+  .form-row .form-group {
+    width: 100%;
+    padding: 0px; }
+
+  .radio-label {
+    padding-right: 22px; }
+
+  .form-radio-item {
+    margin-right: 25px; } }
+@media screen and (max-width: 480px) {
+  .form-radio {
+    flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -o-flex-direction: column;
+    -ms-flex-direction: column; }
+/* end media queries  */
+  .submit {
+    width: 100%; }
+
+  #reset {
+    margin-right: 0px;
+    margin-bottom: 10px; } } 

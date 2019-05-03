@@ -11,15 +11,21 @@
 				<%= questNum %>) <%= question.content %>(<%= question.points %>pts)<br>
 			</div>
 
-			<div class="options container">
+			<div class="option container">
 				<% question.options.each do |option| %>
+		   
+		            <div class="row">
+		            	<div class="col-md-1">
+		            	<input type="radio" name="opt<%= question.id %><%= questNum %>" id="opt<%= option.id %><%= questNum %>"  value="<%= option.content %>">
+		            	</div>
+		            	<div class="col-md-1">
+		            		<label for="opt<%= option.id %><%= questNum %>" style="position: relative; top: -3px;">
+		            		<span><%= option.content %></span></label>
+		            	</div>
+		            </div>
 		            
-		            <input type="radio" name="opt<%= question.id %><%= questNum %>" id="opt<%= option.id %><%= questNum %>"  value="<%= option.content %>">
-
-		            <label for="opt<%= option.id %><%= questNum %>" style="position: relative; top: -3px;"><%= option.content %></label><br>
 
 				<% end %>
-				<br>
 			</div>
 
 			<% questNum += 1 %>

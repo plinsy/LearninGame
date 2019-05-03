@@ -512,3 +512,61 @@ input[type=submit]:hover {
 .links a:hover {
     color: blue;
 }
+
+
+.question_section {
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+    margin-left: 25px;
+    justify-content: center;
+}
+.question_section .true {
+    background-color: rgba(5,205,53,1);
+}
+.question_section .true span {
+    color: #fff;
+}
+.question_section .choice_false {
+    background-color: rgba(209,5,43,1);
+}
+.question_section .choice_false span {
+    color: #fff;
+}
+.question_section .choice_true {
+    background-color: #47cccd;
+}
+.question_section .choice_true span {
+    color: #fff;
+}
+.question_section div div {
+    width:400px;
+    background-color: #ffff;
+    margin-right: 30px;
+    padding: 0 10px 0 10px;
+    height: 60px;
+    border: 2px solid rgba(0,0,0, .4);
+    margin-bottom: 10px;
+}
+.question_section div span {
+    margin-left: 25px;
+    display: flex;
+    margin-top: 20px;
+    color: #F16F9A;
+    font-family: serif;
+    font-size: 17px;
+}
+.section_qcm h1 {
+    text-align: center;
+}
+.register-question {
+    padding: 0px 100px 50px 70px;
+}
+.section_qcm p {
+    margin-left: 30px;
+}
+.section_qcm input[type=radio] {
+    visibility:visible;
+        left: 70%;
+        top:10%;
+}

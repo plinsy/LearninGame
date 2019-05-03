@@ -1,8 +1,8 @@
 body {
     /* background: url('The-Matrix-code-animated.gif') fixed ; */
-     background: url('1095591_pixel-gif-wallpaper.gif') fixed;
+    background: url('1095591_pixel-gif-wallpaper.gif') fixed;
     background-size: cover;
-  overflow-x: hidden;
+    overflow-x: hidden;
     width: 100%;
 
 }
@@ -29,11 +29,11 @@ footer {
 }
 
 .user_form{
-    z-index: 7;
+    z-index: 5;
 }
 
 navbar {
-    z-index: 5;
+    z-index: 6;
 }
 
 div#search_result {
