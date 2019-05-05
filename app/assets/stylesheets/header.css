@@ -23,6 +23,7 @@ body {
     display: none;
     border-radius: 50px;
 }
+
 #topbutton:hover {
     background: #2a6496;
 }
@@ -200,17 +201,19 @@ navbar {
     align-content: space-between;
     background-color: #141C2F;
 }
+
 .section_home {
     display: flex;
     flex-wrap: wrap;
     align-content: space-between;
     padding-top: 25px;
-    background:url('../assets/giphy.gif');
+    background: url('../assets/giphy.gif');
     background-size: cover;
     background-position: center;
     height: 550px;
     position: relative;
 }
+
 .content-header {
     display: flex;
     align-items: center;
@@ -218,22 +221,25 @@ navbar {
     flex-direction: column;
     padding-top: 200px;
 }
-.content-header h3  {
+
+.content-header h3 {
     font-family: serif;
-    color:#ffff;
+    color: #ffff;
     display: flex;
     font-size: 35px;
     margin-left: 100px;
     padding: 14px 25px 14px 25px;
-       background-color: rgba(80, 156, 216,.4);
+    background-color: rgba(80, 156, 216, .4);
     border-radius: 0px 5px 75px 0px;
-     }
+}
+
 .link_button {
     margin-top: 25px;
     display: flex;
     flex-wrap: wrap;
     align-content: space-between;
 }
+
 .ig {
     display: flex;
     width: 350px;
@@ -242,95 +248,112 @@ navbar {
 
 /* media queries */
 @media screen and (max-width: 1218px) {
-.ig {
-    display: flex;
-    width: 30%;
-}   
-.content-header h3 {
-    margin-left: 100px;
-     }
-.link_button {
-    margin-left: 100px;
-}
-.login_and_signup {
-    margin-left: 200px;
-}
-}
-@media screen and (max-width: 992px) {
-.ig {
-display: flex;
-width: 30%;
-}
-.content-header h3 {
-    margin-left: 0px;
-     }
-.link_button {
-    margin-left: 0px;
-        
-}
-.login_and_signup {
-    margin-left: 0px;
+    .ig {
+        display: flex;
+        width: 30%;
+    }
+
+    .content-header h3 {
+        margin-left: 100px;
+    }
+
+    .link_button {
+        margin-left: 100px;
+    }
+
+    .login_and_signup {
+        margin-left: 200px;
+    }
 }
 
+@media screen and (max-width: 992px) {
+    .ig {
+        display: flex;
+        width: 30%;
+    }
+
+    .content-header h3 {
+        margin-left: 0px;
+        margin-top: 300px;
+    }
+
+    .link_button {
+        margin-left: 0px;
+
+    }
+
+    .login_and_signup {
+        margin-left: 0px;
+    }
+
 }
+
 @media screen and (max-width: 778px) {
-.content-header {
-    padding-top: 0px;
-    width: 50%;
+    .content-header {
+        padding-top: 0px;
+        width: 50%;
+    }
+
+    .ig {
+        display: flex;
+        width: 30%;
+    }
 }
-.content-header h3 {
-    margin-top: 300px;
-}
-.ig {
-display: flex;
-width: 30%;
-}
-}
+
 @media screen and (max-width: 578px) {
     .ig {
         display: flex;
         width: 30%;
     }
+
     .logo_number_two {
-    display: block;
+        display: block;
+    }
+
+    .content-header {
+        padding-top: 0px;
+        width: 50%;
+    }
 }
-.content-header {
-    padding-top: 0px;
-    width: 50%;
-}
-}
+
 .login_and_signup {
-    padding-top: 250px;
+    padding-top: 5%;
     background: url('../assets/background-login.jpg');
     background-size: cover;
     background-position: center;
     height: 940px;
-    }
-    .login_page {
+}
+
+.login_page {
     display: flex;
     align-items: center;
     justify-content: right;
     flex-direction: column;
 }
+
 @media screen and (max-width: 1218px) {
     .login_and_signup {
-    margin-left: 0px;
-    padding-top:400px;
+        margin-left: 0px;
+        padding-top: 400px;
+    }
 }
-}
+
 @media screen and (max-width: 778px) {
     .loginbox {
         width: 90% !important;
     }
 }
-    .two_link input[type="checkbox"] {
-            width: 20px;
-    }
-    .link {
+
+.two_link input[type="checkbox"] {
+    width: 20px;
+}
+
+.link {
     display: flex;
-  align-items: stretch;
-    }
-  /* end connexion */
+    align-items: stretch;
+}
+
+/* end connexion */
 
 /* end media queries */
 .link_connexion {
@@ -372,7 +395,7 @@ width: 30%;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 5px;
-   background-color: rgb(19, 28, 46);
+    background-color: rgb(19, 28, 46);
     font-family: Open Sans, sans-serif;
 }
 
@@ -418,7 +441,7 @@ width: 30%;
     transition: width 0.4s linear;
 }
 
-.search_submit{
+.search_submit {
     width: 50%;
     border-radius: 30px;
 }

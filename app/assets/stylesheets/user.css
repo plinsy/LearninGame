@@ -100,7 +100,7 @@
     max-width: 1100px;
 }
 
-.user_form .content {
+.user_form #main {
     max-width: 1000px;
 }
 

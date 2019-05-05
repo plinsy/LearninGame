@@ -19,7 +19,7 @@
                             <%= current_user.email %></strong></h3>
                 </div>
             </div>
-            <% unless current_user.status == "Guest" %>
+            <% unless current_user.status == "Guest" || current_user.status == "Admin" %>
                 
             <div class="row">
                 <div class="col-md-4">
@@ -50,7 +50,7 @@
             </div>
             <% end %>
             <div class="row">
-                <% unless current_user.status == "Guest" %>
+                <% unless current_user.status == "Guest" || current_user.status == "Admin"%>
                 <div class="col-md-4">
                     <h3><strong>
                             <%= link_to edit_url, class: "btn btn-primary" do %>

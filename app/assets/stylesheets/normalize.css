@@ -1,10 +1,15 @@
 body {
     /* background: url('The-Matrix-code-animated.gif') fixed ; */
-     background: url('1095591_pixel-gif-wallpaper.gif') fixed;
+    background: url('1095591_pixel-gif-wallpaper.gif') fixed;
     background-size: cover;
-  overflow-x: hidden;
+    overflow-x: hidden;
     width: 100%;
 
+}
+
+.disabled{
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 div#flash {
@@ -24,11 +29,11 @@ footer {
     z-index: 6;
 }
 
-.users_content{
+.users_content {
     z-index: 5;
 }
 
-.user_form{
+.user_form {
     z-index: 7;
 }
 
@@ -39,6 +44,7 @@ navbar {
 div#search_result {
     z-index: 5;
 }
+
 section {
     z-index: 4;
 }
@@ -48,14 +54,14 @@ a:hover {
     color: white;
 }
 
-#main{
+#main {
     padding-top: 5%;
     /* overflow-x: hidden; */
     /* width: 100%; */
 }
 
-#main #yield{
-    margin-top: 1%;
+#main #yield {
+    margin-top: 0%;
 }
 
 /* Scrollbar */

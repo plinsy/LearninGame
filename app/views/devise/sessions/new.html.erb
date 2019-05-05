@@ -4,11 +4,11 @@
             <h2>Connectez vous</h2>
             <%= form_tag(action: :create, url: user_session) do %>
             <div class="inputloginbox">
-                <%= text_field_tag :login, Faker::Internet.username, required: "" %>
+                <%= text_field_tag :login, Faker::Internet.username, required: "", class: "form-control" %>
                 <%= label_tag :login, "Email ou pseudo" %><br />
             </div>
             <div class="inputloginbox">
-                <%= password_field_tag :password, "000000", required: "" %>
+                <%= password_field_tag :password, "000000", required: "", class: "form-control" %>
                 <%= label_tag :password, "Mot de passe" %><br />
             </div>
             <div class="link_connexion">

@@ -5,39 +5,59 @@
             <div class="form">
                 <div class="userDiv">
                     <h2>Créer un compte gratuitement</h2>
-                    <div class="inputloginbox">
-                        <%= f.email_field :email, autofocus: true, autocomplete: "email", required: "" %>
-                        <%= f.label :email %><br />
+                    <div class="def">
+                        <h3>Bienvenue dans learning Game</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
-                    <div class="inputloginbox">
-                        <%= f.text_field :username, autofocus: true, autocomplete: "username", required: "" %>
-                        <%= f.label :username, "Nouveau pseudo" %><br />
+                    <div class="def inputloginbox">
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email", required: "",class:"form-control" %>
+                        <%= f.label :email %>
                     </div>
-                    <div class="inputloginbox">
-                        <%= f.password_field :password, autocomplete: "new-password", required: "" %>
-                        <%= f.label :password, "Nouveau mot de passe" %>
-                        <% if @minimum_password_length %>
-                        <em>(
-                            <%= @minimum_password_length %> characters minimum)</em>
-                        <% end %>
+                    <div class="def inputloginbox">
+                        <%= f.text_field :username, autofocus: true, autocomplete: "username", required: "",class:"form-control" %>
+                        <%= f.label :username, "Pseudo" %>
                     </div>
-                    <div class="inputloginbox">
-                        <%= f.password_field :password_confirmation, autocomplete: "new-password", required: "" %>
-                        <%= f.label :password_confirmation, "Confirmer votre mot de passe" %><br />
+                    <div class="def">
+                        <div class="inputloginbox">
+                            <%= f.password_field :password, autocomplete: "new-password", required: "",class:"form-control" %>
+                            <% if @minimum_password_length %>
+                            <em>(
+                                <%= @minimum_password_length %> characters minimum)</em>
+                            <% end %>
+                            <%= f.label :password, "Nouveau mot de passe" %>
+                        </div>
+                        <div class="inputloginbox">
+                            <%= f.password_field :password_confirmation, autocomplete: "new-password", required: "",class:"form-control" %>
+                            <%= f.label :password_confirmation, "Confirmation du mot de passe" %>
+                        </div>
                     </div>
-                    <div class="">
+                    <div class="def form-group">
                         <%= f.label :avatar, "Choisissez votre avatar" %>
-                        <%= f.file_field :avatar %>
-                    </div><br>
+                        <%= f.file_field :avatar, class: "form-control" %>
+                    </div>
+                    <div class="def account_type">
+                        <select class="user_status">
+                            <option name="status">Student</option>
+                            <option name="status">Teacher</option>
+                            <option name="status">Guest</option>
+                        </select>
+                    </div>
+                    <div class="def button_submit" style="width: 100%;">
+                        <%= f.submit "S'inscrire" %>
+                    </div>
                 </div>
             </div>
-            <div class="button_submit" style="width: 100%;">
-                <%= f.submit "S'inscrire" %>
-            </div>
             <% end %>
-            <div class="row" style="margin-top: 5%;">
-                <div class="col-md-6" style="text-align: center;"><button class="new_student btn btn-light"> S'inscrire en tant qu'élève</button></div>
-                <div class="col-md-6" style="text-align: center;"><button class="new_teacher btn btn-dark"> S'inscrire en tant que prof</button></div>
+            <!-- <div class="def col-md-6" style="text-align: center;"><button class="new_student btn btn-light"> S'inscrire en tant qu'élève</button></div> -->
+            <!-- <div class="def col-md-6" style="text-align: center;"><button class="new_teacher btn btn-dark"> S'inscrire en tant que prof</button></div> -->
+            <div class="buttons row">
+                <div class="col-8"></div>
+                <div class="col-4 row">           
+                    <button class="previous_step btn btn-outline-link col-6">retour</button>
+
+                    <button class="next_step btn btn-success col-6">Suivant</button>
+                </div>
             </div>
         </div>
     </div>
@@ -45,3 +65,8 @@
 <div class="links" style="text-align: center; background: white; opacity: 1;">
     <%= render "devise/shared/links" %>
 </div>
+<style type="text/css">
+.def {
+    margin: 5% 2% 3% 2%;
+}
+</style>

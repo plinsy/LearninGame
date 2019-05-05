@@ -1,10 +1,15 @@
-<div class="se-pre-con" style="" onclick="location.reload()">
+<div class="se-pre-con" style="" onclick="reloadPage()">
     <h1 style="text-align: center; font-family: 'Orbitron'; padding-top: 15%;">Click anywhere to continue</h1>
 </div>
 <script type="text/javascript">
+    function reloadPage() {
+        location = location + "#";
+        location.reload();
+    }
 //paste this code under the head tag or in a separate js file.
 // Wait for window load
 $(window).load(function() {
+    
 
     //Check if the current URL contains '# or hash'
     if (document.URL.indexOf("#") == -1) {
