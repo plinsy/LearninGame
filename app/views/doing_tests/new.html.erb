@@ -1,30 +1,60 @@
-<center>
-<h3><%= @test.title %>(<%= @totalPoints %>points)</h3>
-</center>
+<div class="row">
+    <div class="col-2" style="border-right: 2px solid ;"></div>
+    <div class="col-10">
+        <center>
+            <h3>
+                <%= @test.title %>(
+                <%= @totalPoints %>points)</h3>
+        </center>
+    	<div class="intro" style="">
+		    <p>Le test va se dérouler de cette façon: <br>
+		        <ul>
+		            <li>Tu auras au maximum 10 minutes pour répondre à 10 questions</li>
+		            <li>Chaque question t'apportera le nombre de point correspondant</li>
+		            <li>Selon ton choix, tu peux choisir de passer une question et d'y revenir plustard</li>
+		            <li>Clique sur "c'est parti!" si t'es prêt et bonne chance!</li>
+		            <li><button class="btn btn-link" style="border-radius: 50%">C'est parti</button></li>
+		        </ul>
+		    </p>
+		</div>
+        <%= form_with url: student_test_doing_tests_path(@student.id, @test.id) do |f| %>
+        <div class="questions">
+            <% questNum = 1 %>
+            <% @test.questions.each do |question| %>
+            <div class="question">
+                <%= questNum %>)
+                <%= question.content %>(
+                <%= question.points %>pts)<br>
+            </div>
+            <div class="option container">
+                <% question.options.each do |option| %>
+                <div class="row">
+                    <div class="col-md-1">
+                        <input type="radio" name="opt<%= question.id %><%= questNum %>" id="opt<%= option.id %><%= questNum %>" value="<%= option.content %>">
+                    </div>
+                    <div class="col-md-1">
+                        <label for="opt<%= option.id %><%= questNum %>" style="position: relative; top: -3px;">
+                            <span>
+                                <%= option.content %></span></label>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+            <% questNum += 1 %>
+            <% end %>
+        </div>
+        <%= f.submit "Result" %>
+        <% end %>
+    </div>
+</div>
+<script type="text/javascript">
+$(window).load(function() {
 
-<%= form_with url: student_test_doing_tests_path(@student.id, @test.id) do |f| %>
-	<div class="questions">
-		<% questNum = 1 %>
-		<% @test.questions.each do |question| %>
+    let he_want_start = false
 
-			<div class="question">
-				<%= questNum %>) <%= question.content %>(<%= question.points %>pts)<br>
-			</div>
+    if (he_want_start) {
+        $(".intro:first").fadeOut("slow");
+    }
 
-			<div class="options container">
-				<% question.options.each do |option| %>
-		            
-		            <input type="radio" name="opt<%= question.id %><%= questNum %>" id="opt<%= option.id %><%= questNum %>"  value="<%= option.content %>">
-
-		            <label for="opt<%= option.id %><%= questNum %>" style="position: relative; top: -3px;"><%= option.content %></label><br>
-
-				<% end %>
-				<br>
-			</div>
-
-			<% questNum += 1 %>
-
-		<% end %>
-	</div>
-	<%= f.submit "Result" %>
-<% end %>
+});
+</script>

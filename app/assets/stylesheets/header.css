@@ -223,14 +223,14 @@ navbar {
 }
 
 .content-header h3 {
-    font-family: serif;
+    /* font-family: serif; */
     color: #ffff;
-    display: flex;
-    font-size: 35px;
-    margin-left: 100px;
-    padding: 14px 25px 14px 25px;
-    background-color: rgba(80, 156, 216, .4);
-    border-radius: 0px 5px 75px 0px;
+    /* display: flex; */
+    font-size: 30px;
+    /* margin-left: 100px; */
+    /* padding: 14px 25px 14px 25px; */
+    /* background-color: rgba(80, 156, 216, .4); */
+    /* border-radius: 0px 5px 75px 0px; */
 }
 
 .link_button {

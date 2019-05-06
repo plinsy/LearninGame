@@ -4,47 +4,48 @@
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), action: :create, method: :post, multipart: true, class: "register-form") do |f| %>
             <div class="form">
                 <div class="userDiv">
-                    <h2>Créer un compte gratuitement</h2>
+                    <h3 style="font-family: 'Orbitron'; text-align: center; padding: 0% 5%;">Bienvenue dans <strong>learninGame</strong></h3>
                     <div class="def">
-                        <h3>Bienvenue dans learning Game</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                    <div class="def inputloginbox">
-                        <%= f.email_field :email, autofocus: true, autocomplete: "email", required: "",class:"form-control" %>
-                        <%= f.label :email %>
-                    </div>
-                    <div class="def inputloginbox">
-                        <%= f.text_field :username, autofocus: true, autocomplete: "username", required: "",class:"form-control" %>
-                        <%= f.label :username, "Pseudo" %>
+                        <p style="color: #fff; font-size: 1.2em;">Ici vous aurez l'occasion d'apprendre en vous amusant, (c'est un peu cliché mais on s'en fou). Cette inscription ne se fait qu'une seule fois et est un petit peu long mais pas de panique, c'est pour votre sécurité et pour vous garantir un maximum de fun. Sans plus tarder, je vous invite à poursuivre l'inscription.</p>
                     </div>
                     <div class="def">
                         <div class="inputloginbox">
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email", required: "",class:"form-control" %>
+                            <%= f.label :email %>
+                        </div>
+                        <div class="inputloginbox">
+                            <%= f.text_field :username, autofocus: true, autocomplete: "username", required: "",class:"form-control" %>
+                            <%= f.label :username, "Pseudo" %>
+                        </div>
+                        <div class="inputloginbox">
                             <%= f.password_field :password, autocomplete: "new-password", required: "",class:"form-control" %>
-                            <% if @minimum_password_length %>
-                            <em>(
-                                <%= @minimum_password_length %> characters minimum)</em>
-                            <% end %>
-                            <%= f.label :password, "Nouveau mot de passe" %>
+                            <%= f.label :password, "Nouveau mot de passe(#{@minimum_password_length if @minimum_password_length} characters minimum)" %>
                         </div>
                         <div class="inputloginbox">
                             <%= f.password_field :password_confirmation, autocomplete: "new-password", required: "",class:"form-control" %>
                             <%= f.label :password_confirmation, "Confirmation du mot de passe" %>
                         </div>
                     </div>
-                    <div class="def form-group">
-                        <%= f.label :avatar, "Choisissez votre avatar" %>
-                        <%= f.file_field :avatar, class: "form-control" %>
+                    <div class="def">
+                        <div class="form-group">
+                            <%= f.label :avatar, "Choisissez votre avatar" %>
+                            <%= f.file_field :avatar, class: "form-control" %>
+                        </div>
+                        <div class="account_type">
+                            <label for="user_status">S'inscrire en tant que</label>
+                            <select class="user_status" id="user_status">
+                                <option name="status">Invité</option>
+                                <option name="status">Eleve</option>
+                                <option name="status">Professeur</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="def account_type">
-                        <select class="user_status">
-                            <option name="status">Student</option>
-                            <option name="status">Teacher</option>
-                            <option name="status">Guest</option>
-                        </select>
-                    </div>
-                    <div class="def button_submit" style="width: 100%;">
-                        <%= f.submit "S'inscrire" %>
+                    <div class="def">
+                        <div class="student_teacher_form">
+                        </div><br>
+                        <div class="button_submit" style="width: 100%; ">
+                            <%= f.submit "S'inscrire", style: "border-radius: 20px;" %>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,11 +53,12 @@
             <!-- <div class="def col-md-6" style="text-align: center;"><button class="new_student btn btn-light"> S'inscrire en tant qu'élève</button></div> -->
             <!-- <div class="def col-md-6" style="text-align: center;"><button class="new_teacher btn btn-dark"> S'inscrire en tant que prof</button></div> -->
             <div class="buttons row">
+                <div class="col-2">
+                    <button class="previous_step btn btn-outline-secondary ">retour</button>
+                </div>
                 <div class="col-8"></div>
-                <div class="col-4 row">           
-                    <button class="previous_step btn btn-outline-link col-6">retour</button>
-
-                    <button class="next_step btn btn-success col-6">Suivant</button>
+                <div class="col-2">
+                    <button class="next_step btn btn-outline-info">Suivant</button>
                 </div>
             </div>
         </div>
@@ -68,5 +70,8 @@
 <style type="text/css">
 .def {
     margin: 5% 2% 3% 2%;
+}
+header.sign_up button{
+
 }
 </style>

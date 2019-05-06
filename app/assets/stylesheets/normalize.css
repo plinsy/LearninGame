@@ -7,7 +7,7 @@ body {
 
 }
 
-.disabled{
+.disabled {
     cursor: not-allowed;
     pointer-events: none;
 }
@@ -38,7 +38,7 @@ footer {
 }
 
 navbar {
-    z-index: 5;
+    z-index: 6;
 }
 
 div#search_result {
