@@ -3641,9 +3641,13 @@ $(document).ready(function() {
         let def = -1;
         // Registration carousel
         $(`div.def`).hide();
-
+        $(`button.previous_step:first`).html(``);
         $(`button.next_step:first`).on('click', function() {
-        	$(`div.intro:first`).remove();
+        	if(def == -1){
+        		$(`div.intro:first`).remove(); 
+        		$(`button.previous_step:first`).html(`Retour`);
+        		startCountdown();
+        	}
             $(`div.def`).eq(def).hide();
             (def + 1 == $(`div.def`).length) ? def = 0 : def += 1;
             $(`div.def`).eq(def).show();

@@ -10,72 +10,110 @@
                 <center>
                     <h6><strong>Temps restant</strong></h6>
                 </center>
-                <canvas id="myCanvas">
-                </canvas>
+                <div id="myCanvas">
+                    <p id="demo" style="text-align: center; margin: 1% 0%;">
+                    10:00
+                    </p>
+                </div>
             </div>
             <div class="buttons row">
                 <button class="previous_step col-6 btn btn-outline-light">Retour</button>
                 <button class="next_step col-6 btn btn-outline-dark">Suivant</button>
             </div>
         </div>
-        <%= form_with url: student_test_doing_tests_path(@student.id, @test.id) do |f| %>
         <div class="question-section col-md-10">
+        <%= form_with url: student_test_doing_tests_path(@student.id, @test.id) do |f| %>
             <div class="intro" style="">
                 <p>Le test va se dérouler de cette façon: <br>
                     <ul>
                         <li>Tu auras au maximum 10 minutes pour répondre à 10 questions</li>
                         <li>Chaque question t'apportera le nombre de point correspondant</li>
                         <li>Selon ton choix, tu peux choisir de passer une question et d'y revenir plustard</li>
-                        <li>Clique sur "c'est parti!" si t'es prêt et bonne chance!</li>
-                        <li><button class="btn btn-link" style="border-radius: 50%">C'est parti</button></li>
+                        <li>Clique sur "Suivant" si t'es prêt et bonne chance!</li>
                     </ul>
                 </p>
             </div>
             <% questNum = 1 %>
-            <ol>
-                <% @test.questions.each do |question| %>
-                <div class="def">
-                    <div class="question-title">
-                        <li>
-                            <h4>
-                                <%= question.content %>(
-                                <%= question.points %>pts)</h4>
-                        </li>
-                    </div>
-                    <div class="question-options">
-                        <% question.options.each do |option| %>
-                        <div class="row">
-                            <div class="input col-1">
-                                <input type="radio" name="opt<%= question.id %><%= questNum %>" id="opt<%= option.id %><%= questNum %>" value="<%= option.content %>">
-                            </div>
-                            <label for="opt<%= option.id %><%= questNum %>" style="">
-                                <span>
-                                    <%= option.content %></span></label>
+            <% @test.questions.each do |question| %>
+            <div class="def">
+                <div class="question-title">
+                    <h2>
+                        <%= questNum %>)
+                        <%= question.content %>(
+                        <%= question.points %>pts)</h2>
+                </div>
+                <div class="question-options">
+                    <% question.options.each do |option| %>
+                    <div class="row">
+                        <div class="input col-1">
+                            <input type="radio" name="opt<%= question.id %><%= questNum %>" id="opt<%= option.id %><%= questNum %>" value="<%= option.content %>">
                         </div>
-                        <% end %>
+                        <label for="opt<%= option.id %><%= questNum %>" style="">
+                            <span>
+                                <%= option.content %></span></label>
                     </div>
+                    <% end %>
                 </div>
-                <% questNum += 1 %>
-                <% end %>
-            </ol>
-                <div class="def row">
-                    <p class="col-8">
-                        Vérifies bien tes réponses avant de valider.
-                        Et n'oublies pas de répondre à toutes les questions.
-                    </p>
-                    <div class="submit col-4" style="">
-                        <img src="../assets/clickhere.gif" width="100" height="100">
-                        <%= f.submit "Valider", :disable_with => 'Valider...' %>
-                    </div>
+            </div>
+            <% questNum += 1 %>
+            <% end %>
+            <div class="def">
+                <p class="col-6">
+                    Vérifies bien tes réponses avant de valider.
+                    Et n'oublies pas de répondre à toutes les questions.
+                </p>
+                <div class="col-6">
+                    <%= f.submit "Valider", :disable_with => 'Valider...' %>
                 </div>
+            </div>
         </div>
         <% end %>
     </div>
 </div>
+<!-- Display the countdown timer in an element -->
+<script>
+    function startCountdown(){
+        // Set the date we're counting down to
+        var countDownDate = new Date().getTime() + 10*60000;
 
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+          // Get todays date and time
+          var now = new Date().getTime();
+
+          // Find the distance between now and the count down date
+          var distance = countDownDate - now;
+
+          // Time calculations for days, hours, minutes and seconds
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          // Display the result in the element with id="demo"
+          document.getElementById("demo").innerHTML = `${minutes}:${seconds}`;
+
+          // If the count down is finished, write some text 
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+          }
+        }, 1000);
+    }
+</script>
 <style type="text/css">
 .doing_test {
     background-color: rgba(0, 0, 0, .5)
+}
+.doing_test form{
+    width: 80%;
+}
+.doing_test .def{
+    padding: 2% 5% 2% 5%;
+}
+.doing_test .def *{
+    font-size: 15px;
 }
 
 .doing_test .input {
