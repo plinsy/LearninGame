@@ -1,60 +1,152 @@
-<div class="row">
-    <div class="col-2" style="border-right: 2px solid ;"></div>
-    <div class="col-10">
-        <center>
-            <h3>
-                <%= @test.title %>(
-                <%= @totalPoints %>points)</h3>
-        </center>
-    	<div class="intro" style="">
-		    <p>Le test va se dérouler de cette façon: <br>
-		        <ul>
-		            <li>Tu auras au maximum 10 minutes pour répondre à 10 questions</li>
-		            <li>Chaque question t'apportera le nombre de point correspondant</li>
-		            <li>Selon ton choix, tu peux choisir de passer une question et d'y revenir plustard</li>
-		            <li>Clique sur "c'est parti!" si t'es prêt et bonne chance!</li>
-		            <li><button class="btn btn-link" style="border-radius: 50%">C'est parti</button></li>
-		        </ul>
-		    </p>
-		</div>
-        <%= form_with url: student_test_doing_tests_path(@student.id, @test.id) do |f| %>
-        <div class="questions">
-            <% questNum = 1 %>
-            <% @test.questions.each do |question| %>
-            <div class="question">
-                <%= questNum %>)
-                <%= question.content %>(
-                <%= question.points %>pts)<br>
+<div class="doing_test jumbotron">
+    <center>
+        <h3>
+            <%= @test.title %>(
+            <%= @totalPoints %>points)</h3>
+    </center>
+    <div class="t-q row">
+        <div class="timer-section col-md-2 flex-column">
+            <div class="flex-column">
+                <center>
+                    <h6><strong>Temps restant</strong></h6>
+                </center>
+                <canvas id="myCanvas">
+                </canvas>
             </div>
-            <div class="option container">
-                <% question.options.each do |option| %>
-                <div class="row">
-                    <div class="col-md-1">
-                        <input type="radio" name="opt<%= question.id %><%= questNum %>" id="opt<%= option.id %><%= questNum %>" value="<%= option.content %>">
+            <div class="buttons row">
+                <button class="previous_step col-6 btn btn-outline-light">Retour</button>
+                <button class="next_step col-6 btn btn-outline-dark">Suivant</button>
+            </div>
+        </div>
+        <%= form_with url: student_test_doing_tests_path(@student.id, @test.id) do |f| %>
+        <div class="question-section col-md-10">
+            <div class="intro" style="">
+                <p>Le test va se dérouler de cette façon: <br>
+                    <ul>
+                        <li>Tu auras au maximum 10 minutes pour répondre à 10 questions</li>
+                        <li>Chaque question t'apportera le nombre de point correspondant</li>
+                        <li>Selon ton choix, tu peux choisir de passer une question et d'y revenir plustard</li>
+                        <li>Clique sur "c'est parti!" si t'es prêt et bonne chance!</li>
+                        <li><button class="btn btn-link" style="border-radius: 50%">C'est parti</button></li>
+                    </ul>
+                </p>
+            </div>
+            <% questNum = 1 %>
+            <ol>
+                <% @test.questions.each do |question| %>
+                <div class="def">
+                    <div class="question-title">
+                        <li>
+                            <h4>
+                                <%= question.content %>(
+                                <%= question.points %>pts)</h4>
+                        </li>
                     </div>
-                    <div class="col-md-1">
-                        <label for="opt<%= option.id %><%= questNum %>" style="position: relative; top: -3px;">
-                            <span>
-                                <%= option.content %></span></label>
+                    <div class="question-options">
+                        <% question.options.each do |option| %>
+                        <div class="row">
+                            <div class="input col-1">
+                                <input type="radio" name="opt<%= question.id %><%= questNum %>" id="opt<%= option.id %><%= questNum %>" value="<%= option.content %>">
+                            </div>
+                            <label for="opt<%= option.id %><%= questNum %>" style="">
+                                <span>
+                                    <%= option.content %></span></label>
+                        </div>
+                        <% end %>
                     </div>
                 </div>
+                <% questNum += 1 %>
                 <% end %>
-            </div>
-            <% questNum += 1 %>
-            <% end %>
+            </ol>
+                <div class="def row">
+                    <p class="col-8">
+                        Vérifies bien tes réponses avant de valider.
+                        Et n'oublies pas de répondre à toutes les questions.
+                    </p>
+                    <div class="submit col-4" style="">
+                        <img src="../assets/clickhere.gif" width="100" height="100">
+                        <%= f.submit "Valider", :disable_with => 'Valider...' %>
+                    </div>
+                </div>
         </div>
-        <%= f.submit "Result" %>
         <% end %>
     </div>
 </div>
-<script type="text/javascript">
-$(window).load(function() {
 
-    let he_want_start = false
+<style type="text/css">
+.doing_test {
+    background-color: rgba(0, 0, 0, .5)
+}
 
-    if (he_want_start) {
-        $(".intro:first").fadeOut("slow");
-    }
+.doing_test .input {
+    text-align: right;
+    padding-right: 1%;
+    /*border: 1px solid red;*/
+}
 
-});
-</script>
+.doing_test label {
+    text-align: left;
+    padding-left: 1%;
+    /*border: 1px solid red;*/
+}
+
+.doing_test .timer-section {
+    border-right: 2px double;
+    border: 5px solid;
+    border-radius: 5px;
+    box-shadow: 15px 10px 5px 0px,
+}
+
+.doing_test #myCanvas {
+    width: 100%;
+    height: 75%;
+    border: 5px solid;
+    border-radius: 5px;
+    box-shadow: 15px 10px 5px 0px,
+}
+
+.doing_test #myCanvas:hover {
+    box-shadow: 20px 15px 10px 5px,
+}
+
+.doing_test .t-q {}
+
+.doing_test .buttons {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+.doing_test .buttons button {
+    font-size: 10px;
+    color: orange;
+}
+
+.doing_test .buttons .next_step {
+    position: relative;
+    right: 0;
+}
+
+.doing_test .question-options {
+    width: 100%;
+}
+
+.doing_test .question-options .input {
+    width: 10px;
+}
+
+.doing_test .question-options input {
+    border-bottom: 1px solid;
+}
+
+.doing_test .question-options label {}
+
+.doing_test .question-section {
+    border-top: 2px solid;
+    border-right: 2px solid;
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 5px 2px 3px 0px;
+}
+
+.doing_test .question-title {}
+</style>

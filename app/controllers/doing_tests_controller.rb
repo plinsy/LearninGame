@@ -25,6 +25,8 @@ class DoingTestsController < ApplicationController
 
     check(@answers)
 
+    increase_score(current_student)
+
   	respond_to do |format|
   		if @doing_test.save
         Result.create(title: @test.title, student_id: @student, test_id: @test.id) 			

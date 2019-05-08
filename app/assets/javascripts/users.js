@@ -3638,25 +3638,21 @@ $(document).ready(function() {
     }
 
     function registrationCarousel() {
-        let def = 0;
+        let def = -1;
         // Registration carousel
-        $(`div.userDiv .def`).hide();
+        $(`div.def`).hide();
 
-        $(`div.userDiv .def`).eq(def).show();
         $(`button.next_step:first`).on('click', function() {
-            $(`div.userDiv .def`).eq(def).hide();
-            (def + 1 == $(`div.userDiv .def`).length) ? def = 0 : def += 1;
-            $(`div.userDiv .def`).eq(def).show();
+        	$(`div.intro:first`).remove();
+            $(`div.def`).eq(def).hide();
+            (def + 1 == $(`div.def`).length) ? def = 0 : def += 1;
+            $(`div.def`).eq(def).show();
         })
         $(`button.previous_step:first`).on('click', function() {
-            $(`div.userDiv .def`).eq(def).hide();
-            (def - 1 == -1) ? def = $(`div.userDiv .def`).length - 1 : def -= 1;
-            $(`div.userDiv .def`).eq(def).show();
+            $(`div.def`).eq(def).hide();
+            (def - 1 == -1) ? def = $(`div.def`).length - 1 : def -= 1;
+            $(`div.def`).eq(def).show();
         })
-	    
-	    if (def != 0){
-	        $(`button.previous_step:first`).show();
-	    }
     }
     registrationCarousel();
 

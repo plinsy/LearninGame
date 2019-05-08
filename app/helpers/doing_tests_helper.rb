@@ -1,7 +1,7 @@
 module DoingTestsHelper
 	def authenticate_test
-		if current_test.is_done
-			redirect_to root_path,
+		if current_test.students.include? current_student
+			redirect_to student_path(current_student.id),
 			alert: "You are clever, but I'm more than you !"
 		end
 		
@@ -53,5 +53,9 @@ module DoingTestsHelper
 		end
 		@test.is_done = true
 		@test.save
+	end
+
+	def increase_score(student)
+		@test.score > 10 ? student.score += (@test.score - 10) : false
 	end
 end
