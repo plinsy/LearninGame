@@ -1,32 +1,50 @@
+<% if current_student %>
 <div class="">
     <table class="table">
         <thead class="table table-light">
             <tr>
-                <th colspan="3">Title</th>
+                <th colspan="3">Titre</th>
                 <th colspan="3">Points à gagner</th>
                 <th colspan="3">Nombre de participants</th>
                 <th colspan="3">Faire le test</th>
+                <th colspan="3">Niveau</th>
             </tr>
         </thead>
         <tbody class="table">
             <% @tests.each do |tst| %>
             <tr>
                 <td colspan="3">
-                    <%= tst.title %>
+                    <i class="fas fa-file-signature">
+                        <%= tst.title %></i>
                 </td>
                 <td colspan="3">
-                    <%= points_total(tst) %>
+                    <i>
+                        <%= points_total(tst) %> points</i>
+                    <i class="fas fa-arrow-alt-circle-right"></i>
+                    <i>
+                        <%= points_total(tst)/2 %> <i class="fa fa-star"></i></i>
                 </td>
                 <td colspan="3">
-                    <%= tst.students.length %>
+                    <i class="fas fa-user-check">
+                        <%= tst.students.length %> élève(s)</i>
+                    <i>
+                        <%= 'avec toi'  if tst.students.include? current_student %></i>
                 </td>
                 <td colspan="3">
                     <%= link_to new_student_test_doing_test_path(current_student.id, tst.id) do %>
-                        <i class="fas fa-play-circle"> Commencer</i>
+                    <i class="fas fa-play-circle"> Commencer</i>
                     <% end %>
+                </td>
+                <td colspan="3">
+                    <%= tst.level.title %>
                 </td>
             </tr>
             <% end %>
         </tbody>
     </table>
 </div>
+<% elsif current_teacher %>
+
+    
+
+<% end %>

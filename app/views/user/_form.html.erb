@@ -2,68 +2,194 @@
 <div class="user_form">
     <div class="row">
         <div class="right col-10">
-            <div class="description jumbotron">
-                <h1 style="text-align: center;">
-                    <% if action_name == 'show' %>
+            <div class="description1 jumbotron row">
+                    <span class="col-auto" class="col-4">
+                        <% if action_name == 'show' %>
                         <% if (controller_name == "students" || controller_name == "teachers") %>
-                            <%= user.last_name %> <%= user.first_name %>
+                        <%= user.last_name %>
+                        <%= user.first_name %>
                         <% else %>
-                            Bienvenue <%= current_user.username %>
+                        Bienvenue
+                        <%= current_user.username %>
                         <% end %>
-                    <% elsif action_name == 'edit' %>
+                        <% elsif action_name == 'edit' %>
                         Editer
                         <% if controller_name == "students" %>
-                            mon profil élève
+                        mon profil élève
                         <% else %>
-                            mon profil utilisateur
+                        mon profil utilisateur
                         <% end %>
-                    <% elsif action_name == "index" %>
+                        <% elsif action_name == "index" %>
                         Tous
                         <% if controller_name == "tests" %>
-                            les tests
+                        les tests
                         <% elsif controller_name == "games" %>
-                            mes jeux
+                        mes jeux
+                            <%= ('<i class="fa fa-star"></i>'*5).html_safe %>
+                            <i class="fas fa-equals"></i>
+                            <i class="fa fa-gamepad"></i>
+                        </p>
+                        <% elsif controller_name == "results" %>
+                        mes résultats
+                        <% else %>
+                        <%= controller_name %>
                         <% end %>
-                    <% elsif action_name == "new" %>
+                        <% elsif action_name == "new" %>
                         Nouveau
                         <% if controller_name == "doing_tests" %>
-                            test
+                        test
                         <% elsif controller_name == "tests" %>
-                            test
+                        test
                         <% end %>
-                    <% else %>
-                        <%= controller_name %> : <%= action_name %>
+                        <% else %>
+                        <%= controller_name %> :
+                        <%= action_name %>
+                        <% end %>
+                    </span>
+                    <ul class="row col-8" style="list-style: none;word-spacing: 40px">
+                    <% if current_user.status == "Guest" %>
+                    <span class="col-auto">
+                        <%= link_to new_student_url do %>
+                        <i class="fas fa-user-graduate"></i>
+                        <% end %>
+                    </span>
+                    <span class="col-auto">
+                        <%= link_to new_teacher_url do %>
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <% end %>
+                    </span>
                     <% end %>
-                </h1>
-            </div>
+                    <span class="col-auto">
+                        <%= link_to current_user, title:"Mon profil" do %>
+                        <i class="fas fa-user"></i>
+                        <% end %>
+                    </span>
+                    <% if current_user.status == "Student" %>
+                    <span class="col-auto">
+                        <%= link_to current_student, title:"Mon éspace étudiant" do %>
+                        <i class="fas fa-user-graduate"></i>
+                        <% end %>
+                    </span>
+                    <span class="col-auto">
+                        <%= link_to student_tests_path(current_student.id), title:"Tests disponibles" do %>
+                        <i class="fas fa-sync"></i>
+                        <% end %>
+                    </span>
+                    <% if current_student.tests.length != 0 %>
+                    <span class="col-auto">
+                        <%= link_to student_results_path(current_student), title:"Mes résultats" do %>
+                        <i class="fas fa-poll-h"></i>
+                        <% end %>
+                    </span>
+                    <% end %>
+                    <span class="col-auto">
+                        <%= link_to edit_student_path(current_student), title:"Editer mon profil étudiant" do %>
+                        <i class="fas fa-user-edit"></i>
+                        <% end %>
+                    </span>
+                    <% elsif current_user.status == "Teacher" %>
+                    <span class="col-auto">
+                        <%= link_to current_teacher, title:"Mon espace prof" do %>
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <% end %>
+                    </span>
+                    <span class="col-auto">
+                        <%= link_to edit_teacher_path(current_teacher), title:"Editer mon profil prof" do %>
+                        <i class="fas fa-user-edit"></i>
+                        <% end %>
+                    </span>
+                    <% if current_teacher.tests.length != 0 %>
+                    <span class="col-auto">
+                        <%= link_to teacher_tests_path(current_teacher), title:"Mes tests" do %>
+                        <i class="fas fa-file-alt"></i>
+                        <% end %>
+                    </span>
+                    <% end %>
+                    <% end %>
+                    <span class="col-auto">
+                        <%= link_to edit_user_registration_path, title:"Paramètres" do %>
+                        <i class="fas fa-user-cog"></i>
+                        <% end %>
+                    </span>
+                    <span class="col-auto" class="" type="">
+                        <%= link_to user_games_path(current_user), title:"Espace jeux", class: "" do %>
+                        <i class="fas fa-chess"></i>
+                        <% end %>
+                    </span>
+                </ul>
+                </div>
         </div>
         <div class="left col-2">
             <div class="logo">
                 <%= image_tag (current_user.avatar.attached? ? current_user.avatar : 'profile-2398782_960_720.png'), width: '100%', height: '100%' %>
             </div>
-            <div class="links">
+            <div class="links collapse">
+                <div class="description2 jumbotron">
+                    <span class="col-auto">
+                        <% if action_name == 'show' %>
+                        <% if (controller_name == "students" || controller_name == "teachers") %>
+                        <%= user.last_name %>
+                        <%= user.first_name %>
+                        <% else %>
+                        Bienvenue
+                        <%= current_user.username %>
+                        <% end %>
+                        <% elsif action_name == 'edit' %>
+                        Editer
+                        <% if controller_name == "students" %>
+                        mon profil élève
+                        <% else %>
+                        mon profil utilisateur
+                        <% end %>
+                        <% elsif action_name == "index" %>
+                        Tous
+                        <% if controller_name == "tests" %>
+                        les tests
+                        <% elsif controller_name == "games" %>
+                        mes jeux <br>
+                            <%= ('<i class="fa fa-star"></i>'*5).html_safe %>
+                            <i class="fas fa-equals"></i>
+                            <i class="fa fa-gamepad"></i>
+                        <% elsif controller_name == "results" %>
+                        mes résultats
+                        <% else %>
+                        <%= controller_name %>
+                        <% end %>
+                        <% elsif action_name == "new" %>
+                        Nouveau
+                        <% if controller_name == "doing_tests" %>
+                        test
+                        <% elsif controller_name == "tests" %>
+                        test
+                        <% end %>
+                        <% else %>
+                        <%= controller_name %> :
+                        <%= action_name %>
+                        <% end %>
+                    </span>
+                </div>
                 <ul>
                     <% if current_user.status == "Guest" %>
-                        <li>
-                            <%= link_to new_student_url do %>
-                                <i class="fas fa-user-graduate"> Nouvel élève</i>
-                            <% end %>
-                        </li>
-                        <li>
-                            <%= link_to new_teacher_url do %>
-                                <i class="fas fa-chalkboard-teacher"> Nouveau professeur</i>
-                            <% end %>
-                        </li>
+                    <li>
+                        <%= link_to new_student_url do %>
+                        <i class="fas fa-user-graduate"> Nouvel élève</i>
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to new_teacher_url do %>
+                        <i class="fas fa-chalkboard-teacher"> Nouveau professeur</i>
+                        <% end %>
+                    </li>
                     <% end %>
                     <li>
                         <%= link_to current_user do %>
-                            <i class="fas fa-user"> Espace utilisateur</i>
+                        <i class="fas fa-user"> Espace utilisateur</i>
                         <% end %>
                     </li>
                     <% if current_user.status == "Student" %>
                     <li>
                         <%= link_to current_student do %>
-                            <i class="fas fa-user-graduate"> Espace etudiant</i>
+                        <i class="fas fa-user-graduate"> Espace etudiant</i>
                         <% end %>
                     </li>
                     <li>
@@ -80,36 +206,36 @@
                     <% end %>
                     <li>
                         <%= link_to edit_student_path(current_student) do %>
-                            <i class="fas fa-user-edit"> Editer mon profil</i>
+                        <i class="fas fa-user-edit"> Editer mon profil</i>
                         <% end %>
                     </li>
                     <% elsif current_user.status == "Teacher" %>
                     <li>
                         <%= link_to current_teacher do %>
-                            <i class="fas fa-chalkboard-teacher"> Mon espace prof</i>
+                        <i class="fas fa-chalkboard-teacher"> Mon espace prof</i>
                         <% end %>
                     </li>
                     <li>
                         <%= link_to edit_teacher_path(current_teacher) do %>
-                            <i class="fas fa-user-edit"> Editer mon profil</i>
+                        <i class="fas fa-user-edit"> Editer mon profil</i>
                         <% end %>
                     </li>
                     <% if current_teacher.tests.length != 0 %>
                     <li>
                         <%= link_to teacher_tests_path(current_teacher) do %>
-                            <i class="fas fa-file-alt"> Mes tests</i>
+                        <i class="fas fa-file-alt"> Mes tests</i>
                         <% end %>
                     </li>
                     <% end %>
                     <% end %>
                     <li>
                         <%= link_to edit_user_registration_path do %>
-                            <i class="fas fa-user-cog"> Paramètre de compte</i>
+                        <i class="fas fa-user-cog"> Paramètre de compte</i>
                         <% end %>
                     </li>
                     <li class="" type="">
                         <%= link_to user_games_path(current_user), class: "" do %>
-                            <i class="fas fa-chess"> Espace Jeux</i>
+                        <i class="fas fa-chess"> Espace Jeux</i>
                         <% end %>
                     </li>
                 </ul>
@@ -118,3 +244,15 @@
     </div>
 </div>
 <% end %>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    $(`div.logo img:first`).click(function(event) {
+        $(`div.description:first`).toggle(`slow`);
+        $(`div.description1:first`).toggle(`slow`);
+        $(`div.links:first`).toggle(`slow`);
+        $(`div.users_content:first`).toggleClass(`
+            full-width
+        `);
+    });
+});
+</script>

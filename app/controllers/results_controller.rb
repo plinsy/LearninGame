@@ -1,6 +1,7 @@
 class ResultsController < ApplicationController
 	include ApplicationHelper
 	include ResultsHelper
+  before_action :authenticate_user!
 
   def index
     @student = current_student

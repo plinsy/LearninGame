@@ -4,7 +4,6 @@ module DoingTestsHelper
 			redirect_to student_path(current_student.id),
 			alert: "You are clever, but I'm more than you !"
 		end
-		
 	end
 	def dt_params
 		params.permit(:student_id, :test_id)
@@ -14,6 +13,11 @@ module DoingTestsHelper
 		if current_user.status != "Student"
 			redirect_to root_path,
 			alert: "You are not allowed to access this content"
+		end
+
+		if current_test.questions.length == 0
+			render :new,
+			alert: "Ajoute au moins une question flemard!"
 		end
 	end
 
@@ -51,11 +55,11 @@ module DoingTestsHelper
 				Option.find_by(content: answers[ans]).update(status: "Wrong_answer")
 			end
 		end
-		@test.is_done = true
 		@test.save
 	end
 
 	def increase_score(student)
-		@test.score > 10 ? student.score += (@test.score - 10) : false
+		student.score += (@test.score/2)
+		student.save
 	end
 end

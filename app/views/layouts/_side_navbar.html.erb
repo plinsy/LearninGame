@@ -1,4 +1,10 @@
+<style type="text/css">
+    #mySidenav .logo{
+        height: 13%;
+    }
+</style>
 <div id="mySidenav" class="sidenav">
+    <div class="logo"></div>
     <!-- Search form -->
     <form action="/searches" accept-charset="UTF-8" data-remote="true" method="post">
         <div class="searching">
@@ -8,18 +14,26 @@
         </div>
     </form>
     <!-- End of search form -->
-
-    <%= link_to "Mon profil", current_user %>
     
-    <% if user_signed_in? && current_user.status == "Guest" %>
-    <%= link_to "New Student", new_student_path %>
-    <%= link_to "New Teacher", new_teacher_path %>
-    <% end %>
-
-    <div class="log_out">
-        <a class="m-link" id='login-modal-launcher' data-toggle="modal" data-target="#login-modal"><i class="fas fa-sign-in-alt"> Se connecter</i></a>
-    </div>
+    <% if user_signed_in? %>
     <!-- <a class="m-link" id='register-modal-launcher' data-toggle="modal" data-target="#register-modal"><i class="fas fa-user-plus"> Register</i></a> -->
+        <% if current_user.status == "Guest" %>
+            <%= link_to new_student_path do %>
+                New Student
+            <% end %>
+            <%= link_to new_teacher_path do %>
+                New Teacher
+            <% end %>
+        <% else %>
+            <%= link_to current_user do %>
+                <i class="far fa-user"> Mon profil</i>
+            <% end %>
+        <% end %>
+    <% else %>
+        <div class="log_out">
+            <a class="m-link" id='login-modal-launcher' data-toggle="modal" data-target="#login-modal"><i class="fas fa-sign-in-alt"> Se connecter</i></a>
+        </div>
+    <% end %>
 
     <!-- End of log in & log out -->
 </div>

@@ -18,11 +18,13 @@
     <div id="main">
 
       <%= render 'layouts/search_result' %>
+      <div class="row">
+        <div id="yield" <% if user_signed_in? && controller_name != 'home' %> class="users_content col-md-9" <% end %> style="width: 100%;" >
 
-      <div id="yield" <% if user_signed_in? && controller_name != 'home' %> class="users_content" <% end %> style="">
-
-    	  <%= yield %>
-      
+      	  <%= yield %>
+        
+        </div>
+        <div class="col-md-3"></div>
       </div>
 
       <div id="chevron" class="chevron" style="position: fixed; top: 40%; left: -.5%;font-size: 7em;"><i onclick="openNav()" class="fas fa-caret-right" style="width: 100%; height: 100%;"></i></div>

@@ -1,4 +1,18 @@
 module StudentsHelper
+  def accomplished_tests
+    at = []
+    current_student.tests.each do |tst|
+      at << tst if contain(at,tst)
+    end
+    at
+  end
+  def contain(array, item)
+    n = 0
+    array.each do |element|
+      n += 1 if element.subject == item.subject
+    end
+    n == 1 ? false : true
+  end
 	def current_student
 		Student.find(params[:id])
 	end

@@ -13,19 +13,19 @@
             <tbody class="table-light">
                 <tr>
                     <td>
-                        <%= @student.last_name %>
+                        <i class="fas fa-file-signature"> <%= @student.last_name %></i>
                     </td>
                     <td>
-                        <%= @student.first_name %>
+                        <i class="fas fa-file-signature"> <%= @student.first_name %></i>
                     </td>
                     <td>
-                        <%= @student.educational_establishment.title %>
+                        <i class="fas fa-school"> <%= @student.educational_establishment.title %></i>
                     </td>
                     <td>
-                        <%= @student.score %>
+                        <i class="fa fa-star"> <%= @student.score %></i>
                     </td>
                     <td>
-                        <%= @student.tests.length %>
+                        <i class="fa fa-copy"> <%= @student.tests.length %></i>
                     </td>
                 </tr>
             </tbody>
@@ -37,13 +37,13 @@
             <center>
                 <h1><a href="/students/<%= current_student.id %>/results" class="btn btn-light"><i class="fa fa-chart-bar"> Ma progression</i></a></h1>
             </center>
-            <% current_student.tests.each do |tst| %>
+            <% accomplished_tests.each do |tst| %>
             <% if subject_purcentage(tst.subject) != 0 %>
             <span>
                 <%= tst.subject.title %></span>
             <div class="progress">
                 <div class="pourcentage" value="<%= subject_purcentage(tst.subject) %>"></div>
-                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: <%= subject_purcentage(tst.subject) %>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: <%= subject_purcentage(tst.subject) %>%" aria-valuenow="<%= subject_purcentage(tst.subject) %>" aria-valuemin="0" aria-valuemax="100"><%= subject_purcentage(tst.subject).to_i %>%</div>
             </div>
             <% end %>
             <% end %>

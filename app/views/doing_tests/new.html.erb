@@ -1,8 +1,7 @@
 <div class="doing_test jumbotron">
     <center>
         <h3>
-            <%= @test.title %>(
-            <%= @totalPoints %>points)</h3>
+            <%= "#{@test.title}(#{@totalPoints}points)" %></h3>
     </center>
     <div class="t-q row">
         <div class="timer-section col-md-2 flex-column">
@@ -18,11 +17,11 @@
             </div>
             <div class="buttons row">
                 <button class="previous_step col-6 btn btn-outline-light">Retour</button>
-                <button class="next_step col-6 btn btn-outline-dark">Suivant</button>
+                <button class="next_step col-6 btn btn-outline-dark" onclick="startTest();">Suivant</button>
             </div>
         </div>
         <div class="question-section col-md-10">
-        <%= form_with url: student_test_doing_tests_path(@student.id, @test.id) do |f| %>
+        <%= form_with url: student_test_doing_tests_path(@student.id, @test.id), id: "validForm" do |f| %>
             <div class="intro" style="">
                 <p>Le test va se dérouler de cette façon: <br>
                     <ul>
@@ -97,9 +96,15 @@
           // If the count down is finished, write some text 
           if (distance < 0) {
             clearInterval(x);
-            document.getElementById("demo").innerHTML = "EXPIRED";
+            document.getElementById("demo").innerHTML = "TIMEOUT";
+            $(`#validForm`).submit();
           }
         }, 1000);
+    }
+    let n = 0;
+    function startTest(){
+        n == 0 ? startCountdown() : false;
+        n = 1;
     }
 </script>
 <style type="text/css">

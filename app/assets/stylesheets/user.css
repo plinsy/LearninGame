@@ -1,14 +1,31 @@
 .user_form *{ 
     font-family: 'Orbitron';
 }
+.user_form .description1.jumbotron {
+    /* text-align: center; */
+    padding: 2% 1% 1% 1%;
+    /* background-image: url('../assets/super-mario-bg.gif'); */
+    background: rgba(250, 250, 250, .7);
+    width: 100%;
+    height: auto;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.2em;
 
-.user_form .description {
+    box-shadow: 1px 2px 3px 4px;
+    /* color: #0097e6; */
+    /* color: #20C20E; */
+}
+.user_form .description2.jumbotron {
+    text-align: center;
     padding: 5% 1% 1% 1%;
 	/* background-image: url('../assets/super-mario-bg.gif'); */
     background: rgba(250, 250, 250, .7);
-    height: 48%;
+    width: 100%;
+    height: auto;
     font-weight: bold;
     font-style: italic;
+    font-size: 1.2em;
 
     box-shadow: 1px 2px 3px 4px;
     /* color: #0097e6; */
@@ -21,10 +38,11 @@
     background: rgba(0, 0, 0, .9);
     color: white;
     border: 2px solid #141C2F;
-    position: relative;
-    bottom: 20em;
-    left: 2%;
-    width: 1085px;
+    transform: translate(47px, -230px);
+    /* position: relative; */
+    /* bottom: 25em; */
+    /* left: 2%; */
+    /* width: 1085px; */
     min-height: 250px;
     height: auto;
     padding: 1% 1% 1% 1%;
@@ -36,6 +54,9 @@
     background: 0 0;
     width: 100%;
     margin: 0%;
+}
+.users_content.full-width{
+    transform: translate(47px, -660px);
 }
 
 
@@ -61,6 +82,11 @@
 }
 .user_form .logo img{
 	border-radius: 50%;
+}
+.user_form .logo img:hover{
+    box-shadow: 1px 1px 3px 3px;
+    color: #0097e6;
+    cursor: pointer;
 }
 
 .user_form .links {

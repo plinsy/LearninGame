@@ -32,7 +32,7 @@ class DoingTestsController < ApplicationController
         Result.create(title: @test.title, student_id: @student, test_id: @test.id) 			
   			format.html{ 
   				redirect_to student_results_path(@student.id),
-  				notice: "You've finished successfully your test, have a look on your result" 
+  				notice: "Tu viens de finir ton test, jette un petit coup d'oeil à tes stats" 
   			}
   		else
   			format.html{

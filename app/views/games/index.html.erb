@@ -1,6 +1,7 @@
 <center id="">
     <div class="games_space row" id="" style="">
-    <% @games.each do |game| %>
+        <% @games.each do |game| %>
+        <% break if current_student.score/5+1 == @games.index(game) %>
         <div class="col-md-3">
             <a href="/user/<%= current_user.id %>/games/<%= game.id %>">
                 <div>
@@ -11,21 +12,6 @@
                 </div>
             </a>
         </div>
-    <% end %>
+        <% end %>
     </div>
-    <!-- <div class="games_space" style="">
-            <div id="world"></div>
-            <div id="gameoverInstructions">
-                Game Over
-            </div>
-            <div id="dist">
-                <div class="label">distance</div>
-                <div id="distValue">000</div>
-            </div>
-            <div id="instructions">Click to jump<span class="lightInstructions"> — Grab the carrots / avoid the hedgehogs</span></div>
-        </div>
-        <div class="games_space">
-            <div id="world"></div>
-            <div id="instructions">Press and drag to make wind<br /><span class="lightInstructions">the lion will surely appreciate</span></div>
-        </div> -->
 </center>
