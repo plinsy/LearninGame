@@ -1,17 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '2.6.2'
 
 gem 'localtunnel'
 
 gem 'select2_simple_form', github: 'lndl/select2_simple_form', tag: '0.7.3'
-
-gem 'rmagick', require: false
-
-gem 'avatars_for_rails'
-
-gem 'threejs-rails', git: 'git://github.com/marvindanig/threejs-rails.git'
 
 gem 'highcharts-rails', '~> 3.0.0'
 

@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
 	include ApplicationHelper
+	include GamesHelper
 	before_action :authenticate_user!
 	before_action :authenticate_student
 	def index

@@ -17,8 +17,6 @@
 //= require turbolinks
 //= require_tree .
 
-//= require three
-
 //= require chartkick
 
 //= require highcharts

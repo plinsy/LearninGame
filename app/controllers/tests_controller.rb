@@ -4,7 +4,7 @@ class TestsController < ApplicationController
   include DoingTestsHelper
   before_action :authenticate_user!
   before_action :authenticate_teacher, only: [:new, :create]
-  before_action :set_test, only: [:new, :show, :edit, :update, :destroy]
+  before_action :set_test, only: [:show, :edit, :update, :destroy]
 
   # GET /tests
   # GET /tests.json
@@ -21,6 +21,7 @@ class TestsController < ApplicationController
 
   # GET /tests/new
   def new
+    @test = Test.new
     @teacher = current_teacher
   end
 

@@ -1,7 +1,7 @@
 <navbar>
     <div class="box">
         <div>
-            <a href="/" class="link_home">
+            <a data-method="GET" href="/" class="link_home">
                 <span>
                 </span>
                 <h3><i class="fas fa-home"> Acceuil</i></h3>
@@ -9,11 +9,11 @@
         </div>
             <% if user_signed_in? %>
                 
-            <div><a href="/user/<%= current_user.id %>/presentation/team" class="link_team">
+            <div><a data-method="GET" href="/user/<%= current_user.id %>/presentation/team" class="link_team">
                 
             <% else %>
 
-            <div><a href="#" class="link_team">
+            <div><a data-method="GET" href="#" class="link_team">
 
             <% end %>
             <span>
@@ -21,7 +21,7 @@
             <h3><i class="fas fa-question-circle"> A propos</i></h3>
         </a></div>
         <% unless user_signed_in? %>
-        <div><a href="/users/sign_up" class="link_signup">
+        <div><a data-method="GET" href="/users/sign_up" class="link_signup">
             <span>
             </span>
             <h3><i class="fas fa-user-plus"> Inscription</i></h3>

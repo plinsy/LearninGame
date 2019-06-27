@@ -1,7 +1,7 @@
 <center id="">
     <div class="games_space row" id="" style="">
         <% @games.each do |game| %>
-        <% break if current_student.score/5+1 == @games.index(game) %>
+        <% #break if current_student.score/5+1 == @games.index(game) %>
         <div class="col-md-3">
             <a href="/user/<%= current_user.id %>/games/<%= game.id %>">
                 <div>

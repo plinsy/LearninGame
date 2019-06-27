@@ -9,12 +9,12 @@
         <div class="link_button">
             <% unless user_signed_in? %>
             <div data-aos="zoom-in" data-aos-duration="1000">
-                <a href="/users/sign_in" class="link_connexion first_link">
+                <a data-method="GET" href="/users/sign_in" class="link_connexion first_link">
                     <i class="fas fa-sign-in-alt"> Se connecter</i></a>
             </div>
             <% else %>
             <div data-aos="zoom-in" data-aos-duration="1000">
-                <a href="#" class="link_connexion">
+                <a data-method="GET" href="#" class="link_connexion">
                     Essayer</a>
             </div>
             <% end %>
@@ -50,7 +50,7 @@
         </div>
         <% unless user_signed_in? %>
         <div class="btn">
-            <a href="/users/sign_up"><button type="button"> Lancez vous </button></a>
+            <a data-method="GET" href="/users/sign_up"><button type="button"> Lancez vous </button></a>
         </div>
         <% end %>
     </div>
