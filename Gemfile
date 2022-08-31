@@ -25,7 +25,7 @@ gem 'sendgrid-ruby'
 
 gem 'i18n'
 
-gem 'omniauth', '~> 1.0'
+gem 'omniauth', '~> 1.9'
 
 gem 'omniauth-facebook'
 
